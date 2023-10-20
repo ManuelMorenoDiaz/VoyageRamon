@@ -1,0 +1,44 @@
+/* ImageOverlay.css */
+
+.image-container {
+    position: relative;
+    width: 210px; /* Ajusta el ancho según tus necesidades */
+    height: 300px; /* Ajusta la altura según tus necesidades */
+    overflow: hidden;
+    transition: transform 0.8s ease; /* Agrega una transición para el efecto hover */
+    margin: 10px;
+    border-radius: 8px;
+}
+  
+  .image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+    color: white;
+    opacity: 0; /* Inicialmente, el overlay es invisible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease; /* Agrega una transición para la aparición del nombre */
+  }
+  
+  .overlay p {
+    font-size: 22px;
+  }
+  
+  .image-container.hovered img {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño de la imagen en hover */
+  }
+  
+  .image-container.hovered .overlay {
+    opacity: 1; /* Hace que el overlay sea visible en hover */
+  }
+  

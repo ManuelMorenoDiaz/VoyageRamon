@@ -1,0 +1,89 @@
+
+
+.cont-home{
+    background-image: url("https://espacio-libre.com/download/multimedia.normal.8a4d50492a0d2806.636174656472616c207765625f6e6f726d616c2e77656270.webp");
+    background-position:center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    color: white;
+}
+
+.cont-home>h1{
+    font-size: 70px;
+}
+.cont-home>h3{
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.cont-home > button {
+    border-radius: 30px;
+    width: 250px;
+    height: 40px;
+    color: white;
+    font-size: 17px;
+    background-color: transparent;
+    border: 3px solid white;
+    transition: background-color 0.3s ease; /* Agrega una transición suave */
+}
+
+.cont-home > button:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Cambia el fondo al hacer hover */
+}
+
+.cont-home > button:active {
+    background-color: rgba(255, 255, 255, 0.4); /* Cambia el fondo al hacer clic */
+}
+
+
+.cont-categories{
+    margin-top: 20px;
+    height: auto;
+    min-height: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.cont-categories>.top-cate{
+    display:flex ;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.top-cate>h2,.top-info>h2{
+    color: #B54ECC;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+.top-cate>h4{
+    font-size: 20px;
+}
+.cont-categories>.bot-cat{
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.cont-info{
+    margin-top: 30px;
+    border-top: 2px solid #B54ECC;
+    padding-top: 20px;
+    height: auto;
+    width: 100%;
+    min-height: 100vh;
+}

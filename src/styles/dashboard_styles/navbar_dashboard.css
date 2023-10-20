@@ -1,0 +1,22 @@
+.navbar_container {
+    background-color: #b54ecc;
+    height: 70px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .div_rojo_abajo {
+    border-bottom: 12px solid #9225aa;
+  }
+  
+  .img_nav {
+    width: 150px;
+    height: auto;
+  }
+  
+  .logo_nav {
+    color: #fff;
+    justify-self: start;
+    margin-left: 20px;
+    cursor: pointer;
+  }
