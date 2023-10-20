@@ -8,6 +8,8 @@ import DashboardUsuarios from './views/admin/dashboard-users';
 import DashboardPublicaciones from './views/admin/dashboard-posts';
 import DashboardCategorias from './views/admin/dashboard-categories';
 
+import RegistroLogin from './views/viewRegisterLogin';
+
 import Home from './views/user/home';
 import Travels from './views/user/Travels'
 import Places from './views/user/places';
@@ -28,6 +30,8 @@ function App() {
           <Route path="/admin_usuarios" element={<DashboardUsuarios />} />
           <Route path="/admin_publicaciones" element={<DashboardPublicaciones />} />
           <Route path="/admin_categorias" element={<DashboardCategorias />} />
+
+          <Route path="/ingresar" element={<RegistroLogin/>} />
 
           <Route path="/travels" element={<Travels />} />
           <Route path="/places" element={<Places />} />
