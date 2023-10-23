@@ -21,6 +21,12 @@ app.use(require('./routes/messages.routes'));
 app.use(require('./routes/categories.routes'));
 app.use(require('./routes/places.routes'));
 app.use(require('./routes/hotels.routes'));
+app.use(require('./routes/friends.routes'));
+app.use(require('./routes/groups_messages.routes'));
+app.use(require('./routes/images_hotels.routes'));
+app.use(require('./routes/images_places.routes'));
+app.use(require('./routes/images.routes'));
+app.use(require('./routes/users_posts.routes'));
 
 
 app.use((req, res) => {
