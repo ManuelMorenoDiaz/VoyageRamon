@@ -1,8 +1,14 @@
 import React from 'react'
+import Nav from '../../components/nav-bar'
 
 function places() {
   return (
-    <div>places</div>
+    <div>
+      <Nav />
+      <div className="cont-places">
+        <h2>places</h2>
+      </div>
+    </div>
   )
 }
 

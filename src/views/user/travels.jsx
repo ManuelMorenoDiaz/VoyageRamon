@@ -1,8 +1,14 @@
-import React from 'react'
+import React from 'react';
+import Nav from '../../components/nav-bar';
 
 function travels() {
   return (
-    <div>travels</div>
+    <div>
+      <Nav />
+      <div className="cont-travels">
+        <h2>Travels</h2>
+      </div>
+    </div>
   )
 }
 

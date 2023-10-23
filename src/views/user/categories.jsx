@@ -1,8 +1,14 @@
 import React from 'react'
-
+import Nav from '../../components/nav-bar'
 function categories() {
   return (
-    <div>categories</div>
+    <div>
+      <Nav />
+      <div className="cont-categories">
+        <h2>Categories</h2>
+      </div>
+      
+    </div>
   )
 }
 

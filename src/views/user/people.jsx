@@ -1,8 +1,14 @@
-import React from 'react'
+import React from 'react';
+import Nav from '../../components/nav-bar';
 
 function people() {
   return (
-    <div>people</div>
+    <div>
+      <Nav />
+      <div className="cont-people">
+        <h2>People</h2>
+      </div>
+    </div>
   )
 }
 
