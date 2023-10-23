@@ -1,27 +1,40 @@
-/* ImageOverlay.css */
-
+/* categoryCard.css */
 .image-container {
-    position: relative;
-    width: 210px; /* Ajusta el ancho según tus necesidades */
-    height: 300px; /* Ajusta la altura según tus necesidades */
-    overflow: hidden;
-    transition: transform 0.8s ease; /* Agrega una transición para el efecto hover */
-    margin: 10px;
-    border-radius: 8px;
+  position: relative;
+  width: 210px; /* Ajusta el ancho según tus necesidades */
+  height: 300px; /* Ajusta la altura según tus necesidades */
+  overflow: hidden;
+  transition: transform 0.8s ease; /* Agrega una transición para el efecto hover */
+  margin: 10px;
+  border-radius: 8px;
 }
-  
-  .image {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
-  
-  .image-container.hovered img {
-    transform: scale(1.1); /* Aumenta ligeramente el tamaño de la imagen en hover */
-  }
-  
-  .image-container.hovered .overlay {
-    opacity: 1; /* Hace que el overlay sea visible en hover */
-  }
-  
+
+.image {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.image-container.hovered img {
+  transform: scale(1.1); 
+}
+
+.image-container.hovered .overlayCard {
+  opacity: 1; 
+}
+
+.overlayCard {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); 
+  color: white; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0; 
+  transition: opacity 0.3s; 
+}
