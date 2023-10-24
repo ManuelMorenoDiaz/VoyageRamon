@@ -3,6 +3,7 @@ import Nav from '../../components/nav-bar';
 import TravelPost from '../../components/travel-post.jsx';
 import TravelBoardPost from '../../components/travel-board-post.jsx';
 import '../../styles/travels.css'
+import Footer from '../../components/footer'
 
 function Travels() {
   return (
@@ -61,6 +62,8 @@ function Travels() {
           </div>
         </section>
       </div>
+      
+      <Footer/>
     </div>
   )
 }

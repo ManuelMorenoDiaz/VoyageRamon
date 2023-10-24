@@ -20,7 +20,7 @@ function CategoryCard(props) {
     >
       <img src={props.imgC} alt="Imagen" className="image" />
       <div className="overlayCard">
-        {hovered && <p>{props.tituloC}</p>}
+        {hovered && <p className="titulo_C">{props.tituloC}</p>}
       </div>
     </div>
   );
