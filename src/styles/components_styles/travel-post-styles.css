@@ -1,0 +1,145 @@
+.travel-post-body{
+    display: block;
+    margin: 20px 20px 20px 70px;
+    padding: 20px;
+    background-color: #D9D9D9;
+    border-radius: 6px;
+    border-color: #9225AA;
+    border-style: solid;
+    border-width: 2px;
+}
+
+/*PARTE SUPERIOR----------------------------------------------------------------------------------*/
+/*Titulos*/
+.travel-options{
+    display: flex;
+    width: 100%;
+}
+
+.travel-title{
+    overflow: hidden;
+    max-width: 80%;
+}
+
+.travel-title>h1,.travel-title>h4{
+    margin: 0;
+    padding: 0;
+}
+
+.travel-title>h1{
+    font-size:16px;
+}
+
+.travel-title>h4{
+    margin-top: 2px;
+    font-weight: lighter;
+    font-size: 12px;
+}
+
+/*Boton*/
+.travel-interested-button{
+    display: flex;
+    margin: 10px 0 0 0;
+    padding: 0;
+    align-items:baseline;
+    margin-left: auto;
+}
+
+.travel-interested-button>button{
+    background-color: #0ACF59; /*72D499*/
+    border-radius: 6px;
+    border:white;
+    padding: 8px;
+    font-weight: bold;
+}
+
+.travel-interested-button>button:active{
+    background-color: #079640; /*72D499*/
+
+}
+
+/*PARTE INFERIOR----------------------------------------------------------------------------------*/
+.travel-inputs{
+    display: block;
+    margin-top: 15px;
+}
+
+.travel-description>h4, .travel-description>p,
+.travel-destiny>div>h4, .travel-destiny>div>p,
+.travel-budget>div>h4, .travel-budget>div>p{
+    margin: 0;
+    padding: 0;
+}
+
+/*Descripcion*/
+.travel-description>h4{
+    font-weight:600;
+    font-size:smaller;
+}
+
+.travel-description>p{
+    width: 100%;
+    max-width: 100%;
+    min-height: 70px;
+    align-items: baseline;
+    padding: 5px;
+    background-color: #BDBDBD;
+    font-size: small;
+    border-radius: 6px;
+    border-style: none;
+}
+
+/*Lugar de destino y fecha*/
+.travel-details{
+    display: flex;
+    justify-content: space-between;
+}
+
+.travel-destiny{
+    width: 45%;
+}
+
+.travel-twin{
+    display: flex;
+    margin-top: 10px;
+}
+
+.travel-destiny>div>h4{
+    font-weight:600;
+    font-size:smaller;
+}
+
+.travel-destiny>div>p{
+    width: 60%;
+    background-color: #BDBDBD;
+    height: 25px;
+    padding: 5px;
+    font-size: small;
+    border-radius: 6px;
+    border-style: none;
+    align-items:baseline;
+    margin-left: auto;
+}
+
+/*Limite de personas y presupuesto*/
+
+.travel-budget{
+    width: 45%;
+}
+
+.travel-budget>div>h4{
+    font-weight:600;
+    font-size:smaller;
+}
+
+.travel-budget>div>p{
+    width: 50%;
+    background-color: #BDBDBD;
+    height: 25px;  
+    padding: 5px;
+    font-size: small; 
+    border-radius: 6px;
+    border-style: none;
+    align-items:baseline;
+    margin-left: auto;
+}
