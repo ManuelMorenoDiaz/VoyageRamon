@@ -28,6 +28,8 @@ function DashboardCategorias() {
             console.error(error);
         }
     }
+    
+   
 
     useEffect(() => {
         fetchApi();

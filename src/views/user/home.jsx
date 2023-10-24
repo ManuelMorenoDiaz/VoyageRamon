@@ -2,6 +2,8 @@ import '../../styles/home.css'
 import Nav from '../../components/nav-bar';
 import CategoryCard from '../../components/category-card'
 import CardInfoHome from '../../components/card-info-home'
+import Footer from '../../components/footer'
+
 import {Link } from 'react-router-dom';
 
 function Home() {
@@ -47,6 +49,7 @@ function Home() {
           <CardInfoHome lad='row-reverse'/>
         </div>
       </div>
+      <Footer/>
     </div>
   )
 }

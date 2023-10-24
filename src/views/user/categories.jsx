@@ -1,5 +1,6 @@
 import React from 'react'
 import Nav from '../../components/nav-bar'
+import Footer from '../../components/footer'
 function categories() {
   return (
     <div>
@@ -8,6 +9,7 @@ function categories() {
         <h2>Categories</h2>
       </div>
       
+      <Footer/>
     </div>
   )
 }

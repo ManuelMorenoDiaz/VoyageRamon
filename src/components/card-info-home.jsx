@@ -1,9 +1,10 @@
-import React from 'react'; // Asegúrate de importar React
+// Asegúrate de importar React
 import '../styles/cardInfoHome.css';
 
 function CardInfoHome(props) {
   return (
-    <div className="card-info">
+    // eslint-disable-next-line react/prop-types
+    <div className="card-info" style={{display: 'flex', flexDirection: props.lad}}>
       <div className="cont-left">
         <h3>Titulo</h3>
         <p>Descripcion</p>

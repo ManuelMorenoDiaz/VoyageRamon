@@ -1,5 +1,7 @@
 import React from 'react'
 import Nav from '../../components/nav-bar'
+import Footer from '../../components/footer'
+
 function profile() {
   return (
     <div>
@@ -7,6 +9,8 @@ function profile() {
       <div className="cont-profile">
         <h2>Profile</h2>
       </div>
+      
+      <Footer/>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import Nav from '../../components/nav-bar'
-
+import Footer from '../../components/footer'
 function places() {
   return (
     <div>
@@ -8,6 +8,7 @@ function places() {
       <div className="cont-places">
         <h2>places</h2>
       </div>
+      <Footer/>
     </div>
   )
 }
