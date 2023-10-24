@@ -16,6 +16,7 @@
   align-items: center;
 }
 
+
 .image-container.hovered img {
   transform: scale(1.1); 
 }
