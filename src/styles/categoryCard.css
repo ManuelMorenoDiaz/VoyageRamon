@@ -39,3 +39,8 @@
   opacity: 0; 
   transition: opacity 0.3s; 
 }
+
+.titulo_C{
+  font-size: 23px;
+  text-align: center;
+}

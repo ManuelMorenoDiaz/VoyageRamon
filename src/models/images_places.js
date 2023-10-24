@@ -14,4 +14,4 @@ const images_placeSchema = new Schema({
   }
 });
 
-module.exports = model('Image_place', images_placeSchema);
+module.exports = model('Images_place', images_placeSchema);

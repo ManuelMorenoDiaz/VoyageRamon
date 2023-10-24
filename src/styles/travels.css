@@ -1,0 +1,81 @@
+/*Usar esto en las demas hojas de estilo para dejar la Navbar en su lugar*/
+Nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.cont-travels{
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+}
+.left-side{
+    width:68%;
+    padding: 10px;
+    margin-top: 90px;
+}
+
+.right-side{
+    width:32%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left:68%;
+    top: 90px;
+}
+
+.travels-board{
+    margin-top: 20px;
+    width: 80%;
+    min-height: 550px;
+    max-height: 550px;
+    background-color: #D9D9D9;
+    border-radius: 6px;
+    border-color: #9225AA;
+    border-style: solid;
+    border-width: 2px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:center;
+}
+
+.travels-board>h1{
+    margin: 0;
+    padding: 10px;
+}
+
+.travels-board-content{
+    width: 90%;
+    min-height: 440px;
+    max-height: 440px;
+    background-color: #BDBDBD;
+    border-radius: 6px;
+    display:block;
+    overflow:scroll;
+    overflow-x: hidden;
+}
+
+.travels-board>button{
+    background-color: #0ACF59;
+    color: #ffffff;
+    font-weight:bolder;
+    font-size: 40px;
+    border-radius: 100px;
+    border-style: none;
+    height: 65px;
+    width: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    
+}
+
+.travels-board>button:active{
+    background-color: #079640;
+}

@@ -11,7 +11,7 @@ import DashboardCategorias from './views/admin/dashboard-categories';
 import RegistroLogin from './views/viewRegisterLogin';
 
 import Home from './views/user/home';
-import Travels from './views/user/Travels'
+import Travels from './views/user/travels'
 import Places from './views/user/places';
 import People from './views/user/people';
 import Profile from './views/user/profile';
@@ -41,6 +41,7 @@ function App() {
           <Route path="/categories/:idC" element={<Categories />} />
           <Route path="/Hotels/:idH" element={<Hotels />} />
           <Route path="/" exact element={<Home />} />
+
         </Routes>
       </Router>
     </div>

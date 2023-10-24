@@ -2,6 +2,7 @@ import React from 'react';
 import '../../styles/people.css';
 import Nav from '../../components/nav-bar';
 import UserCard from '../../components/user-card';
+import Footer from '../../components/footer'
 
 const cardData = [
   {
@@ -76,6 +77,8 @@ function people() {
           ))}
         </div>
       </div>
+
+      <Footer/>
     </div>
   );
 }

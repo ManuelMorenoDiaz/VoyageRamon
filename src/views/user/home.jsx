@@ -2,9 +2,16 @@ import '../../styles/home.css'
 import Nav from '../../components/nav-bar';
 import CategoryCard from '../../components/category-card'
 import CardInfoHome from '../../components/card-info-home'
+import Footer from '../../components/footer'
+
 import {Link } from 'react-router-dom';
 
 function Home() {
+  const Imagenes_funciona = [
+    {ruta:'/src/assets/img/Funciona_1.jpg' },
+    {ruta:'/src/assets/img/Funciona_3.jpg' },
+    {ruta: '/src/assets/img/Funciona_4.jpg'},
+  ]
   return (
     <div>
       <Nav/>
@@ -40,13 +47,13 @@ function Home() {
         <div className="top-info">
           <h2>¿Como funciona?</h2>
         </div>
-        <div className="bot-info">
-          <CardInfoHome lad='row'/>
-          <CardInfoHome lad='row-reverse'/>
-          <CardInfoHome lad='row'/>
-          <CardInfoHome lad='row-reverse'/>
-        </div>
+        {Imagenes_funciona.map((img, index) => (
+          <div className="bot-info" key={index}>
+            <CardInfoHome lad={index % 2 === 0 ? 'row' : 'row-reverse'} imagen={img.ruta} />
+          </div>
+        ))}
       </div>
+      <Footer/>
     </div>
   )
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from '../../components/nav-bar';
+import Footer from '../../components/footer'
 
 function hotels() {
   return (
@@ -8,6 +9,8 @@ function hotels() {
       <div className="cont-hotels">
         <h2>Hotels</h2>
       </div>
+      
+      <Footer/>
     </div>
   )
 }
