@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram, FaXTwitter } from "react-icons/fa6";
 import voyage from "../assets/img/voyage.jpg";
 function footer() {
   return (
-    <div style={{ borderBottom: '15px solid black' }}>
+    <div style={{ borderBottom: '10px solid black' }}>
       <footer className="cont_footer">
         <div className="info_footer">
           <ul style={{ margin: "0px", padding :"0px" }}>
