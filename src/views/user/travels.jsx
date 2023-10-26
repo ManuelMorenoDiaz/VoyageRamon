@@ -7,7 +7,7 @@ import Footer from '../../components/footer'
 
 function Travels() {
   return (
-    <div>
+    <div className="travels-body">
       <Nav />
       <div className="cont-travels">
         <section className='left-side'>

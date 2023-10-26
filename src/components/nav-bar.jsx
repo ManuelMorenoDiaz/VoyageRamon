@@ -1,6 +1,7 @@
 import '../styles/nav.css'
 import { Link } from 'react-router-dom';
 import { FaHome, FaPlaneDeparture, FaMapMarkedAlt, FaUserFriends, FaUserCircle } from 'react-icons/fa';
+import { HiMenu } from 'react-icons/hi';
 import { useState } from "react";
 import voyage from '../assets/img/voyage.jpg'
 
@@ -17,14 +18,14 @@ function Nav() {
       <div className="top-nav">
       <img src={voyage} className='Logo_home' />
         <div onClick={handleMenuClick} className="menu_icono">
-          <FaPlaneDeparture icon={click ? FaMapMarkedAlt : FaUserFriends} /> 
+          <HiMenu icon={click ? FaMapMarkedAlt : FaUserFriends} /> 
         </div>
         <div className={click ? "menu_nav active" : "menu-nav"}>
           <div className='img_logo_responsive'>
           <img src={voyage} className='papu' />
           </div>
           <div onClick={handleMenuClick} className="menu_icono">
-            <FaPlaneDeparture icon={click ? FaMapMarkedAlt : FaUserFriends} />
+            <HiMenu icon={click ? FaMapMarkedAlt : FaUserFriends} />
           </div>
          
           <div>

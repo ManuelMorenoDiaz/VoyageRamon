@@ -47,6 +47,7 @@
   .info_footer {
     display: flex;
     flex-direction: column;
+    padding: 10px;
   }
 
   .li_footer {
@@ -63,7 +64,5 @@
 
   .img_footer {
     margin: 10px;
-    width: 60%;
-    height: auto;
   }
 }
