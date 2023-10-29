@@ -1,0 +1,181 @@
+.align_text_icon {
+  width: 100%;
+  font-size: 30px;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titulo_perfil {
+  font-size: 30px;
+}
+
+FaArrowLeft {
+  font-size: 50px;
+}
+
+.img_profile {
+  border-radius: 50%;
+  width: 200px;
+  height: 172px;
+}
+
+.info_profile {
+  display: flex;
+  width: 55%;
+  padding: 15px;
+  margin: 30px;
+  border-radius: 5px;
+  background-color: #d9d9d9;
+  border: 1px solid #9225aa;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.cont-profile {
+  padding: 0px;
+  height: 458px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.img_stars {
+  padding-right: 35px;
+  width: 35%;
+  border-right: 1px solid #6e0086;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputs_info {
+  padding: 20px;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 35px;
+}
+
+.inputs-datos {
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 5px;
+  outline: none;
+  border: 0.5px solid #000;
+  background: #bdbdbd;
+}
+
+.amigos_perfil {
+  overflow: auto;
+  display: flex;
+  width: 30%;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 30px;
+  background-color: #d9d9d9;
+  border: 1px solid #9225aa;
+  flex-direction: column;
+}
+
+.amigos_perfil::-webkit-scrollbar {
+  width: 10px;
+}
+.amigos_perfil::-webkit-scrollbar-thumb {
+  background-color: #9225aa;
+  border-radius: 6px;
+}
+
+.amigos_perfil::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+.name_calif_amigo {
+  font-size: 15px;
+  display: flex;
+  padding: 12px;
+  flex-direction: column;
+}
+
+.info_amigo {
+  display: flex;
+  background-color: #b5b4b4;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.img_foto_amigo {
+  margin-left: 13px;
+  width: 50px;
+  border-radius: 50%;
+  height: 45px;
+}
+
+.footer_pruebaa {
+  background-color: blue;
+}
+
+.btns-editar_eliminar {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn-editar,
+.btn-eliminar {
+  cursor: pointer;
+  width: 200px;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: none;
+  margin: 10px;
+}
+
+@media (max-width: 768px) {
+  .align_text_icon {
+    font-size: 25px;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .cont-profile {
+    display: flex;
+    flex-direction: column;
+    height: 1200px;
+    width: 100%;
+  }
+
+  .info_profile {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+   
+    height: 100vh;
+    width: 95%;
+  }
+
+  .img_stars {
+    height: 5%;
+    padding-right: 0;
+    width: 100%;
+    border-right: none;
+    margin-top: 8vh;
+  }
+
+  .inputs_info {
+    gap: 5px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .amigos_perfil {
+    width: 95%;
+    padding: 0px;
+    margin: 10px;
+  }
+}
