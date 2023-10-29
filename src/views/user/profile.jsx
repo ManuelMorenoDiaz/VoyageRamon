@@ -1,17 +1,27 @@
 import "../../styles/profile.css";
 import Nav from "../../components/nav-bar";
 import Footer from "../../components/footer";
-import { FaArrowLeft, FaStar } from "react-icons/fa";
-
-function profile() {
+import { FaArrowLeft, FaStar, FaEyeSlash } from "react-icons/fa";
+import { useState } from 'react';
+function Profile() {
   const color_star = "gold";
+  const [showPassword, setShowPassword] = useState(false);
+  const [password, setPassword] = useState('');
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
 
   return (
     <>
       <Nav />
       <div className="align_text_icon">
         <div>
-          <FaArrowLeft style={{ marginLeft: "20px", marginTop:"5px" }} />
+          <FaArrowLeft style={{ marginLeft: "20px", marginTop: "5px" }} />
         </div>
         <div>
           <div>
@@ -45,37 +55,50 @@ function profile() {
                 <span>
                   Nombre <br />
                 </span>
-                <input className="inputs-datos" type="text" name="" id="" />
+                <input className="inputs-datos" type="text" />
               </div>
               <div>
                 <span>
                   Estado <br />
                 </span>
-                <input className="inputs-datos" type="text" name="" id="" />
+                <input className="inputs-datos" type="text" />
               </div>
               <div>
                 <span>
                   Apellido paterno <br />
                 </span>
-                <input className="inputs-datos" type="text" name="" id="" />
+                <input className="inputs-datos" type="text" />
               </div>
               <div>
                 <span>
                   Email <br />
                 </span>
-                <input className="inputs-datos" type="email" name="" id="" />
+                <input className="inputs-datos" type="email" />
               </div>
               <div>
                 <span>
                   Apellido materno <br />
                 </span>
-                <input className="inputs-datos" type="text" name="" id="" />
+                <input className="inputs-datos" type="text" />
               </div>
               <div>
                 <span>
                   Contraseña <br />
                 </span>
-                <input className="inputs-datos" type="password" name="" id="" />
+                <div className="align-pass">
+                <input
+                  className="inputs-datos"
+                  type={showPassword ? 'text' : 'password'}
+                  name="password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                />
+                <FaEyeSlash style={{margin:'10px'}}
+                  className={`eye-icon ${showPassword ? 'visible' : ''}`}
+                  onClick={togglePasswordVisibility}
+                >
+                </FaEyeSlash>
+              </div>
               </div>
             </section>
           </div>
@@ -247,12 +270,12 @@ function profile() {
         </div>
       </section>
       <div className="btns-editar_eliminar">
-        <button className="btn-editar" style={{backgroundColor: "#9225AA"}}>Editar informacion</button>
-        <button className="btn-eliminar"  style={{backgroundColor: "#BF213E"}}>Eliminar mi cuenta</button>
+        <button className="btn-editar" style={{ backgroundColor: "#9225AA" }}>Editar informacion</button>
+        <button className="btn-eliminar" style={{ backgroundColor: "#BF213E" }}>Eliminar mi cuenta</button>
       </div>
       <Footer />
     </>
   );
 }
 
-export default profile;
+export default Profile;
