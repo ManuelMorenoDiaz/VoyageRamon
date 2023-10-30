@@ -8,13 +8,14 @@
 .li_footer {
   display: flex;
   flex-direction: column;
-  padding: 5px;
+  padding: 2px;
+  padding-left: 10px;
 }
 
 .span_footer {
   color: white;
-  font-size: 15px;
-  padding: 5px;
+  font-size: 13px;
+  padding: 2px;
 }
 
 .info_footer {
@@ -26,7 +27,7 @@
 .redes_footer {
   gap: 15px;
   text-align: center;
-  font-size: 30px;
+  font-size: 28px;
   display: flex;
   align-items: center;
 }
@@ -34,7 +35,7 @@
 .img_footer {
   display: flex;
   width: auto;
-  height: 65px;
+  height: 60px;
 }
 
 .logos_redes {
@@ -46,6 +47,7 @@
   .info_footer {
     display: flex;
     flex-direction: column;
+    padding: 10px;
   }
 
   .li_footer {
@@ -62,7 +64,5 @@
 
   .img_footer {
     margin: 10px;
-    width: 60%;
-    height: auto;
   }
 }

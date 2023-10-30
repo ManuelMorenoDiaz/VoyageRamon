@@ -1,6 +1,7 @@
 import '../styles/nav.css'
 import { Link } from 'react-router-dom';
-import { FaHome, FaPlaneDeparture, FaMapMarkedAlt, FaUserFriends, FaUserCircle } from 'react-icons/fa';
+import { FaPlaneDeparture, FaMapMarkedAlt, FaUserFriends, FaUserCircle } from 'react-icons/fa';
+import { HiMenu } from 'react-icons/hi';
 import { useState } from "react";
 import voyage from '../assets/img/voyage.jpg'
 
@@ -27,7 +28,7 @@ function Nav() {
           <img src={voyage} className='papu' />
           </div>
           <div onClick={handleMenuClick} className="menu_icono">
-            <FaPlaneDeparture icon={click ? FaMapMarkedAlt : FaUserFriends} />
+            <HiMenu icon={click ? FaMapMarkedAlt : FaUserFriends} />
           </div>
 
           <div>
