@@ -15,22 +15,21 @@ function Nav() {
   return (
     <nav className="cont-nav">
       <div className="top-nav">
-      <img src={voyage} className='Logo_home' />
-        <div onClick={handleMenuClick} className="menu_icono">
+      <div>
+            <Link to="/" className='link_categorias'><img src={voyage} className='Logo_home' /></Link>
+          </div>
+      <div onClick={handleMenuClick} className="menu_icono">
           <FaPlaneDeparture icon={click ? FaMapMarkedAlt : FaUserFriends} /> 
         </div>
         <div className={click ? "menu_nav active" : "menu-nav"}>
+        
           <div className='img_logo_responsive'>
           <img src={voyage} className='papu' />
           </div>
           <div onClick={handleMenuClick} className="menu_icono">
             <FaPlaneDeparture icon={click ? FaMapMarkedAlt : FaUserFriends} />
           </div>
-         
-          <div>
 
-            <Link to="/" className='link_categorias'><FaHome /> <p>Inicio</p></Link>
-          </div>
           <div>
             <Link to="/travels" className='link_categorias'><FaPlaneDeparture /> <p>Viajes</p></Link>
           </div>

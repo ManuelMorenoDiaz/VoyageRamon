@@ -1,9 +1,10 @@
 .card-info {
   width: 100%;
   background-color: #d8a9fe;
-  margin-top: 15px;
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
+  border: 2px solid red;
 }
 
 .card-info > .cont-left,
