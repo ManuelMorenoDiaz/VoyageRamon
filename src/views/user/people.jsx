@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import '../../styles/people.css';
 import Nav from '../../components/nav-bar';
 import UserCard from '../../components/user-card';
