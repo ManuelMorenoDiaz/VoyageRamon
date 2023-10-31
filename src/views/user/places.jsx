@@ -4,6 +4,7 @@ import Footer from '../../components/footer'
 import TopTitle from '../../components/top-title'
 import SlideshowGallery from '../../components/slideshow-gallery'
 function places() {
+  
   return (
     <div>
       <Nav />
