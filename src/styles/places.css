@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+.cont-detalles, .cont-map, .cont-hoteles{
+    /* border: 2px solid red; */
+    margin: 20px;
+}
+
+.cont-detalles>.top-detalles, .cont-map>.top-map, .cont-hoteles>.top-hoteles{
+    /* border: 2px solid blue; */
+    display: flex;
+    border-bottom: #9225AA 2px solid;
+    padding: 5px 0;
+    filter: blur(0.1px);
+    margin-bottom: 10px;
+}
+
+h2{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.mor{
+    background-color: #9225AA;
+    width: 10px;
+    height: 35px;
+    border-radius: 100px;
+    margin-right: 5px;
+}
+
+.cont-detalles>p{
+    text-align: justify;
+    font-size: 15px;
+}
