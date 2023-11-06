@@ -1,20 +1,13 @@
 /*Usar esto en las demas hojas de estilo para dejar la Navbar en su lugar*/
-Nav{
+.travels-body>Nav{
     position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-Footer{
-    position: sticky;
 }
 
 .cont-travels{
     display: flex;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
+    min-height: 86.2vh;
 }
 
 .left-side{
@@ -22,6 +15,7 @@ Footer{
     padding: 10px;
     margin-top: 80px;
     margin-bottom: -12px;
+    padding-left: 50px;
 }
 
 .right-side{
@@ -77,9 +71,82 @@ Footer{
     justify-content: center;
     align-items: center;
     margin-left: auto;
-    
 }
 
 .travels-board>button:active{
     background-color: #079640;
+}
+
+@media (max-width: 1250px) {
+    .left-side{
+        width:60%;
+        padding: 10px;
+    }
+    
+    .right-side{
+        width:40%;
+        padding:0;
+        padding-top: 10px;
+        margin-bottom: 0px;
+        left:60%;
+    }
+    
+    .travels-board{
+        margin-top: 20px;
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    .cont-travels {
+        flex-direction: column-reverse;
+    }
+
+    .left-side {
+        width: 100%;
+        padding-left: 0px;
+        margin-top: 0px;
+    }
+
+    .right-side {
+        width: 100%;
+        margin-top: 80px;
+        top: auto;
+        left: auto;
+        margin-bottom: 0;
+        position:static;
+        display: flex;
+        justify-content: center;
+    }
+
+    .travels-board{
+        width: 70%;
+        min-height: 450px;
+        max-height: 450px;
+        display:flex;
+        justify-content:center;
+    }
+    
+    .travels-board-content{
+        width: 94%;
+        min-height: 350px;
+        max-height: 350px;
+    }
+}
+
+@media (max-width: 430px) {
+    .travels-board{
+        width: 80%;
+        min-height: 400px;
+        max-height: 400px;
+        display:flex;
+        flex-wrap: wrap;
+        justify-content:center;
+    }
+    
+    .travels-board-content{
+        width: 90%;
+        min-height: 300px;
+        max-height: 300px;
+    }
 }
