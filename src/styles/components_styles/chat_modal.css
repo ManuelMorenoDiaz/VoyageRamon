@@ -1,0 +1,117 @@
+.vc_modal_partners {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.vc_modal_partners_container {
+  width: 300px;
+  min-height: 100px;
+  background: #fff;
+  position: relative;
+  box-shadow: rgba(100, 100, 111, 0.2);
+  padding: 20px;
+}
+
+.vc_modal_partners_container_title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px 0px 20px 0px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.vc_modal_partners_title {
+  font-size: 16px;
+  color: #9225AA;
+}
+
+.vc_modal_partners_close {
+  width: 40px;
+  height: 40px;
+  border: none;
+  position: absolute;
+  top: 30px;
+  right: 0px;
+  font-size: 21px;
+  cursor: pointer;
+  transition: 0.3s ease all;
+  border-radius: 5px;
+}
+
+.vc_modal_partners_subtitle {
+  font-size: 14px;
+}
+
+.vc_modal_partners_input {
+  width: 260px;
+  height: 30px;
+  padding: 5px;
+  border: 1px solid #8f8f8f;
+  border-radius: 0.1cm;
+  outline: none;
+}
+
+.vc_modal_partners_travels_container {
+  overflow-x: hidden;
+  height: 163px;
+  margin: 2px 2px 10px 2px;
+}
+
+.vc_modal_partners_travels_container::-webkit-scrollbar {
+  width: 12px;
+  background: #34006766;
+}
+
+.vc_modal_partners_travels_container::-webkit-scrollbar-thumb {
+  width: 5px;
+  background: #340067;
+  border-radius: 1cm;
+}
+
+.vc_modal_partners_user_icon {
+  font-size: 24px;
+}
+
+.vc_modal_partners_travel_partners {
+  display: flex;
+  align-items: center;
+}
+
+.vc_modal_partners_user_information {
+  margin: 10px;
+}
+
+.vc_modal_partners_user_name, .vc_modal_partners_user_email {
+  display: block;
+  font-size: 12px;
+}
+
+.vc_modal_partners_user_email {
+  color: #2d2d2d;
+}
+
+.vc_modal_partners_container .vc_modal_partners_button_accept {
+  display: flex;
+  margin: 0 auto;
+}
+
+.vc_modal_partners_button_accept {
+  width: 115px;
+  height: 30px;
+  border: none;
+  padding: 5px 34.2px;
+  background-color: #9225AA;
+  font-weight: 600;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 0.1cm;
+}
