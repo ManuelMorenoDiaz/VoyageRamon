@@ -1,7 +1,7 @@
 .cont-people{
     padding: 0 20px;
+    min-height: 80vh;
 }
-
 
 .users{
     display: flex;
@@ -26,7 +26,7 @@
     height: 45px;
     border: 2px solid #6E0086; 
     transition: border 0.3s, box-shadow 0.3s; 
-    margin-left: 50px;
+    padding-left: 10px;
     &:hover {
       box-shadow: 0 0 10px rgba(110, 0, 134, 0.5); 
       border: 2px solid #6E0086; 

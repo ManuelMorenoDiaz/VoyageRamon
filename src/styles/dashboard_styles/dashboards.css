@@ -1,82 +1,81 @@
 .ContenedorTabla {
-    max-height: 75vh;
-    overflow: auto; 
-    display: flex;
-    width: 86%;
-    margin-left: 14%;
-    height: 100%;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .ContenedorTabla::-webkit-scrollbar{
-    width: 12px;
-  } 
-  .ContenedorTabla::-webkit-scrollbar-thumb {
-    background-color: #9225aa;
-    border-radius: 6px;
-  }
-  
-  .ContenedorTabla::-webkit-scrollbar-track {
-    background-color: #ffffff;
-  }
-  
-  .table {
-    border-collapse:separate;
-    width: 98%;
-  }
-  
-  .style-td {
-    text-align: center;
-    padding: 6px;
-    font-size: 15px;
-  }
-  
-  
-  .table-header {
-    text-align: center;
-    padding: 10px;
-    background-color: #9225aa;
-    color: white;
-  }
-  
-  .estilos_tbody tr:nth-child(odd) {
-    background-color: #D9D9D9;
-  }
-  
-  .estilos_tbody tr:nth-child(even) {
-    background-color: #FFFFFF;
-  }
-  
-  .estilos_th th:first-child{
-    border-radius: 10px 0px 0px 0px; 
-  }
-  
-  .estilos_th th:last-child {
-    border-radius: 0px 10px 0px 0px; 
-  }
-  
-  .estilos_th th {
-    position: sticky;
-    top: 0;
-  }
-  
-  .edit{
-    cursor: pointer;
-    color:white;
-    border-radius: 5px;
-    background-color: #0696D4;
-    border: none;
-    padding: 5px;
-    margin-right:5px;
-  }
-  
-  .delete{
-    cursor: pointer;
-    color:white;
-    border-radius: 5px;
-    background-color: #D40606;
-    border: none;
-    padding: 5px;
-    margin-left: 5px;
-  }
+  max-height: 75vh;
+  overflow: auto;
+  width: 86%;
+  margin-left: 14%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ContenedorTabla::-webkit-scrollbar {
+  width: 12px;
+}
+
+.ContenedorTabla::-webkit-scrollbar-thumb {
+  background-color: #9225aa;
+  border-radius: 6px;
+}
+
+.ContenedorTabla::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+.table {
+  border-collapse: separate;
+  width: 98%;
+}
+
+.style-td {
+  text-align: center;
+  padding: 6px;
+  font-size: 15px;
+}
+
+.table-header {
+  text-align: center;
+  padding: 10px;
+  background-color: #9225aa;
+  color: white;
+}
+
+.estilos_tbody tr:nth-child(odd) {
+  background-color: #D9D9D9;
+}
+
+.estilos_tbody tr:nth-child(even) {
+  background-color: #FFFFFF;
+}
+
+.estilos_th th:first-child {
+  border-radius: 10px 0px 0px 0px;
+}
+
+.estilos_th th:last-child {
+  border-radius: 0px 10px 0px 0px;
+}
+
+.estilos_th th {
+  position: sticky;
+  top: 0;
+}
+
+.edit {
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+  background-color: #0696D4;
+  border: none;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.delete {
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+  background-color: #D40606;
+  border: none;
+  padding: 5px;
+  margin-left: 5px;
+}
