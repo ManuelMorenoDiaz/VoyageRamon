@@ -59,7 +59,8 @@ function SlideshowGallery() {
   }
 
   return (
-    <div className="container">
+    <div className="slider">
+      <div className="container">
       {imagenes.map((imagen, index) => (
         <div key={index} className="mySlides">
           <img src={imagen} style={{ width: "100%" }} alt={`Slide ${index + 1}`} />
@@ -93,6 +94,8 @@ function SlideshowGallery() {
         ))}
       </div>
     </div>
+    </div>
+
   );
 }
 

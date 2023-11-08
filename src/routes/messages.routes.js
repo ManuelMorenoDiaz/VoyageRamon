@@ -6,7 +6,7 @@ const router = Router();
 router.get('/messages', getMessages);
 router.get('/messages/:id', getMessage);
 router.post('/messages', createMessage);
-router.delete('/messages/:id', updateMessage);
-router.put('/messages/:id', deleteMessage);
+router.delete('/messages/:id', deleteMessage);
+router.put('/messages/:id',  updateMessage);
 
 module.exports = router;

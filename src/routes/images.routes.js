@@ -6,7 +6,7 @@ const router = Router();
 router.get('/image', getImages);
 router.get('/image/:id', getImage);
 router.post('/image', createImage);
-router.delete('/image/:id', updateImage);
-router.put('/image/:id', deleteImage);
+router.delete('/image/:id', deleteImage);
+router.put('/image/:id', updateImage);
 
 module.exports = router;

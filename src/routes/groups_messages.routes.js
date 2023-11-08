@@ -6,7 +6,7 @@ const router = Router();
 router.get('/groups_messages', getGroups_messages);
 router.get('/groups_messages/:id', getGroups_message);
 router.post('/groups_messages', createGroups_message);
-router.delete('/groups_messages/:id', updateGroups_message);
-router.put('/groups_messages/:id', deleteGroups_message);
+router.delete('/groups_messages/:id', deleteGroups_message );
+router.put('/groups_messages/:id', updateGroups_message);
 
 module.exports = router;

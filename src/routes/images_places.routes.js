@@ -6,7 +6,7 @@ const router = Router();
 router.get('/images_places', getImages_places);
 router.get('/images_places/:id', getImages_place);
 router.post('/images_places', createImages_place);
-router.delete('/images_places/:id', updateImages_place);
-router.put('/images_places/:id', deleteImages_place);
+router.delete('/images_places/:id', deleteImages_place);
+router.put('/images_places/:id', updateImages_place );
 
 module.exports = router;

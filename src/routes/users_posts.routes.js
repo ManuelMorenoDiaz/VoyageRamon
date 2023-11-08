@@ -6,7 +6,7 @@ const router = Router();
 router.get('/users_post', getUsers_posts);
 router.get('/users_post/:id', getUsers_post);
 router.post('/users_post', createUsers_post);
-router.delete('/users_post/:id', updateUsers_post);
-router.put('/users_post/:id', deleteUsers_post);
+router.delete('/users_post/:id', deleteUsers_post);
+router.put('/users_post/:id', updateUsers_post);
 
 module.exports = router;

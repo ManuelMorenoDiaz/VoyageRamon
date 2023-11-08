@@ -6,7 +6,7 @@ const router = Router();
 router.get('/friends', getFriends);
 router.get('/friends/:id', getFriend);
 router.post('/friends', createFriend);
-router.delete('/friends/:id', updateFriend);
-router.put('/friends/:id', deleteFriend);
+router.delete('/friends/:id', deleteFriend );
+router.put('/friends/:id', updateFriend);
 
 module.exports = router;

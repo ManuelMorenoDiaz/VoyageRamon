@@ -2,6 +2,12 @@
     box-sizing: border-box;
   }
   
+  .slider{
+    border: 2px solid red;
+    padding: 0 50px
+  }
+
+
   /* Position the image container (needed to position the left and right arrows) */
   .container {
     position: relative;

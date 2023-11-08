@@ -67,7 +67,7 @@ const updateHotel = async (req, res) => {
 
 const deleteHotel = async (req, res) => {
   try {
-    const deletedHotel = await Category.findByIdAndDelete( req.params.id);
+    const deletedHotel = await Hotel.findByIdAndDelete( req.params.id);
     if (!deletedHotel) {
       return res.status(404).json({ message: 'Hotel no encontrada' });
     }
