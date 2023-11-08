@@ -63,7 +63,7 @@ const updatePlace = async (req, res) => {
 
 const deletePlace = async (req, res) => {
   try {
-    const deletedPlace = await Post.findByIdAndDelete( req.params.id);
+    const deletedPlace = await Place.findByIdAndDelete( req.params.id);
     if (!deletedPlace) {
       return res.status(404).json({ message: 'Lugar no encontrado' });
     }

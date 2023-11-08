@@ -6,7 +6,7 @@ const router = Router();
 router.get('/hotels', getHotels);
 router.get('/hotels/:id', getHotel);
 router.post('/hotels', createHotel);
-router.delete('/hotels/:id', updateHotel);
-router.put('/hotels/:id', deleteHotel);
+router.delete('/hotels/:id', deleteHotel);
+router.put('/hotels/:id', updateHotel);
 
 module.exports = router;

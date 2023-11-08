@@ -35,3 +35,11 @@ h2{
     text-align: justify;
     font-size: 15px;
 }
+
+
+.hotelsA{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}

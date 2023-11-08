@@ -6,7 +6,7 @@ const router = Router();
 router.get('/places', getPlaces);
 router.get('/places/:id', getPlace);
 router.post('/places', createPlace);
-router.delete('/places/:id', updatePlace);
-router.put('/places/:id', deletePlace);
+router.delete('/places/:id', deletePlace);
+router.put('/places/:id', updatePlace);
 
 module.exports = router;

@@ -6,7 +6,7 @@ const router = Router();
 router.get('/categories', getCategories);
 router.get('/categories/:id', getCategory);
 router.post('/categories', createCategory);
-router.delete('/categories/:id', updateCategory);
-router.put('/categories/:id', deleteCategory);
+router.delete('/categories/:id', deleteCategory );
+router.put('/categories/:id', updateCategory);
 
 module.exports = router;
