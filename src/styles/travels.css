@@ -58,6 +58,18 @@
     overflow-x: hidden;
 }
 
+.travels-board-content::-webkit-scrollbar{
+    width: 8px;
+  } 
+  .travels-board-content::-webkit-scrollbar-thumb {
+    background-color: #9225aa;
+    border-radius: 6px;
+  }
+  
+  .travels-board-content::-webkit-scrollbar-track {
+    background-color: #ffffff;
+  }
+
 .travels-board>button{
     background-color: #0ACF59;
     color: #ffffff;
