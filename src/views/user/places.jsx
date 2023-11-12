@@ -15,7 +15,7 @@ function places() {
     <div>
       <Nav />
       <div className="cont-places">
-        <TopTitle lugar='CANCUN' imagen='https://www.casamaya.com/wp-content/uploads/2021/05/best-beaches-cancun-.jpg' />
+        <TopTitle lugar='CANCUN' desc={null} imagen='https://www.casamaya.com/wp-content/uploads/2021/05/best-beaches-cancun-.jpg' />
         <SlideshowGallery />
         <section className="cont-detalles">
           <div className="top-detalles">
@@ -39,20 +39,20 @@ function places() {
             <h2>Hoteles</h2>
           </div>
           <div className="bot-cat hotelsA">
-              <Link to="/categories/1">
-                <HotelCard imgC="https://i.pinimg.com/550x/24/5b/fb/245bfb0d90812ba544ed8af116afa819.jpg" tituloC={"Sol y Playa"} />
+              <Link to="/hotels/1">
+                <HotelCard imgC="https://treasuredfamilytravels.com/wp-content/uploads/2018/11/Westin-Lagunamar-Cancun.jpg" tituloC={"Nombre Hotel"} />
               </Link>
-              <Link to="/categories/2">
-                <HotelCard imgC="https://www.cursosgastronomia.com.mx/wp-content/uploads/2014/01/gastronomia-en-mexico.jpg" tituloC={"Gastronomia"} />
+              <Link to="/hotels/2">
+                <HotelCard imgC="https://live.staticflickr.com/1230/857127374_b7db71a580.jpg" tituloC={"Nombre Hotel"} />
               </Link>
-              <Link to="/categories/3">
-                <HotelCard imgC="https://th.bing.com/th/id/R.6f1add51f00a27b67403462219f40b52?rik=jSgUHpA5zOg7nQ&riu=http%3a%2f%2f101lugaresincreibles.com%2fwp-content%2fuploads%2f2016%2f03%2fpueblos-magicos-mexico.jpg&ehk=1wA4rmwcTZ4HW1GhYq5AKmErxKbaeWZwwqI5s87PDZw%3d&risl=&pid=ImgRaw&r=0" tituloC={"Pueblos Magicos"} />
+              <Link to="/hotels/3">
+                <HotelCard imgC="https://how-do-it.com/wp-content/uploads/2012/11/091805-Cancun.jpg" tituloC={"Nombre Hotel"} />
               </Link>
-              <Link to="/categories/4">
-                <HotelCard imgC="https://th.bing.com/th/id/OIP.8HG6AkuYyrJv1betw0GZgAHaJ4?pid=ImgDet&rs=1" tituloC={"Eventos Turisticos"} />
+              <Link to="/hotels/4">
+                <HotelCard imgC="https://porttravelo.com/img/riu/riu-palace-peninsula.jpg" tituloC={"Nombre Hotel"} />
               </Link>
-              <Link to="/categories/5">
-                <HotelCard imgC="https://th.bing.com/th/id/OIP.Xc0cYEum0DC3UqcrKBKWYwHaLG?pid=ImgDet&rs=1" tituloC={"Cultura"} />
+              <Link to="/hotels/5">
+                <HotelCard imgC="https://s.hdnux.com/photos/16/30/24/3769637/3/1200x0.jpg" tituloC={"Nombre Hotel"} />
               </Link>
             </div>
         </section>

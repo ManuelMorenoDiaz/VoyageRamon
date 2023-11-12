@@ -14,6 +14,10 @@
 
 .card-info > .cont-left {
   padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card-info > .cont-left > h3 {

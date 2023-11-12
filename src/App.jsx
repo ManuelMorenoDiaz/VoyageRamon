@@ -39,9 +39,8 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/categories/:idC" element={<Categories />} />
-          <Route path="/Hotels/:idH" element={<Hotels />} />
+          <Route path="/hotels/:idH" element={<Hotels />} />
           <Route path="/" exact element={<Home />} />
-
         </Routes>
       </Router>
     </div>
