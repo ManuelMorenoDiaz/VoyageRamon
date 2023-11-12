@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import Nav from '../../components/nav-bar';
 import '../../styles/chat.css';
 import V_chat_modal_partners from '../../components/v_chat_modal_partners';
+import V_chat_modal_requests from '../../components/v_chat_modal_requests';
+import V_chat_modal_ftravel from '../../components/v_chat_modal_ftravel';
 import { FaArrowLeft, FaPen, FaTrash } from 'react-icons/fa';
 
 function Chat() {
 
   const [vcModalPartners, setvcModalPartners] = useState(false);
   const [vcModalRequests, setvcModalRequests] = useState(false);
+  const [vcModalFTravel, setvcModalFTravel] = useState(false);
   
   return (
     <div>
@@ -40,9 +43,9 @@ function Chat() {
                 <input type="text" name="" id="" className='v_chat_input_budget' />
               </label>
               <button className='v_chat_button_partners' onClick={() => setvcModalPartners(true)}>Compañeros</button>
-              <button className='v_chat_button_requests'>Solicitudes</button>
+              <button className='v_chat_button_requests' onClick={() => setvcModalRequests(true)}>Solicitudes</button>
             </div>
-            <button className='v_chat_button_finish_travel'>Terminar viaje</button>
+            <button className='v_chat_button_finish_travel' onClick={() => setvcModalFTravel(true)}>Terminar viaje</button>
           </div>
         </div>
         <div className="v_chat_container_rigth">
@@ -67,6 +70,8 @@ function Chat() {
         </div>
       </div>
       {vcModalPartners && <V_chat_modal_partners vc_closeModalPartners={() => setvcModalPartners(false)} />}
+      {vcModalRequests && <V_chat_modal_requests vc_closeModalRequests={() => setvcModalRequests(false)} />}
+      {vcModalFTravel && <V_chat_modal_ftravel vc_closeModalFTravel={() => setvcModalFTravel(false)} />}
     </div>
   )
 }
