@@ -42,16 +42,7 @@ const createPlace = async (req, res) => {
 
 const updatePlace = async (req, res) => {
   try {
-    const updatedPlace = await Place.findByIdAndUpdate( req.params.id, {
-      lugar_id, 
-      nombre, 
-      descripcion, 
-      direccion, 
-      telefono, 
-      presupuesto, 
-      email
-  
-    }, { new: true });
+    const updatedPlace = await Place.findByIdAndUpdate( req.params.id, req.body, { new: true });
     if (!updatedPlace) {
       return res.status(404).json({ message: 'Lugar no encontrado' });
     }

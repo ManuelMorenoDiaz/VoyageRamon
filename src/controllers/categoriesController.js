@@ -43,13 +43,7 @@ const createCategory = async (req, res) => {
 
 const updateCategory = async (req, res) => {
   try {
-    const updatedCategory = await Category.findByIdAndUpdate( req.params.id, {
-      titulo, 
-      imagen, 
-      video, 
-      descripcion
-  
-    }, { new: true });
+    const updatedCategory = await Category.findByIdAndUpdate( req.params.id, req.body, { new: true });
     if (!updatedCategory) {
       return res.status(404).json({ message: 'Categoria no encontrada' });
     }

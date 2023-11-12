@@ -43,13 +43,7 @@ const createMessage = async (req, res) => {
 
 const updateMessage = async (req, res) => {
   try {
-    const updatedMessage = await Message.findByIdAndUpdate( req.params.id, {
-      titulo, 
-      imagen, 
-      video, 
-      descripcion
-  
-    }, { new: true });
+    const updatedMessage = await Message.findByIdAndUpdate( req.params.id, req.body, { new: true });
     if (!updatedMessage) {
       return res.status(404).json({ message: 'Mensaje no encontrado' });
     }

@@ -41,10 +41,7 @@ const createImage = async (req, res) => {
 
 const updateImage = async (req, res) => {
   try {
-    const updatedImage = await Image.findByIdAndUpdate( req.params.id, {
-      nombre,
-      imagen_link
-    }, { new: true });
+    const updatedImage = await Image.findByIdAndUpdate( req.params.id, req.body, { new: true });
     if (!updatedImage) {
       return res.status(404).json({ message: 'No hay ninguna imagen encontrada' });
     }

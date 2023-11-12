@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useState} from 'react';
 import Nav from '../../components/nav-bar';
 import TravelPost from '../../components/travel-post.jsx';
 import TravelBoardPost from '../../components/travel-board-post.jsx';
@@ -6,6 +6,7 @@ import '../../styles/travels.css'
 import Footer from '../../components/footer'
 
 function Travels() {
+
   return (
     <div className="travels-body">
       <Nav />

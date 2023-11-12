@@ -41,10 +41,7 @@ const createImages_place = async (req, res) => {
 
 const updateImages_place = async (req, res) => {
   try {
-    const updatedImages_place = await Images_place.findByIdAndUpdate( req.params.id, {
-      id_lugar,
-      id_imagen
-    }, { new: true });
+    const updatedImages_place = await Images_place.findByIdAndUpdate( req.params.id, req.body, { new: true });
     if (!updatedImages_place) {
       return res.status(404).json({ message: 'No hay ninguna imagen de lugar encontrada' });
     }

@@ -46,16 +46,7 @@ const createHotel = async (req, res) => {
 
 const updateHotel = async (req, res) => {
   try {
-    const updatedHotel = await Hotel.findByIdAndUpdate( req.params.id, {
-      lugar_id, 
-      nombre, 
-      descripcion, 
-      direccion, 
-      telefono, 
-      presupuesto, 
-      email
-  
-    }, { new: true });
+    const updatedHotel = await Hotel.findByIdAndUpdate( req.params.id, req.body, { new: true });
     if (!updatedHotel) {
       return res.status(404).json({ message: 'Hotel no encontrada' });
     }

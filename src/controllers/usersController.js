@@ -52,17 +52,7 @@ const updateUser = async (req, res) => {
   try {
     const passwordHash = await bcrypt.hash(password, 10)
 
-    const updatedUser = await User.findByIdAndUpdate( req.params.id, {
-      nombre,
-      apellido_paterno,
-      apellido_materno,
-      email,
-      password: passwordHash,
-      calificacion,
-      imagen,
-      estado_republica
-      
-    }, { new: true });
+    const updatedUser = await User.findByIdAndUpdate( req.params.id, req.body, { new: true });
     if (!updatedUser) {
       return res.status(404).json({ message: 'Usuario no encontrado' });
     }

@@ -41,10 +41,7 @@ const createFriend = async (req, res) => {
 
 const updateFriend = async (req, res) => {
   try {
-    const updatedFriend = await Friend.findByIdAndUpdate( req.params.id, {
-      id_usuario,
-      id_amigo
-    }, { new: true });
+    const updatedFriend = await Friend.findByIdAndUpdate( req.params.id, req.body, { new: true });
     if (!updatedFriend) {
       return res.status(404).json({ message: 'Amigo no encontrado' });
     }

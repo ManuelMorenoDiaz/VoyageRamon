@@ -41,10 +41,7 @@ const createImages_hotel = async (req, res) => {
 
 const updateImages_hotel = async (req, res) => {
   try {
-    const updatedImages_hotel = await Images_hotel.findByIdAndUpdate( req.params.id, {
-      id_hotel,
-      id_imagen
-    }, { new: true });
+    const updatedImages_hotel = await Images_hotel.findByIdAndUpdate( req.params.id, req.body, { new: true });
     if (!updatedImages_hotel) {
       return res.status(404).json({ message: 'No hay ninguna imagen de hotel encontrada' });
     }

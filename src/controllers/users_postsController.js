@@ -42,11 +42,7 @@ const createUsers_post = async (req, res) => {
 
 const updateUsers_post = async (req, res) => {
   try {
-    const updatedUsers_post = await Users_post.findByIdAndUpdate( req.params.id, {
-      id_publicaciones,
-      id,id_usuarios,
-      tipo
-    }, { new: true });
+    const updatedUsers_post = await Users_post.findByIdAndUpdate( req.params.id, req.body, { new: true });
     if (!updatedUsers_post) {
       return res.status(404).json({ message: 'No hay ninguna publicaciones de usuarios encontradas' });
     }

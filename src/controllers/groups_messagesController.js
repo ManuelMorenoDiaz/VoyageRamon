@@ -41,10 +41,7 @@ const createGroups_message = async (req, res) => {
 
 const updateGroups_message = async (req, res) => {
   try {
-    const updatedGroups_message = await Groups_message.findByIdAndUpdate( req.params.id, {
-      pub_usr_id,
-      mensaje
-    }, { new: true });
+    const updatedGroups_message = await Groups_message.findByIdAndUpdate( req.params.id, req.body, { new: true });
     if (!updatedGroups_message) {
       return res.status(404).json({ message: 'Mensajes de grupo no encontrados' });
     }
