@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/components_styles/travel-board-post-styles.css'
+import '../../styles/components_styles/travel-board-post-styles.css'
 import {BiSolidRightArrow} from 'react-icons/bi'
 
 function TravelBoardPost(props) {

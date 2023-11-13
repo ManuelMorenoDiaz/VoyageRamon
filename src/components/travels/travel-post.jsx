@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/components_styles/travel-post-styles.css';
+import '../../styles/components_styles/travel-post-styles.css';
 
 function TravelPost(props) {
     return (
