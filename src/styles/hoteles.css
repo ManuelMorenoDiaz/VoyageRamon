@@ -14,7 +14,6 @@
     justify-content: center;
     color: white;
 }
-
 .cont-hotels>h1{
     font-size: 70px;
 }
@@ -22,25 +21,42 @@
     font-size: 30px;
     margin: 10px 0;
 }
-
-
 .contenido-hotels{
-    margin-top: 20px;
+    margin: 10px 0;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    /* border: 2px solid blue; */
 }
-
+.contenido-hotels>div{
+  /* border: 2px solid green; */
+  width: 45%;
+}
 .cont-des-hotels{
     font-size: 20px;
     margin: 10px 0;
     width: 50%;
 }
-
+.cont-des-hotels>p{
+  font-size: 15px;
+  font-weight: 500;
+}
+.cont-des-hotels>h2,.cont-info-hotels>h2{
+  margin-bottom: 10px;
+}
 .cont-info-hotels{
     font-size: 20px;
     margin: 10px 0;
     width: 50%;
+}
+.dat{
+  display: flex;
+  /* border: 2px solid red; */
+  align-items: center;
+  align-content: center;
+}
+.dat>p{
+  margin-left: 10px;
 }
 
 

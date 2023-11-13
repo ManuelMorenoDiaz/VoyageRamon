@@ -23,7 +23,7 @@
     margin: 10px 0;
 }
 
-.cont-home > button {
+.btn {
     border-radius: 30px;
     width: 250px;
     height: 40px;
@@ -34,11 +34,11 @@
     transition: background-color 0.3s ease; /* Agrega una transición suave */
 }
 
-.cont-home > button:hover {
+ button:hover {
     background-color: rgba(255, 255, 255, 0.2); /* Cambia el fondo al hacer hover */
 }
 
-.cont-home > button:active {
+ button:active {
     background-color: rgba(255, 255, 255, 0.4); /* Cambia el fondo al hacer clic */
 }
 

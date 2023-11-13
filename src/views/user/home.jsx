@@ -8,9 +8,9 @@ import {Link } from 'react-router-dom';
 
 function Home() {
   const Imagenes_funciona = [
-    {ruta:'/src/assets/img/Funciona_1.jpg' },
-    {ruta:'/src/assets/img/Funciona_3.jpg' },
-    {ruta: '/src/assets/img/Funciona_4.jpg'},
+    {titulo:'Encuentra compañeros', desc:'No viajes solo, encuentra amigos de viaje',ruta:'/src/assets/img/Funciona_1.jpg' },
+    {titulo:'Conoce lugares', desc:'Encuentra el lugar perfecto para viajar',ruta:'/src/assets/img/Funciona_3.jpg' },
+    {titulo:'Sal de tu zona de confort', desc:'Arriesgate, diviertete',ruta: '/src/assets/img/Funciona_4.jpg'},
   ]
   return (
     <div>
@@ -18,7 +18,9 @@ function Home() {
       <div className="cont-home">
         <h1>VOYAGE</h1>
         <h3><i>"Viajemos Juntos"</i></h3>
-        <button>Buscar destino</button>
+        <Link to="/places/">
+        <button className='btn'>Buscar destino</button>
+        </Link>
       </div>
       <div className="cont-categories">
         <div className="top-cate">
@@ -49,7 +51,7 @@ function Home() {
         </div>
         {Imagenes_funciona.map((img, index) => (
           <div className="bot-info" key={index}>
-            <CardInfoHome lad={index % 2 === 0 ? 'row' : 'row-reverse'} imagen={img.ruta} />
+            <CardInfoHome lad={index % 2 === 0 ? 'row' : 'row-reverse'} titulo={img.titulo} desc={img.desc} imagen={img.ruta} />
           </div>
         ))}
       </div>

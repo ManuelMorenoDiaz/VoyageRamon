@@ -7,8 +7,8 @@ function CardInfoHome(props) {
     // eslint-disable-next-line react/prop-types
     <div className="card-info" style={{display: 'flex', flexDirection: props.lad}}>
       <div className="cont-left">
-        <h3>Titulo</h3>
-        <p>Descripcion</p>
+        <h3>{props.titulo}</h3>
+        <p>{props.desc}</p>
       </div>
       <div className="cont-right">
         <img src={props.imagen} />
