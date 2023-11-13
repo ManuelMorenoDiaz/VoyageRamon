@@ -125,7 +125,7 @@ function TravelsPostModal({ showModal, closeModal, fetchApi }) {
           </div>
 
           <div className="modal-footer">
-            <button className="btn" type="submit">
+            <button className="btn-send" type="submit">
               Enviar
             </button>
           </div>
