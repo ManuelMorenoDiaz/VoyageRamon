@@ -1,5 +1,4 @@
 import '../../styles/hoteles.css'
-import React from 'react';
 import Nav from '../../components/nav-bar'
 import Footer from '../../components/footer';
 import TopTitle from '../../components/top-title'

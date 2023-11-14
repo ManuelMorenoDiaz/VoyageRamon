@@ -1,4 +1,3 @@
-import React from 'react';
 import '../styles/top-title.css';
 
 const TopTitle = (props) => {
