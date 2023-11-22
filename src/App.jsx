@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { DataProvider } from './context/DataContext'; 
+import { DataProvider } from "./context/DataContext";
 import { AuthProvider } from "../src/context/authContext.jsx";
 //Dashboard Admin
 import DashboardPlaces from "./views/admin/dashboard-places";
@@ -23,41 +23,46 @@ import Hotels from "./views/user/Hotels";
 
 function App() {
   return (
-    <div className="app">
-      <AuthProvider>
-        <Router>
-          <Routes>
-            <Route path="/ingresar" element={<RegistroLogin />} />
+    <DataProvider>
+      <div className="app">
+        <AuthProvider>
+          <Router>
+            <Routes>
+              <Route path="/ingresar" element={<RegistroLogin />} />
 
-            <Route element={<ProtectedRoutes />}>
-              <Route element={<AdminRoutes />}>
-                <Route path="/admin_lugares" element={<DashboardPlaces />} />
-                <Route path="/admin_hoteles" element={<DashboardHoteles />} />
-                <Route path="/admin_usuarios" element={<DashboardUsuarios />} />
-                <Route
-                  path="/admin_publicaciones"
-                  element={<DashboardPublicaciones />}
-                />
-                <Route
-                  path="/admin_categorias"
-                  element={<DashboardCategorias />}
-                />
+              <Route element={<ProtectedRoutes />}>
+                <Route element={<AdminRoutes />}>
+                  <Route path="/admin_lugares" element={<DashboardPlaces />} />
+                  <Route path="/admin_hoteles" element={<DashboardHoteles />} />
+                  <Route
+                    path="/admin_usuarios"
+                    element={<DashboardUsuarios />}
+                  />
+                  <Route
+                    path="/admin_publicaciones"
+                    element={<DashboardPublicaciones />}
+                  />
+                  <Route
+                    path="/admin_categorias"
+                    element={<DashboardCategorias />}
+                  />
+                </Route>
+
+                <Route path="/profile" element={<Profile />} />
               </Route>
 
-              <Route path="/profile" element={<Profile />} />
-            </Route>
-
-            <Route path="/travels" element={<Travels />} />
-            <Route path="/places" element={<Places />} />
-            <Route path="/people" element={<People />} />
-            <Route path="/chat" element={<Chat />} />
-            <Route path="/categories/:idC" element={<Categories />} />
-            <Route path="/hotels/:idH" element={<Hotels />} />
-            <Route path="/" exact element={<Home />} />
-          </Routes>
-        </Router>
-      </AuthProvider>
-    </div>
+              <Route path="/travels" element={<Travels />} />
+              <Route path="/places" element={<Places />} />
+              <Route path="/people" element={<People />} />
+              <Route path="/chat" element={<Chat />} />
+              <Route path="/categories/:idC" element={<Categories />} />
+              <Route path="/hotels/:idH" element={<Hotels />} />
+              <Route path="/" exact element={<Home />} />
+            </Routes>
+          </Router>
+        </AuthProvider>
+      </div>
+    </DataProvider>
   );
 }
 export default App;
