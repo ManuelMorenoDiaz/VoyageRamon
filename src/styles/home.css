@@ -34,11 +34,11 @@
     transition: background-color 0.3s ease; /* Agrega una transición suave */
 }
 
- button:hover {
+.btn:hover {
     background-color: rgba(255, 255, 255, 0.2); /* Cambia el fondo al hacer hover */
 }
 
- button:active {
+.btn:active {
     background-color: rgba(255, 255, 255, 0.4); /* Cambia el fondo al hacer clic */
 }
 

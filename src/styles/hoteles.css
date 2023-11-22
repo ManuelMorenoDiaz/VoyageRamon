@@ -1,5 +1,4 @@
 
-
 .cont-hotels{
     background-image: url("https://cf.bstatic.com/xdata/images/hotel/max1024x768/428261237.jpg?k=9996c3d2a0072c3c5f2d193117adf6e389c33f648e07f13956b86bc6f4cd36d1&o=&hp=1");
     background-position:center;
@@ -13,6 +12,7 @@
     align-content: center;
     justify-content: center;
     color: white;
+
 }
 .cont-hotels>h1{
     font-size: 70px;
@@ -59,29 +59,21 @@
   margin-left: 10px;
 }
 
-
-
-/* The grid: Four equal columns that floats next to each other */
-.imagenes-hotels {
-    float: left;
-    width: 25%;
-    padding: 10px;
+@media (max-width:768px){
+  .contenido-hotels{
+    width: 100%;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-  
-  /* Style the images inside the grid */
-  .imagenes-hotels img {
-    opacity: 0.8;
-    cursor: pointer;
+  .contenido-hotels>div{
+    width: 90%;
+    margin: 3px 0px;
+    background-color: rgb(255, 255, 255);
   }
-  
-  .imagenes-hotels img:hover {
-    opacity: 1;
+  .cont-des-hotels>h2, .cont-info-hotels>h2{
+    text-align: center;
   }
-  
-  /* Clear floats after the columns */
-  .cont-tabgallery:after {
-    content: "";
-    display: table;
-    clear: both;
-    margin: 10px;
-  }
+}

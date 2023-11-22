@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
+import { DataProvider } from './context/DataContext'; 
 import { AuthProvider } from "../src/context/authContext.jsx";
 //Dashboard Admin
 import DashboardPlaces from "./views/admin/dashboard-places";

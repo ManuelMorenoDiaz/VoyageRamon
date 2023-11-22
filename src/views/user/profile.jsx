@@ -2,10 +2,7 @@ import "../../styles/profile.css";
 import Nav from "../../components/nav-bar";
 import Footer from "../../components/footer";
 import { FaArrowLeft, FaStar, FaEyeSlash } from "react-icons/fa";
-import { useState } from "react";
-import { useAuth } from "../../context/authContext";
-import { useForm } from "react-hook-form";
-
+import { useState } from 'react';
 function Profile() {
   const color_star = "gold";
   const [showPassword, setShowPassword] = useState(false);
@@ -32,17 +29,10 @@ function Profile() {
     <>
       <Nav />
       <div className="align_text_icon">
+        
         <div>
-          <FaArrowLeft style={{ marginLeft: "20px", marginTop: "5px" }} />
+
         </div>
-        <div>
-          <div>
-            <span className="titulo_perfil">
-              <b>Perfil</b>
-            </span>
-          </div>
-        </div>
-        <div></div>
       </div>
       <hr style={{ height: "5px", backgroundColor: "#6E0086", width: "95%" }} />
 
@@ -302,19 +292,8 @@ function Profile() {
         </div>
       </section>
       <div className="btns-editar_eliminar">
-        <button className="btn-editar" style={{ backgroundColor: "#9225AA" }}>
-          Editar informacion
-        </button>
-        <button
-          onClick={onSubmit}
-          className="btn-editar"
-          style={{ backgroundColor: "#9225AB" }}
-        >
-          Cerrar seccion
-        </button>
-        <button className="btn-eliminar" style={{ backgroundColor: "#BF213E" }}>
-          Eliminar mi cuenta
-        </button>
+        <button className="btn-editar" style={{ backgroundColor: "#9225AA" }}>Editar informacion</button>
+        <button className="btn-eliminar" style={{ backgroundColor: "#BF213E" }}>Eliminar mi cuenta</button>
       </div>
       <Footer />
     </>

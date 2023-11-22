@@ -1,18 +1,20 @@
+
 .align_text_icon {
   width: 100%;
-  font-size: 30px;
-  padding: 5px;
+  font-size: 2rem;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .titulo_perfil {
-  font-size: 30px;
+  font-size: 2rem;
+  color: #333;
 }
 
-FaArrowLeft {
-  font-size: 50px;
+.FaArrowLeft {
+  font-size: 3rem;
 }
 
 .img_profile {
@@ -23,12 +25,12 @@ FaArrowLeft {
 
 .info_profile {
   display: flex;
-  width: 75%;
-  padding: 15px;
+  width: 70%;
+  padding: 20px;
   margin: 30px;
-  border-radius: 5px;
-  background-color: #d9d9d9;
-  border: 1px solid #9225aa;
+  border-radius: 10px;
+  background-color: #f5f5f5;
+  border: 2px solid #9225aa;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
@@ -36,7 +38,7 @@ FaArrowLeft {
 
 .cont-profile {
   padding: 0px;
-  height: 458px;
+  height: auto;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -57,33 +59,35 @@ FaArrowLeft {
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   grid-template-columns: repeat(2, 1fr);
-  gap: 35px;
+  gap: 20px;
 }
 
 .inputs-datos {
-  font-size: 18px;
+  font-size: 1rem;
   border-radius: 5px;
   padding: 5px;
   outline: none;
-  border: 0.5px solid #000;
-  background: #bdbdbd;
+  border: 1px solid #ccc;
+  background: #f0f0f0;
 }
 
 .amigos_perfil {
-  overflow: auto;
+  overflow-y: auto; /* Agregando solo el scroll vertical */
+  max-height: 400px; /* Estableciendo una altura máxima para la sección de amigos */
   display: flex;
   width: 30%;
-  padding: 15px;
-  border-radius: 5px;
+  padding: 20px;
+  border-radius: 10px;
   margin: 30px;
-  background-color: #d9d9d9;
-  border: 1px solid #9225aa;
+  background-color: #f5f5f5;
+  border: 2px solid #9225aa;
   flex-direction: column;
 }
 
 .amigos_perfil::-webkit-scrollbar {
   width: 10px;
 }
+
 .amigos_perfil::-webkit-scrollbar-thumb {
   background-color: #9225aa;
   border-radius: 6px;
@@ -94,7 +98,7 @@ FaArrowLeft {
 }
 
 .name_calif_amigo {
-  font-size: 15px;
+  font-size: 1rem;
   display: flex;
   padding: 12px;
   flex-direction: column;
@@ -102,10 +106,12 @@ FaArrowLeft {
 
 .info_amigo {
   display: flex;
-  background-color: #b5b4b4;
+  background-color: #dcdcdc;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  margin-bottom: 10px;
+  border-radius: 8px;
 }
 
 .img_foto_amigo {
@@ -124,6 +130,7 @@ FaArrowLeft {
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  margin-top: 20px;
 }
 
 .btn-editar,
@@ -131,60 +138,137 @@ FaArrowLeft {
   cursor: pointer;
   width: 200px;
   color: white;
-  padding: 10px 16px;
-  border-radius: 10px;
+  padding: 12px 20px;
+  border-radius: 8px;
   border: none;
   margin: 10px;
-}
-
-.align-pass{
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  font-size: 25px;
-  
+  justify-content: center;
 }
 
-@media (max-width: 768px) {
+.btn-editar {
+  background-color: #9225AA;
+  box-shadow: 0px 2px 5px rgba(146, 37, 170, 0.5);
+}
+
+.btn-eliminar {
+  background-color: #BF213E;
+  box-shadow: 0px 2px 5px rgba(191, 33, 62, 0.5);
+}
+
+.btn-editar:hover,
+.btn-eliminar:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-editar:active,
+.btn-eliminar:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+
+.align-pass {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.eye-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #6E0086;
+}
+
+/* Estilos para dispositivos móviles */
+
+@media (max-width: 1100px) {
   .align_text_icon {
-    font-size: 25px;
-    padding: 0px;
-    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    padding: 10px 5px;
+    margin: 0;
   }
 
   .cont-profile {
     display: flex;
     flex-direction: column;
-    height: 1200px;
     width: 100%;
+    align-items: center;
   }
 
   .info_profile {
-    margin: 10px;
+    background-color: red;
     display: flex;
     flex-direction: column;
-   
-    height: 100vh;
-    width: 95%;
+    margin: 10px;
+    padding: 15px;
+    width: 90%;
+    max-width: 600px;
   }
 
   .img_stars {
-    height: 5%;
-    padding-right: 0;
     width: 100%;
+    padding-right: 0;
     border-right: none;
-    margin-top: 8vh;
+    margin-top: 20px;
   }
 
   .inputs_info {
-    gap: 5px;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    padding: 5px;
+    gap: 15px;
   }
+  .inputs-datos{
+    width: 100%;
+  }
+
   .amigos_perfil {
-    width: 95%;
-    padding: 0px;
-    margin: 10px;
+    width: 90%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 20px;
+  }
+
+  .amigos_perfil::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .amigos_perfil::-webkit-scrollbar-thumb {
+    background-color: #9225aa;
+    border-radius: 6px;
+  }
+
+  .img_foto_amigo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .name_calif_amigo {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .btns-editar_eliminar {
+    margin-top: 30px;
+  }
+
+  .btn-editar,
+  .btn-eliminar {
+    width: 150px;
+    padding: 10px 16px;
+    margin: 8px;
+  }
+
+  .align-pass {
+    font-size: 0.9rem;
+  }
+
+  .eye-icon {
+    font-size: 1.2rem;
   }
 }
-
 

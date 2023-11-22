@@ -36,25 +36,17 @@ function Nav() {
             <HiMenu icon={click ? FaMapMarkedAlt : FaUserFriends} />
           </div>
 
-          <div>
-            <Link to="/travels" className="link_categorias">
-              <FaPlaneDeparture /> <p>Viajes</p>
-            </Link>
+          <div className='a'>
+            <Link to="/travels" className='link_categorias'><FaPlaneDeparture /> <p>Viajes</p></Link>
           </div>
-          <div>
-            <Link to="/places" className="link_categorias">
-              <FaMapMarkedAlt /> <p>Destinos</p>
-            </Link>
+          <div  className='a'>
+            <Link to="/places" className='link_categorias'><FaMapMarkedAlt /> <p>Destinos</p></Link>
           </div>
-          <div>
-            <Link to="/people" className="link_categorias">
-              <FaUserFriends /> <p>Personas</p>
-            </Link>
+          <div  className='a'>
+            <Link to="/people" className='link_categorias'><FaUserFriends /> <p>Personas</p></Link>
           </div>
-          <div>
-            <Link to="/profile" className="link_categorias">
-              <FaUserCircle /> <p>Perfil</p>
-            </Link>
+          <div  className='a'>
+            <Link to="/profile" className='link_categorias'><FaUserCircle /> <p>Perfil</p></Link>
           </div>
         </div>
         <div className="bot-nav"></div>
