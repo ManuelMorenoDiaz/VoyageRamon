@@ -4,12 +4,12 @@ const mongoose = require('mongoose');
 const images_placeSchema = new Schema({
   id_lugar: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'place',
+    ref: 'Place',
     required: true
   },
   id_imagen: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'image',
+    ref: 'Image',
     required: true
   }
 });

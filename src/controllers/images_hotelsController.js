@@ -2,9 +2,9 @@ const Images_hotel = require('../models/images_hotels.js');
 
 const getImages_hotels = async (req, res) => {
   try {
-    const images_hotels = await Images_hotel.find();
+    const hotelId = req.query.hotel_id; 
+    const images_hotels = await Images_hotel.find({ id_hotel: hotelId }).populate('id_hotel').populate('id_imagen');
     res.json(images_hotels);
-
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

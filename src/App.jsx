@@ -1,5 +1,5 @@
-
 import 'react'
+import { DataProvider } from './context/DataContext'; 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 //Dashboard Admin
 import DashboardPlaces from './views/admin/dashboard-places';
@@ -17,33 +17,37 @@ import People from './views/user/people';
 import Profile from './views/user/profile';
 import Chat from './views/user/Chat';
 import Categories from './views/user/Categories';
-import Hotels from './views/user/Hotels';
-
+import Hotels from './views/user/hotels';
+import Place from './views/user/place';
 
 function App() {
   return (
-    <div className="app">
-      <Router>
-        <Routes>
-          <Route path="/admin_lugares" element={<DashboardPlaces />} />
-          <Route path="/admin_hoteles" element={<DashboardHoteles />} />
-          <Route path="/admin_usuarios" element={<DashboardUsuarios />} />
-          <Route path="/admin_publicaciones" element={<DashboardPublicaciones />} />
-          <Route path="/admin_categorias" element={<DashboardCategorias />} />
+      <DataProvider>
+        <div className="app">
+        <Router>
+          <Routes>
+            <Route path="/admin_lugares" element={<DashboardPlaces />} />
+            <Route path="/admin_hoteles" element={<DashboardHoteles />} />
+            <Route path="/admin_usuarios" element={<DashboardUsuarios />} />
+            <Route path="/admin_publicaciones" element={<DashboardPublicaciones />} />
+            <Route path="/admin_categorias" element={<DashboardCategorias />} />
 
-          <Route path="/ingresar" element={<RegistroLogin/>} />
+            <Route path="/ingresar" element={<RegistroLogin/>} />
 
-          <Route path="/travels" element={<Travels />} />
-          <Route path="/places" element={<Places />} />
-          <Route path="/people" element={<People />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/chat" element={<Chat />} />
-          <Route path="/categories/:idC" element={<Categories />} />
-          <Route path="/hotels/:idH" element={<Hotels />} />
-          <Route path="/" exact element={<Home />} />
-        </Routes>
-      </Router>
-    </div>
+            <Route path="/travels" element={<Travels />} />
+            <Route path="/places" element={<Places />} />
+            <Route path="/place/:idP" element={<Place />} />
+            <Route path="/people" element={<People />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/chat" element={<Chat />} />
+            <Route path="/categories/:idC" element={<Categories />} />
+            <Route path="/hotels/:idH" element={<Hotels  />} />
+            <Route path="/" exact element={<Home />} />
+          </Routes>
+        </Router>
+      </div>
+      </DataProvider>
+
   );
 }
 export default App;

@@ -4,12 +4,12 @@ const mongoose = require('mongoose');
 const images_hotelSchema = new Schema({
   id_hotel: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'hotel',
+    ref: 'Hotel',
     required: true
   },
   id_imagen: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'image',
+    ref: 'Image',
     required: true
   }
 });

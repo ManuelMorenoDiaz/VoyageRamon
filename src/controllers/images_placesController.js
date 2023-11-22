@@ -2,9 +2,9 @@ const Images_place = require('../models/images_places.js');
 
 const getImages_places = async (req, res) => {
   try {
-    const images_places = await Images_place.find();
+    const lugarId = req.query.lugar_id; 
+    const images_places = await Images_place.find({ id_lugar: lugarId }).populate('id_lugar').populate('id_imagen');
     res.json(images_places);
-
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
