@@ -34,6 +34,11 @@ const userSchema = new Schema({
     type: String,
     maxlength: 255,
   },
+  role: {
+    type: String,
+    enum: ['user', 'admin'],
+    default: 'user'
+  },
   estado_republica: {
     type: String,
     maxlength: 50,
