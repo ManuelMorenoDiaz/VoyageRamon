@@ -17,31 +17,31 @@ const getGroups_message = async (req, res) => {
       return res.status(404).json({ message: 'Mensajes de grupo no encontrados' });
     }
     res.json(groups_messages);
-    
+
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
 const createGroups_message = async (req, res) => {
-  const {pub_usr_id, mensaje} = req.body;
-   
-  try{
-      const newGroups_message = new Groups_message({
-        pub_usr_id,
-        mensaje
-      });
-      const savedGroups_message = await newGroups_message.save();
-      res.json(savedGroups_message);
+  const { pub_usr_id, mensaje } = req.body;
 
-    } catch (error) {
+  try {
+    const newGroups_message = new Groups_message({
+      pub_usr_id,
+      mensaje
+    });
+    const savedGroups_message = await newGroups_message.save();
+    res.json(savedGroups_message);
+
+  } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
 const updateGroups_message = async (req, res) => {
   try {
-    const updatedGroups_message = await Groups_message.findByIdAndUpdate( req.params.id, req.body, { new: true });
+    const updatedGroups_message = await Groups_message.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!updatedGroups_message) {
       return res.status(404).json({ message: 'Mensajes de grupo no encontrados' });
     }
@@ -53,13 +53,13 @@ const updateGroups_message = async (req, res) => {
 
 const deleteGroups_message = async (req, res) => {
   try {
-    const deletedGroups_message = await Groups_message.findByIdAndDelete( req.params.id);
+    const deletedGroups_message = await Groups_message.findByIdAndDelete(req.params.id);
     if (!deletedGroups_message) {
       return res.status(404).json({ message: 'Mensajes de grupo no encontrados' });
     }
     res.json({ message: 'Mensajes de grupo eliminados correctamente' });
   } catch (error) {
-    
+
     res.status(500).json({ message: error.message });
   }
 };

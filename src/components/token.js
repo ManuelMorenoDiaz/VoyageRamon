@@ -1,6 +1,6 @@
 const jtkn = require('jsonwebtoken');
 
-const TOKEN_SECRET =  "secret"
+const TOKEN_SECRET = "secret"
 
 function createAccessToken(payload) {
     return new Promise((resolve, reject) => {
@@ -18,4 +18,4 @@ function createAccessToken(payload) {
     });
 }
 
-module.exports = {createAccessToken, TOKEN_SECRET};
+module.exports = { createAccessToken, TOKEN_SECRET };

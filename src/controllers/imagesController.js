@@ -17,31 +17,31 @@ const getImage = async (req, res) => {
       return res.status(404).json({ message: 'No hay ninguna imagen encontrada' });
     }
     res.json(image);
-    
+
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
 const createImage = async (req, res) => {
-  const {nombre, imagen_link} = req.body;
-   
-  try{
-      const newImage = new Image({
-        nombre,
-        imagen_link
-      });
-      const savedImage = await newImage.save();
-      res.json(savedImage);
+  const { nombre, imagen_link } = req.body;
 
-    } catch (error) {
+  try {
+    const newImage = new Image({
+      nombre,
+      imagen_link
+    });
+    const savedImage = await newImage.save();
+    res.json(savedImage);
+
+  } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
 const updateImage = async (req, res) => {
   try {
-    const updatedImage = await Image.findByIdAndUpdate( req.params.id, req.body, { new: true });
+    const updatedImage = await Image.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!updatedImage) {
       return res.status(404).json({ message: 'No hay ninguna imagen encontrada' });
     }
@@ -53,13 +53,13 @@ const updateImage = async (req, res) => {
 
 const deleteImage = async (req, res) => {
   try {
-    const deletedImage = await Image.findByIdAndDelete( req.params.id);
+    const deletedImage = await Image.findByIdAndDelete(req.params.id);
     if (!deletedImage) {
       return res.status(404).json({ message: 'No hay ninguna imagen encontrada' });
     }
     res.json({ message: 'Imagen encontrada correctamente' });
   } catch (error) {
-    
+
     res.status(500).json({ message: error.message });
   }
 };

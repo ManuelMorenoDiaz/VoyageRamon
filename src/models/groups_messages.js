@@ -13,9 +13,9 @@ const groups_messageSchema = new Schema({
     required: true
   },
 },
-{
-  timestamps: true
-}
+  {
+    timestamps: true
+  }
 );
 
 module.exports = model('Groups_message', groups_messageSchema);

@@ -3,14 +3,14 @@ const mongoose = require('mongoose');
 
 const users_postSchema = new Schema({
   id_publicaciones: {
-     type: mongoose.Schema.Types.ObjectId,
-     ref: 'post',
-     required: true
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'post',
+    required: true
   },
   id_usuarios: {
     type: mongoose.Schema.Types.ObjectId,
-     ref: 'user',
-     required: true
+    ref: 'user',
+    required: true
   },
   tipo: {
     type: String,

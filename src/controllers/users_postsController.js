@@ -17,32 +17,32 @@ const getUsers_post = async (req, res) => {
       return res.status(404).json({ message: 'No hay ninguna publicaciones de usuarios encontradas' });
     }
     res.json(users_post);
-    
+
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
 const createUsers_post = async (req, res) => {
-  const {id_publicaciones, id_usuarios, tipo} = req.body;
-   
-  try{
-      const newUsers_post = new Users_post({
-        id_publicaciones,
-        id_usuarios,
-        tipo
-      });
-      const savedUsers_post = await newUsers_post.save();
-      res.json(savedUsers_post);
+  const { id_publicaciones, id_usuarios, tipo } = req.body;
 
-    } catch (error) {
+  try {
+    const newUsers_post = new Users_post({
+      id_publicaciones,
+      id_usuarios,
+      tipo
+    });
+    const savedUsers_post = await newUsers_post.save();
+    res.json(savedUsers_post);
+
+  } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
 const updateUsers_post = async (req, res) => {
   try {
-    const updatedUsers_post = await Users_post.findByIdAndUpdate( req.params.id, req.body, { new: true });
+    const updatedUsers_post = await Users_post.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!updatedUsers_post) {
       return res.status(404).json({ message: 'No hay ninguna publicaciones de usuarios encontradas' });
     }
@@ -54,13 +54,13 @@ const updateUsers_post = async (req, res) => {
 
 const deleteUsers_post = async (req, res) => {
   try {
-    const deletedUsers_post = await Users_post.findByIdAndDelete( req.params.id);
+    const deletedUsers_post = await Users_post.findByIdAndDelete(req.params.id);
     if (!deletedUsers_post) {
       return res.status(404).json({ message: 'No hay ninguna publicaciones de usuarios encontradas' });
     }
     res.json({ message: 'Publicaciones de usuarios encontradas correctamente' });
   } catch (error) {
-    
+
     res.status(500).json({ message: error.message });
   }
 };

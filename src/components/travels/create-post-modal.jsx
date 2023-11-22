@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
-import Swal from 'sweetalert2'
-import axios from 'axios';
-import '../../styles/components_styles/create-post-modal.css'
+import { useState, useEffect, useRef } from "react";
+import Swal from "sweetalert2";
+import axios from "axios";
+import "../../styles/components_styles/create-post-modal.css";
 
+// eslint-disable-next-line react/prop-types
 function TravelsPostModal({ showModal, closeModal, fetchApi }) {
   const [places, setPlaces] = useState([]);
   const modalRef = useRef(null);
@@ -16,10 +17,10 @@ function TravelsPostModal({ showModal, closeModal, fetchApi }) {
   useEffect(() => {
     const fetchPlaces = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/places');
+        const response = await axios.get("http://localhost:3000/places");
         setPlaces(response.data);
       } catch (error) {
-        console.error('Error al obtener la lista de lugares:', error);
+        console.error("Error al obtener la lista de lugares:", error);
       }
     };
 
@@ -30,6 +31,7 @@ function TravelsPostModal({ showModal, closeModal, fetchApi }) {
     } else {
       document.removeEventListener("mousedown", ParaModal);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showModal, closeModal]);
 
   const handleSubmit = (event) => {
@@ -51,75 +53,89 @@ function TravelsPostModal({ showModal, closeModal, fetchApi }) {
       presupuesto,
     };
 
-    axios.post('http://localhost:3000/posts/', data)
+    axios
+      .post("http://localhost:3000/posts/", data)
       .then(() => {
         Swal.fire({
           title: "Publicacion añadida",
           icon: "success",
           confirmButtonColor: "green",
-          confirmButtonText: "OK"
+          confirmButtonText: "OK",
         });
         closeModal();
         fetchApi();
       })
-      .catch(error => {
+      .catch((error) => {
         Swal.fire({
           title: "Error",
           text: "Error:bcfbc " + error,
           confirmButtonColor: "green",
-          confirmButtonText: "OK"
+          confirmButtonText: "OK",
         });
-
       });
   };
 
   if (!showModal) return null;
 
   return (
-    <div className='modal'>
+    <div className="modal">
       <div className="modal-content" ref={modalRef}>
         <form onSubmit={handleSubmit}>
           <div className="modal-header">
             <h2>Crear post</h2>
-            <button className="btn-close " onClick={closeModal}>X</button>
+            <button className="btn-close " onClick={closeModal}>
+              X
+            </button>
           </div>
 
           <div className="modal-body">
-            <h5 className='modal-label'>Titulo</h5>
+            <h5 className="modal-label">Titulo</h5>
             <textarea
               required
               maxLength="80"
-              className='modal-textarea title-input'
-              name='titulo'
+              className="modal-textarea title-input"
+              name="titulo"
             />
 
-            <h5 className='modal-label'>Descripcion del viaje</h5>
+            <h5 className="modal-label">Descripcion del viaje</h5>
             <textarea
               required
               maxLength="500"
-              className='modal-textarea desc-input'
-              name='descripcion'
+              className="modal-textarea desc-input"
+              name="descripcion"
             />
 
-            <h5 className='modal-label'>Lugar de destino</h5>
-            <select required className='modal-inputs' name='lugar_id'>
+            <h5 className="modal-label">Lugar de destino</h5>
+            <select required className="modal-inputs" name="lugar_id">
               <option value="">Selecciona un lugar</option>
-              {places.map(place => (
-                <option key={place._id} value={place._id}>{place.nombre}</option>
+              {places.map((place) => (
+                <option key={place._id} value={place._id}>
+                  {place.nombre}
+                </option>
               ))}
             </select>
 
-            <h5 className='modal-label'>Fecha propuesta</h5>
-            <input required className='modal-inputs' type="date" name='fecha' />
+            <h5 className="modal-label">Fecha propuesta</h5>
+            <input required className="modal-inputs" type="date" name="fecha" />
 
-            <div className='twin-input'>
+            <div className="twin-input">
               <div>
-                <h5 className='modal-label'>Limite de personas</h5>
-                <input required className='modal-inputs' type="number" name='cantidad_personas' />
+                <h5 className="modal-label">Limite de personas</h5>
+                <input
+                  required
+                  className="modal-inputs"
+                  type="number"
+                  name="cantidad_personas"
+                />
               </div>
               <div>
-                <h5 className='modal-label'>Presupuesto</h5>
-                <input required className='modal-inputs' type="number" name='presupuesto' />
+                <h5 className="modal-label">Presupuesto</h5>
+                <input
+                  required
+                  className="modal-inputs"
+                  type="number"
+                  name="presupuesto"
+                />
               </div>
             </div>
           </div>
@@ -133,6 +149,6 @@ function TravelsPostModal({ showModal, closeModal, fetchApi }) {
       </div>
     </div>
   );
-};
+}
 
 export default TravelsPostModal;

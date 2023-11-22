@@ -1,5 +1,5 @@
 const Router = require('express');
-const { getPlaces, getPlace, createPlace, updatePlace, deletePlace} = require('../controllers/placesController.js');
+const { getPlaces, getPlace, createPlace, updatePlace, deletePlace } = require('../controllers/placesController.js');
 
 const router = Router();
 

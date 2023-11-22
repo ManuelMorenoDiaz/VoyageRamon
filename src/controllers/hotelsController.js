@@ -17,36 +17,36 @@ const getHotel = async (req, res) => {
       return res.status(404).json({ message: 'Hotel no encontrada' });
     }
     res.json(hotel);
-    
+
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
 const createHotel = async (req, res) => {
-  const {lugar_id, nombre, descripcion, direccion, telefono, presupuesto, email} = req.body;
-   
-  try{
-      const newHotel = new Hotel({
-        lugar_id, 
-        nombre, 
-        descripcion, 
-        direccion, 
-        telefono, 
-        presupuesto, 
-        email
-      });
-      const savedHotel = await newHotel.save();
-      res.json(savedHotel);
+  const { lugar_id, nombre, descripcion, direccion, telefono, presupuesto, email } = req.body;
 
-    } catch (error) {
+  try {
+    const newHotel = new Hotel({
+      lugar_id,
+      nombre,
+      descripcion,
+      direccion,
+      telefono,
+      presupuesto,
+      email
+    });
+    const savedHotel = await newHotel.save();
+    res.json(savedHotel);
+
+  } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
 const updateHotel = async (req, res) => {
   try {
-    const updatedHotel = await Hotel.findByIdAndUpdate( req.params.id, req.body, { new: true });
+    const updatedHotel = await Hotel.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!updatedHotel) {
       return res.status(404).json({ message: 'Hotel no encontrada' });
     }
@@ -58,13 +58,13 @@ const updateHotel = async (req, res) => {
 
 const deleteHotel = async (req, res) => {
   try {
-    const deletedHotel = await Hotel.findByIdAndDelete( req.params.id);
+    const deletedHotel = await Hotel.findByIdAndDelete(req.params.id);
     if (!deletedHotel) {
       return res.status(404).json({ message: 'Hotel no encontrada' });
     }
     res.json({ message: 'Hotel eliminado correctamente' });
   } catch (error) {
-    
+
     res.status(500).json({ message: error.message });
   }
 };

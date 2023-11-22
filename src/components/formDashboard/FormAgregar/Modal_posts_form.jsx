@@ -1,7 +1,7 @@
-import '../../../styles/modales_dashboard.css';
-import Swal from 'sweetalert2'
+import "../../../styles/modales_dashboard.css";
+import Swal from "sweetalert2";
 import { useRef, useEffect, useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 // eslint-disable-next-line react/prop-types
 function Modal_posts_form({ show, onClose, fetchApi }) {
@@ -17,10 +17,10 @@ function Modal_posts_form({ show, onClose, fetchApi }) {
   useEffect(() => {
     const fetchPlaces = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/places');
+        const response = await axios.get("http://localhost:3000/places");
         setPlaces(response.data);
       } catch (error) {
-        console.error('Error al obtener la lista de lugares:', error);
+        console.error("Error al obtener la lista de lugares:", error);
       }
     };
 
@@ -53,71 +53,104 @@ function Modal_posts_form({ show, onClose, fetchApi }) {
       cantidad_personas,
       fecha,
       presupuesto,
-      estado
+      estado,
     };
 
-    axios.post('http://localhost:3000/posts/', data)
+    axios
+      .post("http://localhost:3000/posts/", data)
       .then(() => {
         Swal.fire({
           title: "Publicacion añadida",
           icon: "success",
           confirmButtonColor: "green",
-          confirmButtonText: "OK"
+          confirmButtonText: "OK",
         });
         onClose();
         fetchApi();
       })
-      .catch(error => {
+      .catch((error) => {
         Swal.fire({
           title: "Error",
           text: "Error:bcfbc " + error,
           confirmButtonColor: "green",
-          confirmButtonText: "OK"
+          confirmButtonText: "OK",
         });
-
       });
   };
-
 
   if (!show) return null;
 
   return (
     <div className="modal_overlay">
       <div className="modal_content" ref={modalRef}>
-        <form className='formulario_inputs_dashboard' onSubmit={handleSubmit}>
+        <form className="formulario_inputs_dashboard" onSubmit={handleSubmit}>
           <label>Lugar de la publicacion</label>
-          <select required className='inputs_datos_dashboard' name='lugar_id'>
+          <select required className="inputs_datos_dashboard" name="lugar_id">
             <option value="">Selecciona un lugar</option>
-            {places.map(place => (
-              <option key={place._id} value={place._id}>{place.nombre}</option>
+            {places.map((place) => (
+              <option key={place._id} value={place._id}>
+                {place.nombre}
+              </option>
             ))}
           </select>
           <br />
           <label>Titulo</label>
-          <input required maxLength="80" placeholder='Ingresa una titulo' className='inputs_datos_dashboard' name='titulo' type="text" />
+          <input
+            required
+            maxLength="80"
+            placeholder="Ingresa una titulo"
+            className="inputs_datos_dashboard"
+            name="titulo"
+            type="text"
+          />
           <br />
           <label>Descripcion</label>
-          <input required maxLength="500" placeholder='Ingresa una descripcion' className='inputs_datos_dashboard' name='descripcion' type="text" />
+          <input
+            required
+            maxLength="500"
+            placeholder="Ingresa una descripcion"
+            className="inputs_datos_dashboard"
+            name="descripcion"
+            type="text"
+          />
           <br />
           <label>Cantidad de personas</label>
-          <input required placeholder='Ingresa la cantidad de personas' className='inputs_datos_dashboard' name='cantidad_personas' type="number" />
+          <input
+            required
+            placeholder="Ingresa la cantidad de personas"
+            className="inputs_datos_dashboard"
+            name="cantidad_personas"
+            type="number"
+          />
           <br />
           <label>Fecha</label>
-          <input required placeholder='Coloca la fecha' className='inputs_datos_dashboard' name='fecha' type="datetime-local" />
+          <input
+            required
+            placeholder="Coloca la fecha"
+            className="inputs_datos_dashboard"
+            name="fecha"
+            type="datetime-local"
+          />
           <br />
           <label>Presupuesto</label>
-          <input required placeholder='Ingresa el presupuesto' className='inputs_datos_dashboard' name='presupuesto' type="number" />
+          <input
+            required
+            placeholder="Ingresa el presupuesto"
+            className="inputs_datos_dashboard"
+            name="presupuesto"
+            type="number"
+          />
           <br />
           <label>Estado</label>
-          <select required className='inputs_datos_dashboard' name='estado'>
+          <select required className="inputs_datos_dashboard" name="estado">
             <option value="Activo">Activo</option>
             <option value="Finalizado">Finalizado</option>
-          </select>          
+          </select>
           <button type="submit">Añadir :V</button>
         </form>
       </div>
     </div>
-  )
+  );
 }
 
 export default Modal_posts_form;

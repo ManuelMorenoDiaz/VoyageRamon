@@ -17,33 +17,33 @@ const getMessage = async (req, res) => {
       return res.status(404).json({ message: 'Mensaje no encontrado' });
     }
     res.json(message);
-    
+
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
 const createMessage = async (req, res) => {
-  const {emisor_id, receptor_id, mensaje, fecha} = req.body;
-   
-  try{
-      const newMessage = new Message({
-        emisor_id, 
-        receptor_id, 
-        mensaje, 
-        fecha
-      });
-      const savedMessage = await newMessage.save();
-      res.json(savedMessage);
+  const { emisor_id, receptor_id, mensaje, fecha } = req.body;
 
-    } catch (error) {
+  try {
+    const newMessage = new Message({
+      emisor_id,
+      receptor_id,
+      mensaje,
+      fecha
+    });
+    const savedMessage = await newMessage.save();
+    res.json(savedMessage);
+
+  } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
 const updateMessage = async (req, res) => {
   try {
-    const updatedMessage = await Message.findByIdAndUpdate( req.params.id, req.body, { new: true });
+    const updatedMessage = await Message.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!updatedMessage) {
       return res.status(404).json({ message: 'Mensaje no encontrado' });
     }
@@ -55,13 +55,13 @@ const updateMessage = async (req, res) => {
 
 const deleteMessage = async (req, res) => {
   try {
-    const deletedMessage = await Message.findByIdAndDelete( req.params.id);
+    const deletedMessage = await Message.findByIdAndDelete(req.params.id);
     if (!deletedMessage) {
       return res.status(404).json({ message: 'Mensaje no encontrado' });
     }
     res.json({ message: 'Mensaje eliminado correctamente' });
   } catch (error) {
-    
+
     res.status(500).json({ message: error.message });
   }
 };

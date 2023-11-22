@@ -1,15 +1,14 @@
-import { React, useState, useEffect } from 'react';
-import Nav from '../../components/nav-bar';
-import TravelPost from '../../components/travels/travel-post.jsx';
-import TravelBoardPost from '../../components/travels/travel-board-post.jsx';
-import TravelsPostModal from '../../components/travels/create-post-modal.jsx';
-import Footer from '../../components/footer'
-import Swal from 'sweetalert2'
-import axios from 'axios';
-import '../../styles/travels.css'
+import { useState, useEffect } from "react";
+import Nav from "../../components/nav-bar";
+import TravelPost from "../../components/travels/travel-post.jsx";
+import TravelBoardPost from "../../components/travels/travel-board-post.jsx";
+import TravelsPostModal from "../../components/travels/create-post-modal.jsx";
+import Footer from "../../components/footer";
+import Swal from "sweetalert2";
+import axios from "axios";
+import "../../styles/travels.css";
 
 function Travels() {
-
   const [showModal, setShowModal] = useState(false);
 
   const handleOpenModal = () => {
@@ -25,9 +24,8 @@ function Travels() {
 
   const fetchApi = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/posts');
+      const response = await axios.get("http://localhost:3000/posts");
       setList(response.data);
-
     } catch (error) {
       Swal.fire({
         title: "Error!",
@@ -60,11 +58,11 @@ function Travels() {
     <div className="travels-body">
       <Nav />
       <div className="cont-travels">
-        <section className='left-side'>
-
+        <section className="left-side">
           {Array.isArray(list) ? (
             list.map((lista) => (
               <TravelPost
+                key={list.length}
                 tituloPost={lista.titulo}
                 nombreUser="No agregamos este campo a la base de datos jaja"
                 descripcionPost={lista.descripcion}
@@ -77,16 +75,17 @@ function Travels() {
           ) : (
             <h1>Cargando...</h1>
           )}
-
         </section>
-        <section className='right-side'>
-          <div className='travels-board'>
+        <section className="right-side">
+          <div className="travels-board">
             <h1>Mis viajes</h1>
-            <div className='travels-board-content'>
-
+            <div className="travels-board-content">
               {Array.isArray(list) ? (
                 list.map((lista) => (
-                  <TravelBoardPost tituloPost={lista.titulo} />
+                  <TravelBoardPost
+                    key={lista.length}
+                    tituloPost={lista.titulo}
+                  />
                 ))
               ) : (
                 <h1>Cargando...</h1>
@@ -97,11 +96,17 @@ function Travels() {
         </section>
       </div>
 
-      {showModal && <TravelsPostModal showModal={showModal} closeModal={handleCloseModal} fetchApi={fetchApi} />}
+      {showModal && (
+        <TravelsPostModal
+          showModal={showModal}
+          closeModal={handleCloseModal}
+          fetchApi={fetchApi}
+        />
+      )}
 
       <Footer />
     </div>
-  )
+  );
 }
 
 export default Travels;

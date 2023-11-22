@@ -29,7 +29,6 @@ const userSchema = new Schema({
   calificacion: {
     type: String,
     maxlength: 3,
-    required: true
   },
   imagen: {
     type: String,
@@ -38,7 +37,6 @@ const userSchema = new Schema({
   estado_republica: {
     type: String,
     maxlength: 50,
-    required: true
   },
 },
   {

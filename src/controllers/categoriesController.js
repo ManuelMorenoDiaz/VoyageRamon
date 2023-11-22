@@ -17,33 +17,33 @@ const getCategory = async (req, res) => {
       return res.status(404).json({ message: 'Categoria no encontrada' });
     }
     res.json(category);
-    
+
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
 const createCategory = async (req, res) => {
-  const {titulo, imagen, video, descripcion} = req.body;
-   
-  try{
-      const newCategory = new Category({
-        titulo, 
-        imagen, 
-        video, 
-        descripcion
-      });
-      const savedCategory = await newCategory.save();
-      res.json(savedCategory);
+  const { titulo, imagen, video, descripcion } = req.body;
 
-    } catch (error) {
+  try {
+    const newCategory = new Category({
+      titulo,
+      imagen,
+      video,
+      descripcion
+    });
+    const savedCategory = await newCategory.save();
+    res.json(savedCategory);
+
+  } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
 const updateCategory = async (req, res) => {
   try {
-    const updatedCategory = await Category.findByIdAndUpdate( req.params.id, req.body, { new: true });
+    const updatedCategory = await Category.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!updatedCategory) {
       return res.status(404).json({ message: 'Categoria no encontrada' });
     }
@@ -55,13 +55,13 @@ const updateCategory = async (req, res) => {
 
 const deleteCategory = async (req, res) => {
   try {
-    const deletedCategory = await Category.findByIdAndDelete( req.params.id);
+    const deletedCategory = await Category.findByIdAndDelete(req.params.id);
     if (!deletedCategory) {
       return res.status(404).json({ message: 'Categoria no encontrada' });
     }
     res.json({ message: 'Categoria eliminada correctamente' });
   } catch (error) {
-    
+
     res.status(500).json({ message: error.message });
   }
 };

@@ -1,13 +1,12 @@
-
 import "../styles/footer.css";
 import { FaFacebook, FaInstagram, FaXTwitter } from "react-icons/fa6";
 import voyage from "../assets/img/voyage.jpg";
 function footer() {
   return (
-    <div style={{ borderBottom: '10px solid black' }}>
+    <div style={{ borderBottom: "10px solid black" }}>
       <footer className="cont_footer">
         <div className="info_footer">
-          <ul style={{ margin: "0px", padding :"0px" }}>
+          <ul style={{ margin: "0px", padding: "0px" }}>
             <li className="li_footer">
               <span className="span_footer">Contacto</span>
               <span className="span_footer">Terminos y condiciones</span>
@@ -23,7 +22,7 @@ function footer() {
                 display: "flex",
                 alignItems: "center",
                 fontSize: "17px",
-                padding: "10px"
+                padding: "10px",
               }}
             >
               ¡Síguenos en las redes sociales!
@@ -32,7 +31,7 @@ function footer() {
               <FaFacebook />
               <FaInstagram />
               <FaXTwitter />
-              </div>
+            </div>
           </div>
           <img className="img_footer" src={voyage} />
         </div>

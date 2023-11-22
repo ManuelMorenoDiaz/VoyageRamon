@@ -1,5 +1,5 @@
 const Router = require('express');
-const {  getHotels, getHotel, createHotel, updateHotel, deleteHotel} = require('../controllers/hotelsController.js');
+const { getHotels, getHotel, createHotel, updateHotel, deleteHotel } = require('../controllers/hotelsController.js');
 
 const router = Router();
 

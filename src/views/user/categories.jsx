@@ -1,6 +1,5 @@
-import React from 'react'
-import Nav from '../../components/nav-bar'
-import Footer from '../../components/footer'
+import Nav from "../../components/nav-bar";
+import Footer from "../../components/footer";
 function categories() {
   return (
     <div>
@@ -8,10 +7,10 @@ function categories() {
       <div className="cont-categories">
         <h2>Categories</h2>
       </div>
-      
-      <Footer/>
+
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default categories
+export default categories;

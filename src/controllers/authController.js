@@ -1,87 +1,102 @@
 const User = require('../models/users.js');
+const jtkn = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const {createAccessToken} = require('../components/token.js')
+const { TOKEN_SECRET } = require('../components/token.js');
+const { createAccessToken } = require('../components/token.js')
 
 const register = async (req, res) => {
-    const {nombre, apellido_paterno, apellido_materno, email, password} = req.body;
-   
-    try{
+    const { nombre, apellido_paterno, apellido_materno, email, password } = req.body;
+
+    try {
         const passwordHash = await bcrypt.hash(password, 10)
 
         const newUser = new User({
-            nombre, 
+            nombre,
             apellido_paterno,
-            apellido_materno, 
+            apellido_materno,
             email,
-            password : passwordHash
+            password: passwordHash
         });
-    
+
         const savedUser = await newUser.save();
-        const token = await createAccessToken({id: savedUser._id})
+        const token = await createAccessToken({ id: savedUser._id })
 
         res.cookie('token', token);
         res.json({
-            id : savedUser._id,
-            nombre : savedUser.nombre,
-            apellido_paterno : savedUser.apellido_paterno,
-            apellido_materno : savedUser.apellido_materno,
-            email : savedUser.email,
+            id: savedUser._id,
+            nombre: savedUser.nombre,
+            apellido_paterno: savedUser.apellido_paterno,
+            apellido_materno: savedUser.apellido_materno,
+            email: savedUser.email,
         });
     } catch (error) {
-        res.status(500).json({message: error.message});
+        res.status(500).json({ message: error.message });
     }
 };
 
 const login = async (req, res) => {
-    const {email, password} = req.body;
-   
-    try{
-        const foundUser = await User.findOne({email});
+    const { email, password } = req.body;
+
+    try {
+        const foundUser = await User.findOne({ email });
         if (!foundUser) {
-            return res.status(400).json({message: 'Usuario no encontrado'});
+            return res.status(400).json({ message: 'Usuario no encontrado' });
         }
 
         const match = await bcrypt.compare(password, foundUser.password)
         if (!match) {
-            return res.status(400).json({message: 'Credenciales invalidas'});
+            return res.status(400).json({ message: 'Credenciales invalidas' });
         }
 
-        const token = await createAccessToken({id: foundUser._id})
+        const token = await createAccessToken({ id: foundUser._id })
 
         res.cookie('token', token);
         res.json({
-            id : foundUser._id,
-            nombre : foundUser.nombre,
-            email : foundUser.email,
+            id: foundUser._id,
+            nombre: foundUser.nombre,
+            apellido_paterno: foundUser.apellido_paterno,
+            apellido_materno: foundUser.apellido_materno,
+            email: foundUser.email,
         });
     } catch (error) {
-        res.status(500).json({message: error.message});
+        res.status(500).json({ message: error.message });
     }
 };
 
 const logout = (req, res) => {
-    res.cookie('token',"",{expires:new Date(0)});
+    res.cookie('token', "", { expires: new Date(0) });
     return res.sendStatus(200);
 };
 
-const profile = async (req, res) => {
-    const foundUser = await User.findById(req.user.id)
-    if (!foundUser) {
-        return res.status(404).json({message:"Usuario no encontrado"})
+const verifyToken = async (req, res) => {
+    const { token } = req.cookies;
+
+    if (!token) {
+        return res.status(401).json(['No autorizado']);
     }
 
-    return res.json({
-        id : foundUser._id,
-        nombre : foundUser.nombre,
-        email : foundUser.email,
-        createdAt: foundUser.createdAt,
-        updatedAt: foundUser.updatedAt
+    jtkn.verify(token, TOKEN_SECRET, async (err, user) => {
+        if (err) {
+            return res.status(401).json(['No autorizado']);
+        }
+
+        const userFound = await User.findById(user.id)
+        if (!userFound) {
+            return res.status(401).json(['No se encontro el usuario']);
+        }
+        return res.json({
+            id: userFound._id,
+            nombre: userFound.nombre,
+            apellido_paterno: userFound.apellido_paterno,
+            apellido_materno: userFound.apellido_materno,
+            email: userFound.email,
+        });
     });
-};
+}
 
 module.exports = {
+    verifyToken,
     register,
     login,
     logout,
-    profile,
 }

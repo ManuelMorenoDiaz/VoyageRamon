@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 
 const hotelSchema = new Schema({
   lugar_id: {
-     type: mongoose.Schema.Types.ObjectId,
-     ref: 'place',
-     required: true
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'place',
+    required: true
   },
   nombre: {
     type: String,
@@ -37,9 +37,9 @@ const hotelSchema = new Schema({
     required: true,
   },
 },
-{
-  timestamps: true 
-}
+  {
+    timestamps: true
+  }
 );
 
 module.exports = model('Hotel', hotelSchema);

@@ -16,12 +16,12 @@ const placeSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'category',
     required: true
- },
+  },
 
 },
-{
-  timestamps: true 
-}
+  {
+    timestamps: true
+  }
 );
 
 module.exports = model('Place', placeSchema);

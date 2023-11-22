@@ -3,15 +3,15 @@ const mongoose = require('mongoose');
 
 const messageSchema = new Schema({
   emisor_id: {
-     type: mongoose.Schema.Types.ObjectId,
-     ref: 'user',
-     required: true
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'user',
+    required: true
   },
   receptor_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'user',
     required: true
- },
+  },
   mensaje: {
     type: String,
     maxlength: 255,
@@ -22,9 +22,9 @@ const messageSchema = new Schema({
     required: true
   },
 },
-{
-  timestamps: true 
-}
+  {
+    timestamps: true
+  }
 );
 
 module.exports = model('Message', messageSchema);

@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
-// Asegúrate de importar React
-import '../styles/cardInfoHome.css';
+import "../styles/cardInfoHome.css";
 
 function CardInfoHome(props) {
   return (
     // eslint-disable-next-line react/prop-types
-    <div className="card-info" style={{display: 'flex', flexDirection: props.lad}}>
+    <div
+      className="card-info"
+      style={{ display: "flex", flexDirection: props.lad }}
+    >
       <div className="cont-left">
         <h3>{props.titulo}</h3>
         <p>{props.desc}</p>

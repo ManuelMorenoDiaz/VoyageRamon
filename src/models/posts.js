@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 
 const postSchema = new Schema({
   lugar_id: {
-     type: mongoose.Schema.Types.ObjectId,
-     ref: 'place',
-     required: true
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'place',
+    required: true
   },
   titulo: {
     type: String,
@@ -36,9 +36,9 @@ const postSchema = new Schema({
     default: 'Activo'
   }
 },
-{
-  timestamps: true 
-}
+  {
+    timestamps: true
+  }
 );
 
 module.exports = model('Post', postSchema);

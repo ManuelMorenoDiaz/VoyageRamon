@@ -2,15 +2,27 @@ import "../../styles/profile.css";
 import Nav from "../../components/nav-bar";
 import Footer from "../../components/footer";
 import { FaArrowLeft, FaStar, FaEyeSlash } from "react-icons/fa";
-import { useState } from 'react';
+import { useState } from "react";
+import { useAuth } from "../../context/authContext";
+import { useForm } from "react-hook-form";
+
 function Profile() {
   const color_star = "gold";
   const [showPassword, setShowPassword] = useState(false);
-  const [password, setPassword] = useState('');
+  const [password, setPassword] = useState("");
+  const { logout, user } = useAuth();
+
+  console.log(user);
+
+  const { handleSubmit } = useForm();
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+
+  const onSubmit = handleSubmit(() => {
+    logout();
+  });
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
@@ -55,7 +67,12 @@ function Profile() {
                 <span>
                   Nombre <br />
                 </span>
-                <input className="inputs-datos" type="text" />
+                <input
+                  readOnly
+                  className="inputs-datos"
+                  type="text"
+                  placeholder={user.nombre}
+                />
               </div>
               <div>
                 <span>
@@ -67,38 +84,53 @@ function Profile() {
                 <span>
                   Apellido paterno <br />
                 </span>
-                <input className="inputs-datos" type="text" />
+                <input
+                  readOnly
+                  className="inputs-datos"
+                  type="text"
+                  placeholder={user.apellido_paterno}
+                />
               </div>
               <div>
                 <span>
                   Email <br />
                 </span>
-                <input className="inputs-datos" type="email" />
+                <input
+                  readOnly
+                  className="inputs-datos"
+                  type="email"
+                  placeholder={user.email}
+                />
               </div>
               <div>
                 <span>
                   Apellido materno <br />
                 </span>
-                <input className="inputs-datos" type="text" />
+                <input
+                  readOnly
+                  className="inputs-datos"
+                  type="text"
+                  placeholder={user.apellido_materno}
+                />
               </div>
               <div>
                 <span>
                   Contraseña <br />
                 </span>
                 <div className="align-pass">
-                <input
-                  className="inputs-datos"
-                  type={showPassword ? 'text' : 'password'}
-                  name="password"
-                  value={password}
-                  onChange={handlePasswordChange}
-                />
-                <FaEyeSlash style={{margin:'10px'}}
-                  className={`eye-icon ${showPassword ? 'visible' : ''}`}
-                  onClick={togglePasswordVisibility}
-                >
-                </FaEyeSlash>
-              </div>
+                  <input
+                    className="inputs-datos"
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    value={password}
+                    onChange={handlePasswordChange}
+                  />
+                  <FaEyeSlash
+                    style={{ margin: "10px" }}
+                    className={`eye-icon ${showPassword ? "visible" : ""}`}
+                    onClick={togglePasswordVisibility}
+                  ></FaEyeSlash>
+                </div>
               </div>
             </section>
           </div>
@@ -270,8 +302,19 @@ function Profile() {
         </div>
       </section>
       <div className="btns-editar_eliminar">
-        <button className="btn-editar" style={{ backgroundColor: "#9225AA" }}>Editar informacion</button>
-        <button className="btn-eliminar" style={{ backgroundColor: "#BF213E" }}>Eliminar mi cuenta</button>
+        <button className="btn-editar" style={{ backgroundColor: "#9225AA" }}>
+          Editar informacion
+        </button>
+        <button
+          onClick={onSubmit}
+          className="btn-editar"
+          style={{ backgroundColor: "#9225AB" }}
+        >
+          Cerrar seccion
+        </button>
+        <button className="btn-eliminar" style={{ backgroundColor: "#BF213E" }}>
+          Eliminar mi cuenta
+        </button>
       </div>
       <Footer />
     </>

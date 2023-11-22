@@ -41,7 +41,6 @@ function DashboardUsuarios() {
         text: "Error con los datos" + error,
         icon: "error",
       });
-
     }
   };
 
