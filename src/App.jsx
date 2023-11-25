@@ -19,7 +19,8 @@ import People from "./views/user/people";
 import Profile from "./views/user/profile";
 import Chat from "./views/user/Chat";
 import Categories from "./views/user/Categories";
-import Hotels from "./views/user/Hotels";
+import Place from "./views/user/place.jsx";
+import Hotels from "./views/user/hotels";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
 
               <Route path="/travels" element={<Travels />} />
               <Route path="/places" element={<Places />} />
+              <Route path="/places/:idP" element={<Place />} />
               <Route path="/people" element={<People />} />
               <Route path="/chat" element={<Chat />} />
               <Route path="/categories/:idC" element={<Categories />} />
