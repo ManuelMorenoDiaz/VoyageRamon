@@ -5,7 +5,10 @@ import TravelBoardPost from "../../components/travels/travel-board-post.jsx";
 import TravelsPostModal from "../../components/travels/create-post-modal.jsx";
 import Footer from "../../components/footer";
 import Swal from "sweetalert2";
-import axios from "axios";
+
+import { getPostRequest } from "../../api/travels.js";
+import { getPlacesRequest } from "../../api/travels.js";
+
 import "../../styles/travels.css";
 
 function Travels() {
@@ -24,7 +27,7 @@ function Travels() {
 
   const fetchApi = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/posts");
+      const response = await getPostRequest();
       setList(response.data);
     } catch (error) {
       Swal.fire({
@@ -37,7 +40,7 @@ function Travels() {
 
   const fetchLugares = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/places/");
+      const response = await getPlacesRequest();
       setLugares(response.data);
     } catch (error) {
       console.error("Error al obtener lugares:", error);
@@ -83,7 +86,7 @@ function Travels() {
               {Array.isArray(list) ? (
                 list.map((lista) => (
                   <TravelBoardPost
-                    key={lista.length}
+                    key={lista.length || null}
                     tituloPost={lista.titulo}
                   />
                 ))
