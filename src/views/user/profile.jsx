@@ -11,9 +11,7 @@ function Profile() {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const { logout, user } = useAuth();
-
-  console.log(user);
-
+  
   const { handleSubmit } = useForm();
 
   const togglePasswordVisibility = () => {

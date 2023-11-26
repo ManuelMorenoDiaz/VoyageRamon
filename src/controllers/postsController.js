@@ -24,11 +24,12 @@ const getPost = async (req, res) => {
 };
 
 const createPost = async (req, res) => {
-  const { lugar_id, titulo, descripcion, cantidad_personas, fecha, presupuesto, estado } = req.body;
+  const { lugar_id, usuario_id, titulo, descripcion, cantidad_personas, fecha, presupuesto, estado } = req.body;
 
   try {
     const newPost = new Post({
       lugar_id,
+      usuario_id,
       titulo,
       descripcion,
       cantidad_personas,

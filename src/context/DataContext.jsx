@@ -1,5 +1,11 @@
-import { createContext, useState, useEffect, useContext } from 'react';
-import axios from 'axios';
+import { createContext, useState, useContext } from "react";
+import { getImgPlacesRequest, getPlacesRequest } from "../api/travels";
+import {
+  getHotelRequest,
+  getHotelsRequest,
+  getImgHotelsRequest,
+} from "../api/hotels";
+import { getUsersRequest } from "../api/auth";
 
 const DataContext = createContext();
 

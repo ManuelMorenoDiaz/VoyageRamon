@@ -1,10 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import Swal from "sweetalert2";
-import axios from "axios";
+
 import "../../styles/components_styles/create-post-modal.css";
+import { postPostsRequest, getPlacesRequest } from "../../api/travels";
+import { useAuth } from "../../context/authContext";
 
 // eslint-disable-next-line react/prop-types
 function TravelsPostModal({ showModal, closeModal, fetchApi }) {
+  const {user} = useAuth();
   const [places, setPlaces] = useState([]);
   const modalRef = useRef(null);
 
@@ -17,7 +20,7 @@ function TravelsPostModal({ showModal, closeModal, fetchApi }) {
   useEffect(() => {
     const fetchPlaces = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/places");
+        const response = await getPlacesRequest();
         setPlaces(response.data);
       } catch (error) {
         console.error("Error al obtener la lista de lugares:", error);
@@ -34,7 +37,7 @@ function TravelsPostModal({ showModal, closeModal, fetchApi }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showModal, closeModal]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     const lugar_id = event.target.elements.lugar_id.value;
@@ -46,6 +49,7 @@ function TravelsPostModal({ showModal, closeModal, fetchApi }) {
 
     const data = {
       lugar_id,
+      usuario_id: user._id,
       titulo,
       descripcion,
       cantidad_personas,
@@ -53,9 +57,9 @@ function TravelsPostModal({ showModal, closeModal, fetchApi }) {
       presupuesto,
     };
 
-    axios
-      .post("http://localhost:3000/posts/", data)
-      .then(() => {
+    console.log("ANTES DE ENVIAR",data);
+    postPostsRequest(data)
+    .then(() => {
         Swal.fire({
           title: "Publicacion añadida",
           icon: "success",

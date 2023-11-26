@@ -13,7 +13,6 @@ const Login = ({ swapPanel, setSwapPaneltrue }) => {
   const { singin, errors: singinErrors } = useAuth();
 
   const onSubmit = handleSubmit((data) => {
-    console.log(data);
     singin(data);
   });
 
