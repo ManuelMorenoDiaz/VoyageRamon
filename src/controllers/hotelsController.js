@@ -1,12 +1,24 @@
 const Hotel = require('../models/hotels.js');
 
 const getHotels = async (req, res) => {
-  try {
-    const lugarId = req.query.lugar_id; // Acceder al parámetro desde la URL
-    const hotels = await Hotel.find({ lugar_id: lugarId });
-    res.json(hotels);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
+
+  if (req.query.lugar_id == null) {
+
+    try {
+      const hotels = await Hotel.find();
+      res.json(hotels);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+
+  } else {
+    try {
+      const lugarId = req.query.lugar_id;
+      const hotels = await Hotel.find({ lugar_id: lugarId });
+      res.json(hotels);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
   }
 };
 

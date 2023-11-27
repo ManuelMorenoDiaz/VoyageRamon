@@ -4,10 +4,12 @@ import Swal from "sweetalert2";
 import "../../styles/components_styles/create-post-modal.css";
 import { postPostsRequest, getPlacesRequest } from "../../api/travels";
 import { useAuth } from "../../context/authContext";
+import { useDataContext } from "../../context/DataContext";
 
 // eslint-disable-next-line react/prop-types
-function TravelsPostModal({ showModal, closeModal, fetchApi }) {
+function TravelsPostModal({ showModal, closeModal }) {
   const {user} = useAuth();
+  const {fetchPosts} = useDataContext();
   const [places, setPlaces] = useState([]);
   const modalRef = useRef(null);
 
@@ -57,7 +59,6 @@ function TravelsPostModal({ showModal, closeModal, fetchApi }) {
       presupuesto,
     };
 
-    console.log("ANTES DE ENVIAR",data);
     postPostsRequest(data)
     .then(() => {
         Swal.fire({
@@ -66,8 +67,8 @@ function TravelsPostModal({ showModal, closeModal, fetchApi }) {
           confirmButtonColor: "green",
           confirmButtonText: "OK",
         });
+        fetchPosts();
         closeModal();
-        fetchApi();
       })
       .catch((error) => {
         Swal.fire({

@@ -2,9 +2,8 @@ const Post = require('../models/posts.js');
 
 const getPosts = async (req, res) => {
   try {
-    const posts = await Post.find();
+    const posts = await Post.find().populate('usuario_id').populate('lugar_id');
     res.json(posts);
-
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -12,12 +11,11 @@ const getPosts = async (req, res) => {
 
 const getPost = async (req, res) => {
   try {
-    const post = await Post.findById(req.params.id);
+    const post = await Post.findById(req.params.id).populate('usuario_id').populate('lugar_id');
     if (!post) {
       return res.status(404).json({ message: 'Publicacion no encontrada' });
     }
     res.json(post);
-
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

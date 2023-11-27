@@ -55,10 +55,7 @@ function Home() {
             />
           </Link>
           <Link to="/categories/3">
-            <CategoryCard
-              imgC="https://th.bing.com/th/id/R.6f1add51f00a27b67403462219f40b52?rik=jSgUHpA5zOg7nQ&riu=http%3a%2f%2f101lugaresincreibles.com%2fwp-content%2fuploads%2f2016%2f03%2fpueblos-magicos-mexico.jpg&ehk=1wA4rmwcTZ4HW1GhYq5AKmErxKbaeWZwwqI5s87PDZw%3d&risl=&pid=ImgRaw&r=0"
-              tituloC={"Pueblos Magicos"}
-            />
+            <CategoryCard tituloC={"Pueblos Magicos"} />
           </Link>
           <Link to="/categories/4">
             <CategoryCard
