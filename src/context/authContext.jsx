@@ -27,7 +27,6 @@ export const AuthProvider = ({ children }) => {
 
   const signup = async (user) => {
     try {
-      console.log(user);
       const res = await registerRequest(user);
       setIsAuthenticated(true);
       setUser(res.data);
@@ -36,9 +35,9 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const singin = async (user) => {
+  const singin = async (data) => {
     try {
-      const res = await loginRequest(user);
+      const res = await loginRequest(data);
       console.log(res.data);
       setIsAuthenticated(true);
       setUser(res.data);

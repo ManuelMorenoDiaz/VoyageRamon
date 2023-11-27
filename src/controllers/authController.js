@@ -23,7 +23,7 @@ const register = async (req, res) => {
 
         res.cookie('token', token);
         res.json({
-            id: savedUser._id,
+            _id: savedUser._id,
             nombre: savedUser.nombre,
             apellido_paterno: savedUser.apellido_paterno,
             apellido_materno: savedUser.apellido_materno,
@@ -52,7 +52,7 @@ const login = async (req, res) => {
 
         res.cookie('token', token);
         res.json({
-            id: foundUser._id,
+            _id: foundUser._id,
             nombre: foundUser.nombre,
             apellido_paterno: foundUser.apellido_paterno,
             apellido_materno: foundUser.apellido_materno,
@@ -80,12 +80,12 @@ const verifyToken = async (req, res) => {
             return res.status(401).json(['No autorizado']);
         }
 
-        const userFound = await User.findById(user.id)
+        const userFound = await User.findById(user._id)
         if (!userFound) {
             return res.status(401).json(['No se encontro el usuario']);
         }
         return res.json({
-            id: userFound._id,
+            _id: userFound._id,
             nombre: userFound.nombre,
             apellido_paterno: userFound.apellido_paterno,
             apellido_materno: userFound.apellido_materno,

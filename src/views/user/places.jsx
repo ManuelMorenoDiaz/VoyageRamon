@@ -6,6 +6,7 @@ import "../../styles/places.css";
 import "../../styles/home.css";
 import { useDataContext } from "../../context/DataContext";
 import { FaArrowRight } from "react-icons/fa";
+
 function Places() {
   const [searchQuery, setSearchQuery] = useState("");
   const { places, fetchPlaces } = useDataContext();
@@ -38,7 +39,7 @@ function Places() {
     <div>
       <Nav />
       <main className="cont-places">
-        <div className="cont-search">
+      <div className="cont-search">
           <input
             type="text"
             placeholder="Search..."
@@ -81,7 +82,7 @@ function Places() {
               </article>
             ))
           ) : (
-            <div>No places found.</div>
+            <p>No hay resultados</p>
           )}
         </section>
       </main>

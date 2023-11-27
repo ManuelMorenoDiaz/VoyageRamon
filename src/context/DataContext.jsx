@@ -1,5 +1,13 @@
-import { createContext, useState, useEffect, useContext } from 'react';
-import axios from 'axios';
+import { createContext, useState, useContext } from "react";
+import { getImgPlacesRequest, getPlacesRequest } from "../api/travels";
+import {
+  getHotelRequest,
+  getHotelsRequest,
+  getImgHotelsRequest,
+} from "../api/hotels";
+import { getCategoriesRequest, getCategoryRequest } from "../api/categories";
+
+import { getUsersRequest } from "../api/auth";
 
 const DataContext = createContext();
 
@@ -21,6 +29,9 @@ export const DataProvider = ({ children }) => {
   const [place, setIPlaces] = useState({});
   const [lal, setLal] = useState([]);
   const [imga, setImg] = useState();
+  const [categories, setCategories]=useState([]);
+  const [category, setCategory]=useState([]);
+
 
   const fetchPlaces = async () => {
     try {
@@ -80,6 +91,24 @@ export const DataProvider = ({ children }) => {
     }
   };
 
+  const fetchCategories = async () => {
+    try {
+      const response = await getCategoriesRequest();
+      setCategories(response.data);
+    } catch (error) {
+      console.log("Error fetching hotels:", error);
+    }
+  };
+
+  const fetchCategory = async (idC) => {
+    try {
+      const response = await getCategoryRequest(idC);
+      setCategory(response.data);
+    } catch (error) {
+      console.log("Error fetching hotels:", error);
+    }
+  };
+
   return (
     <DataContext.Provider
       value={{
@@ -90,12 +119,16 @@ export const DataProvider = ({ children }) => {
         place,
         lal,
         imga,
+        categories,
+        category,
         fetchPlaces,
         fetchHotels,
         fetchHotel,
         fetchPersonas,
         fetchLal,
         fetchImagesHotels,
+        fetchCategories,
+        fetchCategory
       }}
     >
       {children}
