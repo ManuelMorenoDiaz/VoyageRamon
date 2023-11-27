@@ -7,6 +7,11 @@ const placeSchema = new Schema({
     maxlength: 80,
     required: true
   },
+  imagen: {
+    type: String,
+    maxlength: 255,
+    required: true
+  },
   detalles: {
     type: String,
     maxlength: 255,

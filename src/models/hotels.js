@@ -12,6 +12,11 @@ const hotelSchema = new Schema({
     maxlength: 80,
     required: true
   },
+  imagen: {
+    type: String,
+    maxlength: 255,
+    required: true
+  },
   descripcion: {
     type: String,
     maxlength: 255,

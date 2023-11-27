@@ -31,9 +31,7 @@ function App() {
             <Routes>
               <Route path="/ingresar" element={<RegistroLogin />} />
 
-              <Route element={<ProtectedRoutes />}>
-                <Route element={<AdminRoutes />}>
-                  <Route path="/admin_lugares" element={<DashboardPlaces />} />
+              <Route path="/admin_lugares" element={<DashboardPlaces />} />
                   <Route path="/admin_hoteles" element={<DashboardHoteles />} />
                   <Route
                     path="/admin_usuarios"
@@ -47,6 +45,10 @@ function App() {
                     path="/admin_categorias"
                     element={<DashboardCategorias />}
                   />
+
+              <Route element={<ProtectedRoutes />}>
+                <Route element={<AdminRoutes />}>
+                  
                 </Route>
 
                 <Route path="/profile" element={<Profile />} />

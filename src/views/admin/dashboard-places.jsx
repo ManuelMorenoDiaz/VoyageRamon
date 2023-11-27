@@ -136,6 +136,7 @@ function DashboardPlaces() {
             <tr className="estilo-tr">
               <th className="table-header">ID</th>
               <th className="table-header">Nombre</th>
+              <th className="table-header">Imagen</th>
               <th className="table-header">Detalles</th>
               <th className="table-header">Catgoria id</th>
               <th className="table-header">Acciones</th>
@@ -147,6 +148,7 @@ function DashboardPlaces() {
                 <tr key={index}>
                   <td className="style-td">{lista._id}</td>
                   <td className="style-td">{lista.nombre}</td>
+                  <td className="style-td"><img style={{ width: "250px" }} src={lista.imagen}/> </td>
                   <td className="style-td">{lista.detalles}</td>
                   <td className="style-td">
                     {obtenerTituloCategoria(lista.categoria_id)}
