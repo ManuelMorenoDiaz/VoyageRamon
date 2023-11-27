@@ -38,7 +38,7 @@ function Modal_categorias_form({ show, onClose, fetchApi }) {
     };
 
     axios
-      .post("http://localhost:3000/categories/", data)
+      .post("http://localhost:3000/routes/categories/", data)
       .then(() => {
         Swal.fire({
           title: "Categoria añadida",

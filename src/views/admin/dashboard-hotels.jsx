@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import axios from "axios";
 import { FaPenToSquare, FaTrash } from "react-icons/fa6";
 import ModalFormHoteles from "../../components/formDashboard/FormAgregar/Modal_hoteles_form";
 import Navbar_dashboard from "../../components/navbar_dashboard";
 import Sidebar_dashboard from "../../components/sidebar_dashboard";
 import "../../styles/dashboard_styles/dashboards.css";
+import { getHotelsRequest } from "../../api/hotels";
+import { getPlacesRequest } from "../../api/places";
+import { deleteHotel } from "../../api/hotels";
 
 function DashboardHoteles() {
   const [showModal, setShowModal] = useState(false);
   const [list, setList] = useState([]);
-  const [places, setPlaces] = useState([]);
 
   const handleUsuarioClick = () => {
     setShowModal(true);
@@ -22,33 +23,35 @@ function DashboardHoteles() {
 
   const fetchApi = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/hotels");
-      if (response.status === 200) {
-        const responseJSON = await response.data;
-        setList(responseJSON);
+      const hotelsResponse = await getHotelsRequest();
+      const placesResponse = await getPlacesRequest();
+
+      if (hotelsResponse.status === 200 && placesResponse.status === 200) {
+        const hotels = await hotelsResponse.data;
+        const places = await placesResponse.data;
+
+        const hotelsWithPlaceNames = hotels.map((hotel) => {
+          const place = places.find((p) => p._id === hotel.lugar_id);
+          return {
+            ...hotel,
+            lugar_nombre: place ? place.nombre : "Desconocido",
+          };
+        });
+
+        setList(hotelsWithPlaceNames);
       } else {
-        console.error("Error", response.status);
+        Swal.fire({
+          title: "Error!",
+          text: "Error con los datos",
+          icon: "error",
+        });
       }
     } catch (error) {
       Swal.fire({
         title: "Error!",
-        text: "Error con los datos",
+        text: "Error con los datos" + error,
         icon: "error",
       });
-    }
-  };
-
-  const fetchPlaces = async () => {
-    try {
-      const response = await axios.get("http://localhost:3000/places");
-      if (response.status === 200) {
-        const responseJSON = await response.data;
-        setPlaces(responseJSON);
-      } else {
-        console.error("No encontre lugares", response.status);
-      }
-    } catch (error) {
-      console.error("No encontre lugares", error);
     }
   };
 
@@ -64,16 +67,14 @@ function DashboardHoteles() {
       cancelButtonText: "No quieeroo",
     }).then((result) => {
       if (result.isConfirmed) {
-        deleteHotel(_id);
+        deleteHotels(_id);
       }
     });
   };
 
-  const deleteHotel = async (_id) => {
+  const deleteHotels = async (_id) => {
     try {
-      const response = await axios.delete(
-        `http://localhost:3000/hotels/${_id}`
-      );
+      const response = await deleteHotel(_id);
       if (response.status === 200) {
         Swal.fire({
           title: "Dato eliminado",
@@ -91,7 +92,6 @@ function DashboardHoteles() {
 
   useEffect(() => {
     fetchApi();
-    fetchPlaces();
   }, []);
 
   return (
@@ -134,15 +134,10 @@ function DashboardHoteles() {
           <tbody className="estilos_tbody">
             {Array.isArray(list) ? (
               list.map((hotel, index) => {
-                const lugar = places.find(
-                  (place) => place._id === hotel.lugar_id
-                );
                 return (
                   <tr key={index}>
                     <td className="style-td">{hotel._id}</td>
-                    <td className="style-td">
-                      {lugar ? lugar.nombre : "NO tiene lugar"}
-                    </td>
+                    <td className="style-td">{hotel.lugar_nombre}</td>
                     <td className="style-td">{hotel.nombre}</td>
                     <td className="style-td">{hotel.descripcion}</td>
                     <td className="style-td">{hotel.direccion}</td>

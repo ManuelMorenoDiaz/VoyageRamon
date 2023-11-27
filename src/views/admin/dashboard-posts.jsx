@@ -19,7 +19,7 @@ function DashboardPublicaciones() {
     setShowModal(false);
   };
 
-  const url = "http://localhost:3000/posts/";
+  const url = "http://localhost:3000/routes/posts/";
   const [list, setList] = useState([]);
 
   const fetchApi = async () => {
@@ -85,7 +85,7 @@ function DashboardPublicaciones() {
 
   const fetchLugares = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/places/");
+      const response = await axios.get("http://localhost:3000/routes/places/");
       if (response.status === 200) {
         const responseJSON = await response.data;
         setLugares(responseJSON);

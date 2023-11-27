@@ -18,7 +18,7 @@ function DashboardCategorias() {
     setShowModal(false);
   };
 
-  const url = "http://localhost:3000/categories/";
+  const url = "http://localhost:3000/routes/categories/";
 
   const [list, setList] = useState([]);
 
