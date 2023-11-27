@@ -6,11 +6,13 @@ import { useEffect, useState } from "react";
 import ModalFormLugares from "../../components/formDashboard/FormAgregar/Modal_lugares_form";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { getPlacesRequest } from "../../api/places";
+import { deletePlace } from "../../api/places";
 
 function DashboardPlaces() {
   const [categorias, setCategorias] = useState([]);
   const [showModal, setShowModal] = useState(false);
-
+  const [list, setList] = useState([]);
   const handleUsuarioClick = () => {
     setShowModal(true);
   };
@@ -19,13 +21,9 @@ function DashboardPlaces() {
     setShowModal(false);
   };
 
-  const url = "http://localhost:3000/places/";
-
-  const [list, setList] = useState([]);
-
   const fetchApi = async () => {
     try {
-      const response = await axios.get(url);
+      const response = await getPlacesRequest();
       if (response.status === 200) {
         const responseJSON = await response.data;
         setList(responseJSON);
@@ -64,7 +62,7 @@ function DashboardPlaces() {
 
   const deletedato = async (_id) => {
     try {
-      const response = await axios.delete(`${url}${_id}`);
+      const response = await deletePlace(_id);
       if (response.status === 200) {
         Swal.fire("El dato esta eliminado :(");
         fetchApi();
@@ -86,7 +84,7 @@ function DashboardPlaces() {
 
   const fetchCategorias = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/categories");
+      const response = await axios.get("http://localhost:3000/routes/categories");
       if (response.status === 200) {
         const responseJSON = await response.data;
         setCategorias(responseJSON);

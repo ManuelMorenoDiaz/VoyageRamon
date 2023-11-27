@@ -18,7 +18,7 @@ function DashboardUsuarios() {
     setShowModal(false);
   };
 
-  const url = "http://localhost:3000/users/";
+  const url = "http://localhost:3000/routes/users/";
 
   const [list, setList] = useState([]);
 

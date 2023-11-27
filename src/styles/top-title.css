@@ -16,7 +16,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.5);
   }
   
   .textStyle {
@@ -33,8 +33,8 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    /* border: 1px solid red; */
-    font-size: 35px;
+    color: white;
+    font-size: 40px;
 }
 
 p{

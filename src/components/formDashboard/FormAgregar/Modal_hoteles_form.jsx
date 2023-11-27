@@ -14,7 +14,7 @@ function Modal_hoteles_form({ show, onClose, fetchApi }) {
   useEffect(() => {
     const fetchPlaces = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/places");
+        const response = await axios.get("http://localhost:3000/routes/places");
         setPlaces(response.data);
       } catch (error) {
         console.error("Error al obtener la lista de lugares:", error);
@@ -38,49 +38,34 @@ function Modal_hoteles_form({ show, onClose, fetchApi }) {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const lugar_id = event.target.elements.lugar_id.value;
-    const nombre = event.target.elements.nombre.value;
-    const descripcion = event.target.elements.descripcion.value;
-    const direccion = event.target.elements.direccion.value;
-    const telefono = event.target.elements.telefono.value;
-    const presupuesto = event.target.elements.presupuesto.value;
-    const email = event.target.elements.email.value;
+    try {
+      const formData = new FormData(event.target);
+      const data = Object.fromEntries(formData);
 
-    const data = {
-      lugar_id,
-      nombre,
-      descripcion,
-      direccion,
-      telefono,
-      presupuesto,
-      email,
-    };
+      await axios.post("http://localhost:3000/routes/hotels/", data);
 
-    axios
-      .post("http://localhost:3000/hotels/", data)
-      .then(() => {
-        Swal.fire({
-          title: "Hotel añadido :v",
-          icon: "success",
-          confirmButtonColor: "green",
-          confirmButtonText: "OK",
-        });
-
-        onClose();
-        fetchApi();
-      })
-      .catch((error) => {
-        Swal.fire({
-          title: "Error",
-          text: "Error:fxdfvffbv " + error,
-          confirmButtonColor: "green",
-          confirmButtonText: "OK",
-        });
-        console.error("Error al añadir hotel:", error);
+      Swal.fire({
+        title: "Hotel añadido :v",
+        icon: "success",
+        confirmButtonColor: "green",
+        confirmButtonText: "OK",
       });
+
+      onClose();
+      fetchApi();
+    } catch (error) {
+      Swal.fire({
+        title: "Error",
+        text: "Error: " + error,
+        confirmButtonColor: "green",
+        confirmButtonText: "OK",
+      });
+
+      console.error("Error al añadir hotel:", error);
+    }
   };
 
   if (!show) return null;

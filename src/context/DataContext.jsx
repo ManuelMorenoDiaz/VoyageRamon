@@ -5,6 +5,8 @@ import {
   getHotelsRequest,
   getImgHotelsRequest,
 } from "../api/hotels";
+import { getCategoriesRequest, getCategoryRequest } from "../api/categories";
+
 import { getUsersRequest } from "../api/auth";
 import { getPostRequest } from "../api/travels";
 import { useAuth } from "./authContext";
@@ -32,6 +34,9 @@ export const DataProvider = ({ children }) => {
   const [place, setIPlaces] = useState({});
   const [lal, setLal] = useState([]);
   const [imga, setImg] = useState();
+  const [categories, setCategories]=useState([]);
+  const [category, setCategory]=useState([]);
+
 
   const fetchPlaces = async () => {
     try {
@@ -111,6 +116,24 @@ export const DataProvider = ({ children }) => {
     }
   };
 
+  const fetchCategories = async () => {
+    try {
+      const response = await getCategoriesRequest();
+      setCategories(response.data);
+    } catch (error) {
+      console.log("Error fetching hotels:", error);
+    }
+  };
+
+  const fetchCategory = async (idC) => {
+    try {
+      const response = await getCategoryRequest(idC);
+      setCategory(response.data);
+    } catch (error) {
+      console.log("Error fetching hotels:", error);
+    }
+  };
+
   return (
     <DataContext.Provider
       value={{
@@ -123,6 +146,8 @@ export const DataProvider = ({ children }) => {
         place,
         lal,
         imga,
+        categories,
+        category,
         fetchPlaces,
         fetchHotels,
         fetchHotel,
@@ -130,6 +155,8 @@ export const DataProvider = ({ children }) => {
         fetchLal,
         fetchImagesHotels,
         fetchPosts,
+        fetchCategories,
+        fetchCategory
       }}
     >
       {children}

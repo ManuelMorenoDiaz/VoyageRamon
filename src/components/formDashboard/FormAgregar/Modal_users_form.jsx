@@ -49,7 +49,7 @@ function Modal_users_form({ show, onClose, fetchApi }) {
     };
 
     axios
-      .post("http://localhost:3000/users/", data)
+      .post("http://localhost:3000/routes/users/", data)
       .then(() => {
         Swal.fire({
           title: "Usuario añadido",

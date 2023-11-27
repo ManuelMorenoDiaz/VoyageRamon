@@ -1,12 +1,20 @@
+import { useEffect } from "react";
 import "../../styles/home.css";
 import Nav from "../../components/nav-bar";
 import CategoryCard from "../../components/category-card";
 import CardInfoHome from "../../components/card-info-home";
 import Footer from "../../components/footer";
+import { useDataContext } from "../../context/DataContext";
 
 import { Link } from "react-router-dom";
 
 function Home() {
+  const { categories, fetchCategories } = useDataContext();
+
+  useEffect(() => {
+    fetchCategories();
+  }, [])
+
   const Imagenes_funciona = [
     {
       titulo: "Encuentra compañeros",
@@ -42,33 +50,14 @@ function Home() {
           <h4>{"Conoce lo mejor de Mexico"}</h4>
         </div>
         <div className="bot-cat">
-          <Link to="/categories/1">
-            <CategoryCard
-              imgC="https://i.pinimg.com/550x/24/5b/fb/245bfb0d90812ba544ed8af116afa819.jpg"
-              tituloC={"Sol y Playa"}
-            />
-          </Link>
-          <Link to="/categories/2">
-            <CategoryCard
-              imgC="https://www.cursosgastronomia.com.mx/wp-content/uploads/2014/01/gastronomia-en-mexico.jpg"
-              tituloC={"Gastronomia"}
-            />
-          </Link>
-          <Link to="/categories/3">
-            <CategoryCard tituloC={"Pueblos Magicos"} />
-          </Link>
-          <Link to="/categories/4">
-            <CategoryCard
-              imgC="https://th.bing.com/th/id/OIP.8HG6AkuYyrJv1betw0GZgAHaJ4?pid=ImgDet&rs=1"
-              tituloC={"Eventos Turisticos"}
-            />
-          </Link>
-          <Link to="/categories/5">
-            <CategoryCard
-              imgC="https://th.bing.com/th/id/OIP.Xc0cYEum0DC3UqcrKBKWYwHaLG?pid=ImgDet&rs=1"
-              tituloC={"Cultura"}
-            />
-          </Link>
+          {categories.slice(0, 5).map(category => (
+            <Link to={`/categories/${category._id}`} key={category._id}>
+              <CategoryCard
+                imgC={category.imagen}
+                tituloC={category.titulo}
+              />
+            </Link>
+          ))}
         </div>
       </div>
       <div className="cont-info">

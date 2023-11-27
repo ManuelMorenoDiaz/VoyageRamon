@@ -17,7 +17,7 @@ function Modal_posts_form({ show, onClose, fetchApi }) {
   useEffect(() => {
     const fetchPlaces = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/places");
+        const response = await axios.get("http://localhost:3000/routes/places");
         setPlaces(response.data);
       } catch (error) {
         console.error("Error al obtener la lista de lugares:", error);
@@ -57,7 +57,7 @@ function Modal_posts_form({ show, onClose, fetchApi }) {
     };
 
     axios
-      .post("http://localhost:3000/posts/", data)
+      .post("http://localhost:3000/routes/posts/", data)
       .then(() => {
         Swal.fire({
           title: "Publicacion añadida",

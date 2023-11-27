@@ -1,7 +1,5 @@
 import "../../../styles/modales_dashboard.css";
-
 import { useState, useRef, useEffect } from "react";
-
 // eslint-disable-next-line react/prop-types
 import axios from "axios";
 
@@ -30,9 +28,8 @@ function Modal_lugares_form({ show, onClose, fetchApi }) {
   useEffect(() => {
     if (show) {
       document.addEventListener("mousedown", handleCloseModal);
-
       axios
-        .get("http://localhost:3000/categories")
+        .get("http://localhost:3000/routes/categories")
         .then((response) => {
           setCategorias(response.data);
         })
@@ -46,29 +43,21 @@ function Modal_lugares_form({ show, onClose, fetchApi }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [show, onClose]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-
-    const nombre = event.target.elements.nombre.value;
-    const detalles = event.target.elements.detalles.value;
-    const categoria_id = event.target.elements.categoria_id.value;
-
-    const data = {
-      nombre,
-      detalles,
-      categoria_id,
-    };
-
-    axios
-      .post("http://localhost:3000/places/", data)
-      .then(() => {
-        console.log("Lugar añadido correctamente");
-        onClose();
-        fetchApi();
-      })
-      .catch((error) => {
-        console.error("Error al añadir lugar:", error);
-      });
+  
+    try {
+      const formData = new FormData(event.target);
+      const data = Object.fromEntries(formData);
+  
+      await axios.post("http://localhost:3000/routes/places/", data);
+  
+      console.log("Lugar añadido correctamente");
+      onClose();
+      fetchApi();
+    } catch (error) {
+      console.error("Error al añadir lugar:", error);
+    }
   };
 
   if (!show) return null;
