@@ -33,8 +33,13 @@ function App() {
 
               <Route element={<ProtectedRoutes />}>
                 <Route element={<AdminRoutes />}>
-                  <Route path="/admin_lugares" element={<DashboardPlaces />} />
-                  <Route path="/admin_hoteles" element={<DashboardHoteles />} />
+                  <Route 
+                    path="/admin_lugares" 
+                    element={<DashboardPlaces />} 
+                  />
+                  <Route 
+                    path="/admin_hoteles" 
+                    element={<DashboardHoteles />} />
                   <Route
                     path="/admin_usuarios"
                     element={<DashboardUsuarios />}
@@ -51,14 +56,15 @@ function App() {
 
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/travels" element={<Travels />} />
+                <Route path="/places" element={<Places />} />
+                <Route path="/places/:idP" element={<Place />} />
+                <Route path="/people" element={<People />} />
+                <Route path="/chat" element={<Chat />} />
+                <Route path="/categories/:idC" element={<Categories />} />
+                <Route path="/hotels/:idH" element={<Hotels />} />
               </Route>
 
-              <Route path="/places" element={<Places />} />
-              <Route path="/places/:idP" element={<Place />} />
-              <Route path="/people" element={<People />} />
-              <Route path="/chat" element={<Chat />} />
-              <Route path="/categories/:idC" element={<Categories />} />
-              <Route path="/hotels/:idH" element={<Hotels />} />
+
               <Route path="/" exact element={<Home />} />
             </Routes>
           </Router>
