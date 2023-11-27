@@ -4,7 +4,12 @@ const mongoose = require('mongoose');
 const postSchema = new Schema({
   lugar_id: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'place',
+    ref: 'Place',
+    required: true
+  },
+  usuario_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
     required: true
   },
   titulo: {

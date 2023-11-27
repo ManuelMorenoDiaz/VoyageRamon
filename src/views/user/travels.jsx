@@ -52,6 +52,16 @@ function Travels() {
     return lugar ? lugar.nombre : "Lugar no encontrado";
   };
 
+  const fechaformateada = (date) => {
+    const fecha = new Date(date);
+    const year = fecha.getFullYear();
+    const month = (fecha.getMonth() + 1).toString().padStart(2, '0');
+    const day = fecha.getDate().toString().padStart(2, '0');
+  
+      return `${year}/${month}/${day}`;
+  }
+
+
   useEffect(() => {
     fetchApi();
     fetchLugares();
@@ -65,12 +75,12 @@ function Travels() {
           {Array.isArray(list) ? (
             list.map((lista) => (
               <TravelPost
-                key={list.length}
+                key={lista._id}
                 tituloPost={lista.titulo}
                 nombreUser="No agregamos este campo a la base de datos jaja"
                 descripcionPost={lista.descripcion}
                 lugarPost={obtenerNombreLugar(lista.lugar_id)}
-                fechaPost={lista.fecha}
+                fechaPost={fechaformateada(lista.fecha)}
                 limitePost={lista.cantidad_personas}
                 presupuestoPost={lista.presupuesto}
               />
@@ -86,7 +96,7 @@ function Travels() {
               {Array.isArray(list) ? (
                 list.map((lista) => (
                   <TravelBoardPost
-                    key={lista.length || null}
+                    key={lista._id}
                     tituloPost={lista.titulo}
                   />
                 ))
