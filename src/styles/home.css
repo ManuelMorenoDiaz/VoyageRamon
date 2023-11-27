@@ -1,49 +1,61 @@
 
-
-.cont-home{
-    background-image: url("https://espacio-libre.com/download/multimedia.normal.8a4d50492a0d2806.636174656472616c207765625f6e6f726d616c2e77656270.webp");
-    background-position:center;
-    background-size: cover;
-    background-repeat: no-repeat;
+.cont-home {
+    position: relative;
     height: 90vh;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    align-content: center;
     justify-content: center;
     color: white;
-}
-
-.cont-home>h1{
-    font-size: 70px;
-}
-.cont-home>h3{
-    font-size: 30px;
-    margin: 10px 0;
-}
-
-.btn {
+    text-align: center;
+    overflow: hidden;
+    background-image: url("https://www.unotv.com/uploads/2022/02/piramide-chichen-itza-portada-235505.jpg");
+    background-position: center bottom;
+    background-size: cover;
+  }
+  
+  .cont-home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 0, 255, 0.5); /* Intenta cambiar el valor de la opacidad para oscurecer la imagen */
+    z-index: -1;
+  }
+  
+  .cont-home > h1,
+  .cont-home > h3 {
+    position: relative; /* Para ajustar el z-index */
+    z-index: 1; /* Asegurar que el texto esté por encima del fondo oscurecido */
+  }
+  
+  .btn {
+    position: relative; /* Para ajustar el z-index */
+    z-index: 2; /* Colocar el botón por encima del fondo oscurecido */
     border-radius: 30px;
     width: 250px;
     height: 40px;
     color: white;
+    font-weight: 400;
     font-size: 17px;
     background-color: transparent;
     border: 3px solid white;
     transition: background-color 0.3s ease; /* Agrega una transición suave */
-}
-
-.btn:hover {
+  }
+  
+  .btn:hover {
     background-color: rgba(255, 255, 255, 0.2); /* Cambia el fondo al hacer hover */
-}
-
-.btn:active {
-    background-color: rgba(255, 255, 255, 0.4); /* Cambia el fondo al hacer clic */
-}
-
-
-.cont-categories{
+  }
+  
+  .btn:active {
+    background-color: rgba(255, 255, 255, 0.9); /* Cambia el fondo al hacer clic */
+  }
+  
+  /* Estilos para la sección cont-categories */
+  .cont-categories {
     margin-top: 20px;
     height: auto;
     min-height: 300px;
@@ -52,39 +64,59 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-.cont-categories>.top-cate{
-    display:flex ;
+  }
+  
+  
+  .cont-categories > .top-cate {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-}
-.top-cate>h2,.top-info>h2{
-    color: #B54ECC;
-    font-size: 40px;
-    font-weight: bold;
-    text-align: center;
-}
-.top-cate>h4{
-    font-size: 20px;
-}
-.cont-categories>.bot-cat{
-    width: 100%;
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
+  }
+
+  /* Estilizando títulos */
+  .cont-home>h1{
+    font-size: 60px;
+    color: white;
+  }
+  .cont-home>h3{
+    margin-bottom: 10px;
+    color: white;
+    font-size: 25px;
+  }
+
+  .top-cate > h2,.top-info > h2 {
+  color: #B54ECC;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px; /* Añade espacio inferior */
 }
 
-
-.cont-info{
-    margin-top: 30px;
-    border-top: 2px solid #B54ECC;
-    padding-top: 20px;
-    height: auto;
-    width: 100%;
-    min-height: 100vh;
-    margin-bottom: 20px;
+.top-cate > h4 {
+  font-size: 20px;
+  margin-bottom: 20px; /* Añade más espacio inferior */
 }
+
+/* Estilizando cards de categorías */
+.cont-categories > .bot-cat {
+  width: 100%;
+  margin-top: 30px; /* Incrementa el espacio superior */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Estilos para la sección cont-info */
+.cont-info {
+  margin-top: 50px; /* Incrementa el espacio superior */
+  border-top: 2px solid #B54ECC;
+  padding-top: 40px; /* Incrementa el espacio superior */
+  height: auto;
+  width: 100%;
+  min-height: 100vh;
+  margin-bottom: 50px; /* Incrementa el espacio inferior */
+}
+

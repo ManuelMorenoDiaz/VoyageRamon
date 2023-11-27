@@ -1,79 +1,74 @@
-
-.cont-hotels{
-    background-image: url("https://cf.bstatic.com/xdata/images/hotel/max1024x768/428261237.jpg?k=9996c3d2a0072c3c5f2d193117adf6e389c33f648e07f13956b86bc6f4cd36d1&o=&hp=1");
-    background-position:center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 40vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    color: white;
-
-}
-.cont-hotels>h1{
-    font-size: 70px;
-}
-.cont-hotels>h3{
-    font-size: 30px;
-    margin: 10px 0;
-}
-.contenido-hotels{
-    margin: 10px 0;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    /* border: 2px solid blue; */
-}
-.contenido-hotels>div{
-  /* border: 2px solid green; */
-  width: 45%;
-}
-.cont-des-hotels{
-    font-size: 20px;
-    margin: 10px 0;
-    width: 50%;
-}
-.cont-des-hotels>p{
-  font-size: 15px;
-  font-weight: 500;
-}
-.cont-des-hotels>h2,.cont-info-hotels>h2{
-  margin-bottom: 10px;
-}
-.cont-info-hotels{
-    font-size: 20px;
-    margin: 10px 0;
-    width: 50%;
-}
-.dat{
+/* Estilos para el contenedor del título y descripción principal */
+.cont-hotels {
+  background-image: url("https://cf.bstatic.com/xdata/images/hotel/max1024x768/428261237.jpg?k=9996c3d2a0072c3c5f2d193117adf6e389c33f648e07f13956b86bc6f4cd36d1&o=&hp=1");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 40vh;
+  width: 100%;
   display: flex;
-  /* border: 2px solid red; */
+  flex-direction: column;
   align-items: center;
-  align-content: center;
-}
-.dat>p{
-  margin-left: 10px;
+  justify-content: center;
+  color: white;
+  text-align: center;
 }
 
-@media (max-width:768px){
-  .contenido-hotels{
-    width: 100%;
-    background-color: red;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.cont-hotels h1 {
+  font-size: 3rem; 
+  margin-bottom: 10px; 
+}
+
+.cont-hotels h3 {
+  font-size: 1.5rem; 
+  margin: 10px 0;
+}
+
+/* Estilos para el contenedor del contenido de hoteles */
+.contenido-hotels {
+  margin: 40px auto; 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; 
+  justify-content: center;
+}
+
+/* Estilos para las secciones de descripción e información del hotel */
+.contenido-hotels > div {
+  width: calc(50% - 20px); 
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9); 
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+/* Estilos para los títulos en las secciones */
+.contenido-hotels h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem; 
+  text-align: center;
+}
+
+/* Estilos para los íconos y la información del hotel */
+.dat {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.dat svg {
+  font-size: 1.2rem; 
+  margin-right: 10px;
+}
+
+/* Estilos adicionales para pantallas pequeñas */
+@media (max-width: 768px) {
+  .contenido-hotels > div {
+    width: 90%; 
   }
-  .contenido-hotels>div{
-    width: 90%;
-    margin: 3px 0px;
-    background-color: rgb(255, 255, 255);
-  }
-  .cont-des-hotels>h2, .cont-info-hotels>h2{
-    text-align: center;
+
+  .cont-des-hotels,
+  .cont-info-hotels {
+    width: 100%; 
   }
 }

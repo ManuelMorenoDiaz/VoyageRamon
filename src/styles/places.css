@@ -1,34 +1,28 @@
 .places {
-    padding: 0 40px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start; 
-    justify-content: space-around;
-    height: 600px; 
-    overflow-y: auto; 
-  }
-  
-  .card-place {
-    background-color: #F0F0F0;
-    border: 2px solid #6E0086;
-    border-radius: 10px;
-    width: 300px;
-    min-height: 420px; 
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0;
-    margin: 10px;
-    overflow: hidden; /* Oculta el contenido que exceda la altura */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Agregada transición para la sombra */
- 
+  padding: 0 20px; 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  min-height: 80vh;
+  overflow-y: auto; 
 }
-  .card-place:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3); 
-  }
+
+.card-place {
+  background-color: #FFFFFF; 
+  border: 1px solid #E1E1E1; 
+  border-radius: 12px; 
+  width: 250px; 
+  height: 400px; 
+  margin: 30px 0;
+  overflow: hidden; 
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+}
+
+.card-place:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1); 
+}
   
   .card-place .cont-img {
     height: 190px;
@@ -85,7 +79,7 @@
   .btn-ver {
     background-color: #6E0086;
     color: white;
-    width: 120px; /* Ajusta el ancho según lo necesites */
+    width: 120px; 
     height: 40px;
     border: none;
     border-radius: 5px;
@@ -113,3 +107,41 @@
   }
 
   
+.cont-search {
+  width: 100%;
+  border-bottom: 3px solid #6E0086;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px; 
+  margin-bottom: 30px;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 500px; 
+  border-top: 2px solid #4c005c;
+  border-radius: 25px; 
+  height: 45px;
+  border: 2px solid transparent; 
+  transition: border 0.3s, box-shadow 0.3s;
+  padding-left: 20px; 
+  &:hover {
+    box-shadow: 0 0 10px rgba(110, 0, 134, 0.5);
+    border: 2px solid #6E0086; 
+  }
+}
+
+@media (max-width: 768px) {
+
+  .search-input {
+    max-width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .cont-search {
+    height: auto;
+    margin-bottom: 15px;
+  }
+
+}
