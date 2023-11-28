@@ -11,26 +11,27 @@ import { useParams } from "react-router-dom";
 import { useDataContext } from "../../context/DataContext";
 function Place() {
   const { idP } = useParams();
-  const { place, lal, imga, fetchLal, hotels, fetchHotels } = useDataContext();
+  const { placeL, lal, imga, fetchLal, hotels, fetchHotels, fetchPlace } = useDataContext();
 
   useEffect(() => {
     fetchHotels(idP);
     fetchLal(idP);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    fetchPlace(idP);
+  }, [idP]);
+
 
   return (
     <div>
       <Nav />
       <div className="cont-places">
-        <TopTitle lugar={place.nombre} desc={null} imagen={imga} />
+        <TopTitle lugar={placeL.nombre} desc={null} imagen={placeL.imagen} />
         <SlideshowGallery imagenes={lal} />
         <section className="cont-detalles">
           <div className="top-detalles">
             <div className="mor"></div>
             <h2>Detalles</h2>
           </div>
-          <p>{place.detalles}</p>
+          <p>{placeL.detalles}</p>
         </section>
         <section className="cont-map">
           <div className="top-map">
@@ -46,7 +47,7 @@ function Place() {
           <div className="bot-cat hotelsA">
             {hotels.map((hotel) => (
               <Link to={`/hotels/${hotel._id}`} key={hotel._id}>
-                <HotelCard imgC={hotel.image} tituloC={hotel.nombre} />
+                <HotelCard imgC={hotel.imagen} tituloC={hotel.nombre} />
               </Link>
             ))}
           </div>

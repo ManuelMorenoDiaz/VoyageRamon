@@ -7,9 +7,14 @@ const placeSchema = new Schema({
     maxlength: 80,
     required: true
   },
-  detalles: {
+  imagen: {
     type: String,
     maxlength: 255,
+    required: true
+  },
+  detalles: {
+    type: String,
+    maxlength: 1000,
     required: true
   },
   categoria_id: {

@@ -92,6 +92,7 @@ const verifyToken = async (req, res) => {
             apellido_paterno: userFound.apellido_paterno,
             apellido_materno: userFound.apellido_materno,
             email: userFound.email,
+            role: userFound.role,
         });
     });
 }

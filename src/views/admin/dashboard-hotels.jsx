@@ -123,6 +123,7 @@ function DashboardHoteles() {
               <th className="table-header">ID hotel</th>
               <th className="table-header">Lugar de ubicacion</th>
               <th className="table-header">Nombre</th>
+              <th className="table-header">Imagen</th>
               <th className="table-header">Descripción</th>
               <th className="table-header">Direccion</th>
               <th className="table-header">Telefono</th>
@@ -139,6 +140,7 @@ function DashboardHoteles() {
                     <td className="style-td">{hotel._id}</td>
                     <td className="style-td">{hotel.lugar_nombre}</td>
                     <td className="style-td">{hotel.nombre}</td>
+                    <td className="style-td"><img style={{ width: "250px" }} src= {hotel.imagen}/> </td>
                     <td className="style-td">{hotel.descripcion}</td>
                     <td className="style-td">{hotel.direccion}</td>
                     <td className="style-td">{hotel.telefono}</td>

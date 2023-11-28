@@ -1,5 +1,5 @@
 import { createContext, useState, useContext } from "react";
-import { getImgPlacesRequest, getPlacesRequest } from "../api/travels";
+import { getPlacesRequest, getPlaceRequest } from "../api/places";
 import {
   getHotelRequest,
   getHotelsRequest,
@@ -8,7 +8,7 @@ import {
 import { getCategoriesRequest, getCategoryRequest } from "../api/categories";
 
 import { getUsersRequest } from "../api/auth";
-import { getPostRequest } from "../api/travels";
+import { getPostRequest, getImgPlacesRequest } from "../api/travels";
 import { useAuth } from "./authContext";
 
 const DataContext = createContext();
@@ -31,7 +31,7 @@ export const DataProvider = ({ children }) => {
   const [posts, setPosts] = useState([]);
   const [userPosts, setUserPosts] = useState([]);
   const [personas, setPersonas] = useState([]);
-  const [place, setIPlaces] = useState({});
+  const [placeL, setPlaceL]=useState([]);
   const [lal, setLal] = useState([]);
   const [imga, setImg] = useState();
   const [categories, setCategories]=useState([]);
@@ -44,6 +44,16 @@ export const DataProvider = ({ children }) => {
       setPlaces(response.data);
     } catch (error) {
       console.log("Error fetching places:", error);
+    }
+  };
+
+  const fetchPlace = async (idP) => {
+    try {
+      const response = await getPlaceRequest(idP);
+      setPlaceL(response.data)
+      
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -97,12 +107,12 @@ export const DataProvider = ({ children }) => {
     try {
       const response = await getImgPlacesRequest(idP);
       setLal(response.data);
-      setIPlaces(response.data[0].id_lugar);
       setImg(response.data[0].id_imagen.imagen_link);
     } catch (error) {
       console.log(error);
     }
   };
+
 
   const fetchImagesHotels = async (idH) => {
     try {
@@ -121,7 +131,7 @@ export const DataProvider = ({ children }) => {
       const response = await getCategoriesRequest();
       setCategories(response.data);
     } catch (error) {
-      console.log("Error fetching hotels:", error);
+      console.log("Error fetching categories:", error);
     }
   };
 
@@ -130,7 +140,7 @@ export const DataProvider = ({ children }) => {
       const response = await getCategoryRequest(idC);
       setCategory(response.data);
     } catch (error) {
-      console.log("Error fetching hotels:", error);
+      console.log("Error fetching category:", error);
     }
   };
 
@@ -138,17 +148,18 @@ export const DataProvider = ({ children }) => {
     <DataContext.Provider
       value={{
         places,
+        placeL,
         posts,
         userPosts,
         hotels,
         hotel,
         personas,
-        place,
         lal,
         imga,
         categories,
         category,
         fetchPlaces,
+        fetchPlace,
         fetchHotels,
         fetchHotel,
         fetchPersonas,
