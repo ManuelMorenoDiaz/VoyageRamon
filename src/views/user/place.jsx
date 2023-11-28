@@ -19,8 +19,6 @@ function Place() {
     fetchPlace(idP);
   }, [idP]);
 
-  console.log('sssssssssssssssssssssss');
-  console.log(placeL.data);
 
   return (
     <div>
