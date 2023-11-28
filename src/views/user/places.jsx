@@ -44,7 +44,7 @@ function Places() {
               <article className="card-place" key={index}>
                 <div className="cont-img">
                   <img
-                    src="https://img.remediosdigitales.com/c467e9/ferrari-sf90-spider-el-auto-mas-caro-de-mexico7/840_560.jpeg"
+                    src={place.imagen}
                     alt=""
                   />
                 </div>
