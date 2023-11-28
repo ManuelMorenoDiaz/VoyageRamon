@@ -19,7 +19,7 @@ const hotelSchema = new Schema({
   },
   descripcion: {
     type: String,
-    maxlength: 255,
+    maxlength: 1000,
     required: true
   },
   direccion: {

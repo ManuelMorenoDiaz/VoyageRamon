@@ -14,7 +14,7 @@ const placeSchema = new Schema({
   },
   detalles: {
     type: String,
-    maxlength: 255,
+    maxlength: 1000,
     required: true
   },
   categoria_id: {
