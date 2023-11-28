@@ -1,15 +1,51 @@
-import { useState } from "react";
+import React, { useState, useEffect, useRef } from 'react';
+import { io } from "socket.io-client";
 import Nav from "../../components/nav-bar";
 import "../../styles/chat.css";
 import V_chat_modal_partners from "../../components/v_chat_modal_partners";
 import V_chat_modal_requests from "../../components/v_chat_modal_requests";
 import V_chat_modal_ftravel from "../../components/v_chat_modal_ftravel";
-import { FaArrowLeft, FaPen, FaTrash } from "react-icons/fa";
+import { FaArrowLeft, FaPen, FaTrash, FaPaperPlane } from 'react-icons/fa';
 
 function Chat() {
   const [vcModalPartners, setvcModalPartners] = useState(false);
   const [vcModalRequests, setvcModalRequests] = useState(false);
   const [vcModalFTravel, setvcModalFTravel] = useState(false);
+
+  const [message, setMessage] = useState('');
+  const [messages, setMessages] = useState([]);
+
+  const socket = useRef();
+
+  useEffect(() => {
+    socket.current = io('http://localhost:3000');
+    socket.current.on('receive message', (msg) => {
+      const isReceived = msg.id !== socket.current.id;
+      setMessages((prevMessages) => [...prevMessages, { text: msg.text, time: msg.time ,isReceived }]);
+    });
+    return () => {
+      socket.current.disconnect();
+    };
+  }, []);
+  
+  const sendMessage = (event) => {
+    if(event.key === 'Enter' && message) {
+      event.preventDefault();
+      let date = new Date();
+      let hours = date.getHours();
+      let minuts = date.getMinutes();
+      let ampm = hours >= 12 ? 'PM' : 'AM';
+
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+      minuts = minuts < 10 ? '0'+minuts : minuts;
+
+      let time = hours + ':' + minuts + ' ' + ampm;
+
+      socket.current.emit('send message', { text: message, time });
+      setMessage('');
+    }
+  };
 
   return (
     <div>
@@ -79,42 +115,29 @@ function Chat() {
         </div>
         <div className="v_chat_container_rigth">
           <div className="v_chat_container_inputs_rigth">
-            <div className="v_chat_message_received">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non,
-              rerum perferendis! Similique natus quam impedit, numquam nesciunt
-              vitae sapiente repellendus reiciendis, laudantium ipsa ab, nisi
-              officia voluptas deserunt voluptatem ipsam!
-            </div>
-            <div className="v_chat_message_received">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non,
-              rerum perferendis! Similique natus quam impedit, numquam nesciunt
-              vitae sapiente repellendus reiciendis, laudantium ipsa ab, nisi
-              officia voluptas deserunt voluptatem ipsam!
-            </div>
-            <div className="v_chat_message_received">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non,
-              rerum perferendis! Similique natus quam impedit, numquam nesciunt
-              vitae sapiente repellendus reiciendis, laudantium ipsa ab, nisi
-              officia voluptas deserunt voluptatem ipsam!
-            </div>
-            <div className="v_chat_message_sended">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente
-              minus, perspiciatis enim sunt eos at architecto non nulla,
-              reprehenderit labore ducimus ratione, tenetur expedita aspernatur
-              repellendus perferendis aliquid pariatur magni!
-            </div>
-            <div className="v_chat_message_sended">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente
-              minus, perspiciatis enim sunt eos at architecto non nulla,
-              reprehenderit labore ducimus ratione, tenetur expedita aspernatur
-              repellendus perferendis aliquid pariatur magni!
-            </div>
+            {messages.map((message, i) => 
+              message.isReceived ? (
+                <div key={i} className="v_chat_message_received">{message.text}
+                  <span className='v_chat_message_time'>{message.time}</span>
+                </div>
+              ) : (
+                <div key={i} className="v_chat_message_sended">{message.text}
+                  <span className='v_chat_message_time'>{message.time}</span>
+                </div>
+              )
+            )}
           </div>
-          <input
-            type="text"
-            className="v_chat_input_send_message"
-            placeholder="Enviar mensaje"
+          <input 
+            type="text" 
+            className='v_chat_input_send_message' 
+            placeholder='Enviar mensaje' 
+            value={message} 
+            onChange={({ target: { value } }) => setMessage(value)}
+            onKeyDown={sendMessage}
           />
+          <button className="v_chat_button_send_message" onClick={sendMessage}>
+            <FaPaperPlane color='#000'/>
+          </button>
         </div>
       </div>
       {vcModalPartners && (

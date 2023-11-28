@@ -125,27 +125,33 @@
 
 .v_chat_message_received {
   background: #D9D9D9;
-  width: 470px;
+  width: 490px;
   max-width: max-content;
-  min-width: 400px;
+  min-width: 490px;
   height: auto;
-  padding: 20px;
+  padding: 20px 20px 10px 20px;
   text-align: justify;
-  font-size: 13px;
+  font-size: 11px;
   margin: 40px 40px;
   overflow: auto;
 }
 
+.v_chat_message_time {
+  display: block;
+  font-size: 10px;
+  padding: 10px 0px 0px 90%;
+}
+
 .v_chat_message_sended {
   background: #D8A9FE;
-  width: 470px;
+  width: 490px;
   max-width: max-content;
-  min-width: 400px;
+  min-width: 490px;
   height: auto;
   padding: 20px;
   text-align: justify;
-  font-size: 12px;
-  margin: 40px 54%;
+  font-size: 11px;
+  margin: 40px 51.1%;
   overflow: auto;
 }
 
@@ -160,4 +166,23 @@
   border-radius: 30cm;
   border-style: none;
   outline: none;
+}
+
+.v_chat_button_send_message {
+  position: absolute;
+  top: 89.7%;
+  left: 93%;
+  width: 70px;
+  height: 48px;
+  border-radius: 1cm;
+  padding: 15px;
+  background: #ecebeb;
+  font-size: 18px;
+  border-style: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.v_chat_button_send_message:hover {
+  background: #b1b1b1;
 }
