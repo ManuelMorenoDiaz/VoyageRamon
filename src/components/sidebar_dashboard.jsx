@@ -5,6 +5,7 @@ import {
   FaUsers,
   FaNewspaper,
   FaBook,
+  FaImages
 } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 function sidebar_dashboard() {
@@ -12,12 +13,9 @@ function sidebar_dashboard() {
     { icon: <FaLocationDot />, text: "Lugares", link: "/admin_lugares" },
     { icon: <FaHotel />, text: "Hoteles", link: "/admin_hoteles" },
     { icon: <FaUsers />, text: "Usuarios", link: "/admin_usuarios" },
-    {
-      icon: <FaNewspaper />,
-      text: "Publicaciones",
-      link: "/admin_publicaciones",
-    },
+    {icon: <FaNewspaper />, text: "Publicaciones", link: "/admin_publicaciones",},
     { icon: <FaBook />, text: "Categorias", link: "/admin_categorias" },
+    { icon: <FaImages />, text: "Imagenes", link: "/admin_imagenes" }
   ];
 
   return (

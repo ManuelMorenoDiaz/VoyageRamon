@@ -122,10 +122,11 @@ function DashboardUsuarios() {
               <th className="table-header">Apellido Paterno</th>
               <th className="table-header">Apellido Materno</th>
               <th className="table-header">Email</th>
-              <th className="table-header">Contraseña</th>
+              
               <th className="table-header">Calificacion</th>
               <th className="table-header">Imagen</th>
               <th className="table-header">Estado</th>
+              <th className="table-header">Rol</th>
               <th className="table-header">Acciones</th>
             </tr>
           </thead>
@@ -140,16 +141,15 @@ function DashboardUsuarios() {
                   <td className="style-td">{lista.apellido_paterno}</td>
                   <td className="style-td">{lista.apellido_materno}</td>
                   <td className="style-td">{lista.email}</td>
-                  <td className="style-td">
-                    <span style={{ fontSize: "12px" }}>{lista.password}</span>
-                  </td>
+                 
                   <td className="style-td">
                     <span>{lista.calificacion}</span>
                   </td>
                   <td className="style-td">
-                    <img style={{ width: "85%" }} src={lista.imagen} />
+                    <img style={{ width: "25%" }} src={lista.imagen} />
                   </td>
-                  <td className="style-td">{lista.estado_republica}</td>
+                  <td className="style-td">{lista.estado_republica}</td> 
+                  <td className="style-td">{lista.role}</td>
                   <td className="style-td">
                     <div className="align_icon">
                       <button className="edit">
