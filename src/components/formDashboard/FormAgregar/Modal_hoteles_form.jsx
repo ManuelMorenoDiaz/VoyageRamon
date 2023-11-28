@@ -94,6 +94,16 @@ function Modal_hoteles_form({ show, onClose, fetchApi }) {
             type="text"
           />
           <br />
+          <label>Imagen</label>
+          <input
+            required
+            maxLength="255"
+            placeholder="Ingresa URl de la imagen"
+            className="inputs_datos_dashboard"
+            name="imagen"
+            type="text"
+          />
+          <br />
           <label>Descripción</label>
           <input
             required
