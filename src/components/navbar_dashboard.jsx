@@ -1,5 +1,5 @@
 import "../styles/dashboard_styles/navbar_dashboard.css";
-import voyage from "../assets/img/voyage.jpg";
+import voyage from "../assets/img/voyage.png";
 import { Link } from "react-router-dom";
 function navbar_dashboard() {
   return (
