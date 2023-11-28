@@ -53,7 +53,7 @@ function Nav() {
           </div>
           {user && user.role === 'admin' && (
             <div className='a'>
-              <Link to="/admin_usuarios" className="link_categorias">
+              <Link to="/admin_lugares" className="link_categorias">
                 <FaUserLock/> <p>Administrador</p>
               </Link>
             </div>

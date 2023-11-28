@@ -7,7 +7,7 @@ import DashboardHoteles from "./views/admin/dashboard-hotels";
 import DashboardUsuarios from "./views/admin/dashboard-users";
 import DashboardPublicaciones from "./views/admin/dashboard-posts";
 import DashboardCategorias from "./views/admin/dashboard-categories";
-import DashboardImagenes from "./views/admin/dashboard-imagenes.jsx";
+import DashboardImagenesLugares from "./views/admin/dashboard-imagenes_lugares.jsx";
 import ProtectedRoutes from "./middlewares/protectedRoutes.jsx";
 import AdminRoutes from "./middlewares/adminRoutes.jsx";
 
@@ -54,7 +54,7 @@ function App() {
                     element={<DashboardCategorias />}
                   />
                   <Route path="/admin_imagenes"
-                    element={<DashboardImagenes />}>
+                    element={<DashboardImagenesLugares />}>
                   </Route>
                   
                 </Route>

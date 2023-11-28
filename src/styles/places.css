@@ -1,5 +1,5 @@
 .places {
-  padding: 0 20px;
+
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -9,16 +9,6 @@
 }
 
 .card-place {
-<<<<<<< Updated upstream
-  background-color: #FFFFFF; 
-  border: 1px solid #E1E1E1; 
-  border-radius: 12px; 
-  width: 300px; 
-  height: auto; 
-  margin: 30px 0;
-  overflow: hidden; 
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
-=======
   background-color: #D9D9D9;
   border: #9225AA 2px solid;
   border-radius: 12px;
@@ -27,14 +17,12 @@
   margin: 20px;
   overflow: hidden;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
->>>>>>> Stashed changes
 }
 
 .card-place:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1);
 }
-<<<<<<< Updated upstream
   
   .card-place .cont-img {
     height: 190px;
@@ -118,8 +106,6 @@
   .btn-ver:hover svg {
     opacity: 1;
   }
-=======
->>>>>>> Stashed changes
 
 .card-place .cont-img {
   height: 190px;
@@ -146,8 +132,14 @@
 }
 
 .place-details h2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient:vertical;
+  overflow: hidden;
+  height: 30px;
+  box-sizing: border-box;
   margin-bottom: 10px;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .place-details h5 {

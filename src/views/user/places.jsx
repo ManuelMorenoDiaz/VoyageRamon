@@ -78,7 +78,7 @@ function CardPlace({ place }) {
         <div className="dt">
           <h5>Quintana Roo</h5>
         </div>
-        <p>{place.detalles}</p>
+        <p className="place-details-text">{place.detalles}</p>
         <div className="cnt-bot">
           <Link to={`/places/${place._id}`}>
             <button

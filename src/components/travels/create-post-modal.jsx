@@ -131,6 +131,8 @@ function TravelsPostModal({ showModal, closeModal }) {
                   className="modal-inputs"
                   type="number"
                   name="cantidad_personas"
+                  min="0"
+                  max="15"
                 />
               </div>
               <div>
@@ -140,6 +142,8 @@ function TravelsPostModal({ showModal, closeModal }) {
                   className="modal-inputs"
                   type="number"
                   name="presupuesto"
+                  min="0"
+                  max="99999"
                 />
               </div>
             </div>
