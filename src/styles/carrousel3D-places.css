@@ -31,7 +31,7 @@
     z-index: 1;
   }
   
-  img {
+  .imgCar {
     width: 350px;
     height: 100%;
     object-fit: cover;
@@ -58,7 +58,7 @@
     text-align: center;
   }
   
-  .detailsC>button{
+  .btnP{
     background-color: transparent;
     width: 150px;
     height: 35px;
@@ -70,7 +70,7 @@
 
   }
 
-  .detailsC>button:hover {
+  .btnP:hover {
     background-color: #9619fc; 
     transform: translateY(-3px);
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import "../styles/categoryCard.css";
+import "../styles/hotelCard.css";
 
 function HotelCard(props) {
   const [hovered, setHovered] = useState(false);
@@ -15,7 +15,7 @@ function HotelCard(props) {
 
   return (
     <div
-      className={`image-container ${hovered ? "hovered" : ""}`}
+      className={`image-containerH ${hovered ? "hovered" : ""}`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

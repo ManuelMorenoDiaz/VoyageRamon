@@ -2,26 +2,10 @@ import { useState, useRef, useEffect } from "react";
 import Swiper from 'swiper';
 import "swiper/swiper-bundle.css";
 import "../../src/styles/carrousel3D-places.css"; // Import the CSS file
+import { Link } from "react-router-dom";
 
-function Carrousel3DPlaces() {
-    const [slides, setSlides] = useState([
-        {
-            image:
-                "https://img.freepik.com/fotos-premium/estrellas-cielo-nocturno-sobre-lago-montana-ilustracion-fondo-natural-hermosa-montana-lago-galaxia-noche-estrellada_372999-8737.jpg",
-            title: "Imagen 1",
-        },
-        {
-            image:
-                "https://i.pinimg.com/originals/34/1b/8f/341b8faf772adb974fe7c309ba9758a5.png",
-            title: "Imagen 2",
-        },
-        {
-            image:
-                "https://www.tuexperto.com/wp-content/uploads/2022/01/fondos-de-pantalla-para-pc-de-naturaleza-1-1200x675.jpg",
-            title: "Imagen 3",
-        },
-    ]);
-
+function Carrousel3DPlaces(props) {
+    const slides=props.placesByC;
     useEffect(() => {
         const swiper = new Swiper('.swiper-container', {
             slidesPerView: 1,
@@ -51,12 +35,14 @@ function Carrousel3DPlaces() {
                 {slides.map((slide, index) => (
                     <div key={index} className="swiper-slide carrousel">
                         <div className="image">
-                            <img src={slide.image} alt={slide.title} />
+                            <img className="imgCar" src={slide.imagen} alt={slide.nombre} />
                         </div>
                         <div className="detailsC">
-                            <h2>{slide.title}</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia porro velit voluptas. Corrupti quaerat quis, non voluptatibus minima deserunt. Tempore cupiditate nostrum recusandae omnis harum temporibus doloribus similique obcaecati dolores!</p>
-                            <button>Ver mas</button>
+                            <h2>{slide.nombre}</h2>
+                            <p>{slide.detalles}</p>
+                            <Link to={`/places/${slide._id}`} >
+                                <button className="btnP">Ver mas</button>
+                            </Link>
                         </div>
                     </div>
                 ))}

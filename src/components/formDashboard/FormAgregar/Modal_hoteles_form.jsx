@@ -107,7 +107,7 @@ function Modal_hoteles_form({ show, onClose, fetchApi }) {
           <label>Descripción</label>
           <input
             required
-            maxLength="255"
+            maxLength="1000"
             placeholder="Ingresa una descripcion"
             className="inputs_datos_dashboard"
             name="descripcion"

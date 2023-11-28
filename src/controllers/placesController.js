@@ -1,13 +1,23 @@
 const Place = require('../models/places.js');
 
 const getPlaces = async (req, res) => {
-  try {
-    const places = await Place.find();
-    res.json(places);
-
-  } catch (error) {
-    res.status(500).json({ message: error.message });
+  if(req.query.categoria_id==null){
+    try {
+      const places = await Place.find();
+      res.json(places);
+  
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  }else{
+    try {
+      const places = await Place.find({categoria_id: req.query.categoria_id});
+      res.json(places);
+      } catch (error) {
+        res.status(500).json({ message: error.message });
+      }
   }
+ 
 };
 
 const getPlace = async (req, res) => {

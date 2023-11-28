@@ -26,6 +26,7 @@ export const useDataContext = () => {
 export const DataProvider = ({ children }) => {
   const { user } = useAuth();
   const [places, setPlaces] = useState([]);
+  const [placesByCategory, setPlacesByCategory ]=useState([]);
   const [hotels, setHotels] = useState([]);
   const [hotel, setHotel] = useState([]);
   const [posts, setPosts] = useState([]);
@@ -38,12 +39,21 @@ export const DataProvider = ({ children }) => {
   const [category, setCategory]=useState([]);
 
 
-  const fetchPlaces = async () => {
-    try {
-      const response = await getPlacesRequest();
-      setPlaces(response.data);
-    } catch (error) {
-      console.log("Error fetching places:", error);
+  const fetchPlaces = async (idC) => {
+    if(idC){
+      try{
+      let response = await getPlacesRequest(idC);
+      setPlacesByCategory(response.data);
+      }catch (error) {
+        console.log("Error fetching places by category:", error);
+      }
+    }else{
+      try {
+        const response = await getPlacesRequest();
+        setPlaces(response.data);
+      } catch (error) {
+        console.log("Error fetching places:", error);
+      }
     }
   };
 
@@ -119,8 +129,6 @@ export const DataProvider = ({ children }) => {
       const response = await getImgHotelsRequest(idH);
       setLal(response.data);
       setImg(response.data[2].id_imagen.imagen_link);
-      console.log("eeeeeeeeeeeeeeeeeee");
-      console.log(response.data[0].id_imagen.imagen_link);
     } catch (error) {
       console.log(error);
     }
@@ -158,6 +166,7 @@ export const DataProvider = ({ children }) => {
         imga,
         categories,
         category,
+        placesByCategory,
         fetchPlaces,
         fetchPlace,
         fetchHotels,

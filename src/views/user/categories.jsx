@@ -8,21 +8,19 @@ import CenterDetailsCategory from "../../components/center-details-category";
 import Carrousel3DPlaces from "../../components/carrousel3D-places";
 function categories() {
   const { idC }= useParams();
-  const { category, fetchCategory } = useDataContext();
+  const { category, fetchCategory, fetchPlaces, placesByCategory } = useDataContext();
 
   useEffect(()=>{
-    fetchCategory(idC)
-  }, [])
-
-  console.log("ooooooooooooooooooooooo");
-  console.log(category);
+    fetchCategory(idC);
+    fetchPlaces(idC);
+  }, []);
   return (
     <div>
       <Nav />
       <div className="cont-categories">
         <TopTitle lugar={category.titulo} desc={null} imagen={category.imagen} />
         <CenterDetailsCategory video={category.video} desc={category.descripcion} />
-        <Carrousel3DPlaces />
+      <Carrousel3DPlaces placesByC={placesByCategory}/>
       </div>
       <Footer />
     </div>

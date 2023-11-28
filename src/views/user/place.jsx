@@ -45,7 +45,7 @@ function Place() {
             <h2>Hoteles</h2>
           </div>
           <div className="bot-cat hotelsA">
-            {hotels.map((hotel) => (
+            {hotels.slice(0, 4).map((hotel) => (
               <Link to={`/hotels/${hotel._id}`} key={hotel._id}>
                 <HotelCard imgC={hotel.imagen} tituloC={hotel.nombre} />
               </Link>
