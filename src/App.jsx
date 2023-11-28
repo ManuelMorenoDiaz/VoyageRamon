@@ -7,7 +7,7 @@ import DashboardHoteles from "./views/admin/dashboard-hotels";
 import DashboardUsuarios from "./views/admin/dashboard-users";
 import DashboardPublicaciones from "./views/admin/dashboard-posts";
 import DashboardCategorias from "./views/admin/dashboard-categories";
-import DashboardImagenes from "./views/admin/dashboard-imagenes.jsx";
+import DashboardImagenesLugares from "./views/admin/dashboard-imagenes_lugares.jsx";
 import ProtectedRoutes from "./middlewares/protectedRoutes.jsx";
 import AdminRoutes from "./middlewares/adminRoutes.jsx";
 
@@ -31,12 +31,16 @@ function App() {
           <Router>
             <Routes>
               <Route path="/ingresar" element={<RegistroLogin />} />
-<Route path="/admin_lugares"
-                    element={<DashboardPlaces />}
+
+              <Route element={<ProtectedRoutes />}>
+                <Route element={<AdminRoutes />}>
+                  <Route 
+                    path="/admin_lugares" 
+                    element={<DashboardPlaces />} 
                   />
-                  <Route path="/admin_hoteles"
-                    element={<DashboardHoteles />}
-                  />
+                  <Route 
+                    path="/admin_hoteles" 
+                    element={<DashboardHoteles />} />
                   <Route
                     path="/admin_usuarios"
                     element={<DashboardUsuarios />}
@@ -50,23 +54,22 @@ function App() {
                     element={<DashboardCategorias />}
                   />
                   <Route path="/admin_imagenes"
-                    element={<DashboardImagenes />}>
+                    element={<DashboardImagenesLugares />}>
                   </Route>
-              <Route element={<ProtectedRoutes />}>
-                <Route element={<AdminRoutes />}>
                   
                 </Route>
-
+                
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/travels" element={<Travels />} />
+                <Route path="/places" element={<Places />} />
+                <Route path="/places/:idP" element={<Place />} />
+                <Route path="/people" element={<People />} />
+                <Route path="/chat" element={<Chat />} />
+                <Route path="/categories/:idC" element={<Categories />} />
+                <Route path="/hotels/:idH" element={<Hotels />} />
               </Route>
 
-              <Route path="/places" element={<Places />} />
-              <Route path="/places/:idP" element={<Place />} />
-              <Route path="/people" element={<People />} />
-              <Route path="/chat" element={<Chat />} />
-              <Route path="/categories/:idC" element={<Categories />} />
-              <Route path="/hotels/:idH" element={<Hotels />} />
+
               <Route path="/" exact element={<Home />} />
             </Routes>
           </Router>

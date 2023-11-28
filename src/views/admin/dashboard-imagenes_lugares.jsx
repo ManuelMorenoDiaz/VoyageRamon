@@ -6,28 +6,18 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { FaPenToSquare, FaTrash } from "react-icons/fa6";
 
-function DashboardImagenes() {
-  // const [showModal, setShowModal] = useState(false);
-
-  // const handleUsuarioClick = () => {
-  //   setShowModal(true);
-  // };
-
-  // const closeModal = () => {
-  //   setShowModal(false);
-  // };
-
-  const url = "http://localhost:3000/routes/images/";
-
+function DashboardImagenesPlaces() {
   const [list, setList] = useState([]);
 
   const fetchApi = async () => {
     try {
-      const response = await axios.get(url);
+      const response = await axios.get("http://localhost:3000/routes/images_places");
+
       if (response.status === 200) {
         const responseJSON = await response.data;
         setList(responseJSON);
       } else {
+        // Handle error
         Swal.fire({
           title: "Error!",
           text: "Error con los datos" + response.status,
@@ -35,6 +25,7 @@ function DashboardImagenes() {
         });
       }
     } catch (error) {
+      // Handle error
       Swal.fire({
         title: "Error!",
         text: "Error con los datos" + error,
@@ -52,7 +43,7 @@ function DashboardImagenes() {
       <Navbar_dashboard />
       <Sidebar_dashboard />
 
-      <h1 style={{ textAlign: "center", marginLeft: "14%" }}>Imagenes</h1>
+      <h1 style={{ textAlign: "center", marginLeft: "14%" }}>Imagenes de lugares</h1>
       <div
         style={{
           display: "flex",
@@ -60,34 +51,33 @@ function DashboardImagenes() {
           marginRight: "35px",
         }}
       >
-        <button className="form_add_datos" >
+        <button className="form_add_datos">
           Agregar
         </button>
       </div>
-      {/* <ModalFormHoteles
-        show={showModal}
-        onClose={closeModal}
-        fetchApi={fetchApi}
-      /> */}
       <section className="ContenedorTabla">
         <table id="dataTable" className="table">
           <thead className="estilos_th">
             <tr className="estilo-tr">
-              <th className="table-header">ID imagen</th>
               <th className="table-header">Nombre imagen</th>
               <th className="table-header">Imagen</th>
+              <th className="table-header">Nombre lugar</th>
               <th className="table-header">Acciones</th>
             </tr>
           </thead>
           <tbody className="estilos_tbody">
-             {Array.isArray(list) ? (
-              list.map((images, index) => {
-                return ( 
+            {Array.isArray(list) ? (
+              list.map((images_places, index) => {
+                const id_imagen = images_places.id_imagen;
+                const id_lugar = images_places.id_lugar;
+
+                return (
                   <tr key={index}>
-                    <td className="style-td">{images._id}</td>
-                    <td className="style-td">{images.nombre}</td>
-                    <td className="style-td"><img src={images.imagen_link} alt="" /></td>
-  
+                    <td className="style-td">{id_imagen.nombre}</td>
+                    <td className="style-td">
+                      <img src={id_imagen.imagen_link} alt={id_imagen.nombre} style={{ width: '90px', height: '90px' }} />
+                    </td>
+                    <td className="style-td">{id_lugar ? id_lugar.nombre : 'No tiene lugar'}</td>
                     <td className="style-td">
                       <div className="align_icon">
                         <button className="edit">
@@ -95,7 +85,7 @@ function DashboardImagenes() {
                         </button>
                         <button
                           className="delete"
-                          
+
                         >
                           <FaTrash />
                         </button>
@@ -116,4 +106,4 @@ function DashboardImagenes() {
   );
 }
 
-export default DashboardImagenes;
+export default DashboardImagenesPlaces;
