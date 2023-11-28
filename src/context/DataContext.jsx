@@ -96,7 +96,7 @@ export const DataProvider = ({ children }) => {
       const response = await getCategoriesRequest();
       setCategories(response.data);
     } catch (error) {
-      console.log("Error fetching hotels:", error);
+      console.log("Error fetching categories:", error);
     }
   };
 
@@ -105,7 +105,7 @@ export const DataProvider = ({ children }) => {
       const response = await getCategoryRequest(idC);
       setCategory(response.data);
     } catch (error) {
-      console.log("Error fetching hotels:", error);
+      console.log("Error fetching category:", error);
     }
   };
 
