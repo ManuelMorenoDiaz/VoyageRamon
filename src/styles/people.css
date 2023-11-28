@@ -5,7 +5,7 @@
 .users {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content:center;
   align-items: flex-start;
 }
 .cont-search {
@@ -46,4 +46,10 @@
     height: auto; 
     margin-bottom: 15px; 
   }
+
+  .users {
+    justify-content:center;
+    align-items: flex-start;
+  }
+
 }
