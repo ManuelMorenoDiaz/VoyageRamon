@@ -76,6 +76,16 @@ function Modal_lugares_form({ show, onClose, fetchApi }) {
             name="nombre"
           />
           <br />
+          <label>Imagen</label>
+          <input
+            required
+            maxLength="255"
+            placeholder="Ingresa URl de la imagen"
+            className="inputs_datos_dashboard"
+            name="imagen"
+            type="text"
+          />
+          <br />
           <label>Detalles</label>
           <input
             required

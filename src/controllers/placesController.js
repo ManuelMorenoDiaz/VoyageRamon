@@ -24,11 +24,12 @@ const getPlace = async (req, res) => {
 };
 
 const createPlace = async (req, res) => {
-  const { nombre, detalles, categoria_id } = req.body;
+  const { nombre, imagen, detalles, categoria_id } = req.body;
 
   try {
     const newPlace = new Place({
       nombre,
+      imagen,
       detalles,
       categoria_id
     });

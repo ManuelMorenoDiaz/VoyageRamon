@@ -19,7 +19,7 @@ const register = async (req, res) => {
         });
 
         const savedUser = await newUser.save();
-        const token = await createAccessToken({ id: savedUser._id })
+        const token = await createAccessToken({ _id: savedUser._id })
 
         res.cookie('token', token);
         res.json({
@@ -48,7 +48,7 @@ const login = async (req, res) => {
             return res.status(400).json({ message: 'Credenciales invalidas' });
         }
 
-        const token = await createAccessToken({ id: foundUser._id })
+        const token = await createAccessToken({ _id: foundUser._id })
 
         res.cookie('token', token);
         res.json({

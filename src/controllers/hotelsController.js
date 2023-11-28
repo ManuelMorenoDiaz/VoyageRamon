@@ -36,12 +36,13 @@ const getHotel = async (req, res) => {
 };
 
 const createHotel = async (req, res) => {
-  const { lugar_id, nombre, descripcion, direccion, telefono, presupuesto, email } = req.body;
+  const { lugar_id, nombre, imagen, descripcion, direccion, telefono, presupuesto, email } = req.body;
 
   try {
     const newHotel = new Hotel({
       lugar_id,
       nombre,
+      imagen,
       descripcion,
       direccion,
       telefono,

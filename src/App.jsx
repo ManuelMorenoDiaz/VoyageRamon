@@ -24,16 +24,14 @@ import Hotels from "./views/user/hotels";
 
 function App() {
   return (
-    <DataProvider>
+    <AuthProvider>
       <div className="app">
-        <AuthProvider>
+        <DataProvider>
           <Router>
             <Routes>
               <Route path="/ingresar" element={<RegistroLogin />} />
 
-              <Route element={<ProtectedRoutes />}>
-                <Route element={<AdminRoutes />}>
-                  <Route path="/admin_lugares" element={<DashboardPlaces />} />
+              <Route path="/admin_lugares" element={<DashboardPlaces />} />
                   <Route path="/admin_hoteles" element={<DashboardHoteles />} />
                   <Route
                     path="/admin_usuarios"
@@ -47,12 +45,16 @@ function App() {
                     path="/admin_categorias"
                     element={<DashboardCategorias />}
                   />
+
+              <Route element={<ProtectedRoutes />}>
+                <Route element={<AdminRoutes />}>
+                  
                 </Route>
 
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/travels" element={<Travels />} />
               </Route>
 
-              <Route path="/travels" element={<Travels />} />
               <Route path="/places" element={<Places />} />
               <Route path="/places/:idP" element={<Place />} />
               <Route path="/people" element={<People />} />
@@ -62,9 +64,9 @@ function App() {
               <Route path="/" exact element={<Home />} />
             </Routes>
           </Router>
-        </AuthProvider>
+        </DataProvider>
       </div>
-    </DataProvider>
+    </AuthProvider>
   );
 }
 export default App;

@@ -4,14 +4,13 @@ import TravelPost from "../../components/travels/travel-post.jsx";
 import TravelBoardPost from "../../components/travels/travel-board-post.jsx";
 import TravelsPostModal from "../../components/travels/create-post-modal.jsx";
 import Footer from "../../components/footer";
-import Swal from "sweetalert2";
-
-import { getPostRequest } from "../../api/travels.js";
-import { getPlacesRequest } from "../../api/travels.js";
+import { useDataContext } from "../../context/DataContext.jsx";
 
 import "../../styles/travels.css";
 
 function Travels() {
+  const { fetchPosts, posts, userPosts } = useDataContext();
+
   const [showModal, setShowModal] = useState(false);
 
   const handleOpenModal = () => {
@@ -22,49 +21,18 @@ function Travels() {
     setShowModal(false);
   };
 
-  const [list, setList] = useState([]);
-  const [lugares, setLugares] = useState([]);
-
-  const fetchApi = async () => {
-    try {
-      const response = await getPostRequest();
-      setList(response.data);
-    } catch (error) {
-      Swal.fire({
-        title: "Error!",
-        text: "Error con los datos" + error,
-        icon: "error",
-      });
-    }
-  };
-
-  const fetchLugares = async () => {
-    try {
-      const response = await getPlacesRequest();
-      setLugares(response.data);
-    } catch (error) {
-      console.error("Error al obtener lugares:", error);
-    }
-  };
-
-  const obtenerNombreLugar = (lugarId) => {
-    const lugar = lugares.find((l) => l._id === lugarId);
-    return lugar ? lugar.nombre : "Lugar no encontrado";
-  };
-
   const fechaformateada = (date) => {
     const fecha = new Date(date);
     const year = fecha.getFullYear();
-    const month = (fecha.getMonth() + 1).toString().padStart(2, '0');
-    const day = fecha.getDate().toString().padStart(2, '0');
-  
-      return `${year}/${month}/${day}`;
-  }
+    const month = (fecha.getMonth() + 1).toString().padStart(2, "0");
+    const day = fecha.getDate().toString().padStart(2, "0");
 
+    return `${year}/${month}/${day}`;
+  };
 
   useEffect(() => {
-    fetchApi();
-    fetchLugares();
+    fetchPosts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -72,14 +40,14 @@ function Travels() {
       <Nav />
       <div className="cont-travels">
         <section className="left-side">
-          {Array.isArray(list) ? (
-            list.map((lista) => (
+          {posts ? (
+            posts.map((lista) => (
               <TravelPost
                 key={lista._id}
                 tituloPost={lista.titulo}
-                nombreUser="No agregamos este campo a la base de datos jaja"
+                nombreUser={lista.usuario_id.nombre}
                 descripcionPost={lista.descripcion}
-                lugarPost={obtenerNombreLugar(lista.lugar_id)}
+                lugarPost={lista.lugar_id.nombre}
                 fechaPost={fechaformateada(lista.fecha)}
                 limitePost={lista.cantidad_personas}
                 presupuestoPost={lista.presupuesto}
@@ -93,12 +61,9 @@ function Travels() {
           <div className="travels-board">
             <h1>Mis viajes</h1>
             <div className="travels-board-content">
-              {Array.isArray(list) ? (
-                list.map((lista) => (
-                  <TravelBoardPost
-                    key={lista._id}
-                    tituloPost={lista.titulo}
-                  />
+              {userPosts ? (
+                userPosts.map((lista) => (
+                  <TravelBoardPost key={lista._id} tituloPost={lista.titulo} />
                 ))
               ) : (
                 <h1>Cargando...</h1>
@@ -110,11 +75,7 @@ function Travels() {
       </div>
 
       {showModal && (
-        <TravelsPostModal
-          showModal={showModal}
-          closeModal={handleCloseModal}
-          fetchApi={fetchApi}
-        />
+        <TravelsPostModal showModal={showModal} closeModal={handleCloseModal} />
       )}
 
       <Footer />

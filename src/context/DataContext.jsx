@@ -8,6 +8,8 @@ import {
 import { getCategoriesRequest, getCategoryRequest } from "../api/categories";
 
 import { getUsersRequest } from "../api/auth";
+import { getPostRequest } from "../api/travels";
+import { useAuth } from "./authContext";
 
 const DataContext = createContext();
 
@@ -22,9 +24,12 @@ export const useDataContext = () => {
 
 // eslint-disable-next-line react/prop-types
 export const DataProvider = ({ children }) => {
+  const { user } = useAuth();
   const [places, setPlaces] = useState([]);
   const [hotels, setHotels] = useState([]);
   const [hotel, setHotel] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [userPosts, setUserPosts] = useState([]);
   const [personas, setPersonas] = useState([]);
   const [place, setIPlaces] = useState({});
   const [lal, setLal] = useState([]);
@@ -39,6 +44,25 @@ export const DataProvider = ({ children }) => {
       setPlaces(response.data);
     } catch (error) {
       console.log("Error fetching places:", error);
+    }
+  };
+
+  const fetchPosts = async () => {
+    try {
+      const response = await getPostRequest();
+
+      const usuario = response.data.filter(
+        (post) => post.usuario_id._id === user._id
+      );
+
+      const noUsuario = response.data.filter(
+        (post) => post.usuario_id._id != user._id
+      );
+
+      setUserPosts(usuario);
+      setPosts(noUsuario);
+    } catch (error) {
+      console.log("Error fetching posts:", error);
     }
   };
 
@@ -79,6 +103,7 @@ export const DataProvider = ({ children }) => {
       console.log(error);
     }
   };
+
   const fetchImagesHotels = async (idH) => {
     try {
       const response = await getImgHotelsRequest(idH);
@@ -113,6 +138,8 @@ export const DataProvider = ({ children }) => {
     <DataContext.Provider
       value={{
         places,
+        posts,
+        userPosts,
         hotels,
         hotel,
         personas,
@@ -127,6 +154,7 @@ export const DataProvider = ({ children }) => {
         fetchPersonas,
         fetchLal,
         fetchImagesHotels,
+        fetchPosts,
         fetchCategories,
         fetchCategory
       }}
