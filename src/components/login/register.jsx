@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useAuth } from "../../context/authContext.jsx";
+import { useAuth } from "../../context/authContext";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/Login/register.css";
@@ -11,7 +11,7 @@ const Register = ({ swapPanel, setSwapPanelfalse }) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
+  
   const { signup, isAuthenticated, errors: registerErrors } = useAuth();
   const navigate = useNavigate();
 
@@ -92,11 +92,11 @@ const Register = ({ swapPanel, setSwapPanelfalse }) => {
             <button type="submit" className="botonRegister">
               Registrarte
             </button>
-            <button className="botonRegisterGoogle">Continuar con</button>
+
           </div>
           <p>
             ¿Ya estas registrado?
-            <a onClick={() => setSwapPanelfalse(false)}>Iniciar sesion</a>
+            <a onClick={() => setSwapPanelfalse(false)}> Iniciar sesion</a>
           </p>
         </div>
       </form>

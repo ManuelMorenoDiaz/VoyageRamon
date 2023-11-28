@@ -2,7 +2,8 @@
 /* Estilos para el contenedor del carrusel */
 .slideshow-container {
   width: 80%;
-  margin: 0 auto;
+  height: 450px; 
+  margin: 20px auto;
   overflow: hidden;
   border-radius: 8px; 
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); 
@@ -11,8 +12,8 @@
 /* Estilos para las imágenes dentro del carrusel */
 .slideshow-container img {
   width: 100%;
-  height: 600px; 
-  object-fit: cover; 
+  height: 450px; 
+  object-fit:cover; 
   border-radius: 8px; 
 }
 

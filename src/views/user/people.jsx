@@ -81,7 +81,7 @@ function People() {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Ejemplo Modal"
-        className='modal'
+        className='modal-people'
       >
         <div className="modal-user">
           <div className="info">

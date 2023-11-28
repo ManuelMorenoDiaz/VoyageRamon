@@ -1,4 +1,7 @@
-/* Estilos para el contenedor del título y descripción principal */
+
+.contH{
+  padding: 20px;
+}
 .cont-hotels {
   background-image: url("https://cf.bstatic.com/xdata/images/hotel/max1024x768/428261237.jpg?k=9996c3d2a0072c3c5f2d193117adf6e389c33f648e07f13956b86bc6f4cd36d1&o=&hp=1");
   background-position: center;
@@ -12,6 +15,7 @@
   justify-content: center;
   color: white;
   text-align: center;
+  padding: 20px;
 }
 
 .cont-hotels h1 {
@@ -26,7 +30,7 @@
 
 /* Estilos para el contenedor del contenido de hoteles */
 .contenido-hotels {
-  margin: 40px auto; 
+  margin: 10px auto; 
   display: flex;
   flex-wrap: wrap;
   gap: 20px; 

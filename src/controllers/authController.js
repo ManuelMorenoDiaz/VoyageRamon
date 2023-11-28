@@ -29,6 +29,7 @@ const register = async (req, res) => {
             apellido_materno: savedUser.apellido_materno,
             email: savedUser.email,
             role: savedUser.role,
+            estado: savedUser.estado,
         });
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -59,6 +60,7 @@ const login = async (req, res) => {
             apellido_materno: foundUser.apellido_materno,
             email: foundUser.email,
             role: foundUser.role,
+            estado: foundUser.estado,
         });
     } catch (error) {
         res.status(500).json({ message: error.message });

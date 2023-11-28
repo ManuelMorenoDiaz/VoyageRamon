@@ -1,35 +1,31 @@
 /*Usar esto en las demas hojas de estilo para dejar la Navbar en su lugar*/
-.travels-body>Nav{
-    position: fixed;
-}
-
-.cont-travels{
+.cont-travels {
     display: flex;
     margin: 0;
     padding: 0;
     min-height: 86.2vh;
+    box-sizing: border-box;
+    position: relative;
 }
 
-.left-side{
-    width:68%;
+.left-side {
+    width: 68%;
     padding: 10px;
-    margin-top: 80px;
-    margin-bottom: -12px;
-    padding-left: 50px;
+    position: relative;
 }
 
-.right-side{
-    width:32%;
+.right-side {
+    top: 0;
+    width: 32%;
+    height: 560px;
     padding: 10px;
-    top: 80px;
-    margin-bottom: 80px;
     display: flex;
+    box-sizing: border-box;
     justify-content: center;
-    position:fixed;
-    left:68%;
+    position: sticky;
 }
 
-.travels-board{
+.travels-board {
     margin-top: 20px;
     width: 80%;
     min-height: 500px;
@@ -37,43 +33,44 @@
     background-color: #D9D9D9;
     border-radius: 6px;
     border: #9225AA 2px solid;
-    display:flex;
+    display: flex;
     flex-wrap: wrap;
-    justify-content:center;
+    justify-content: center;
 }
 
-.travels-board>h1{
+.travels-board>h1 {
     margin: 0;
     padding: 10px;
 }
 
-.travels-board-content{
+.travels-board-content {
     width: 90%;
     min-height: 400px;
     max-height: 400px;
     background-color: #BDBDBD;
     border-radius: 6px;
-    display:block;
-    overflow:scroll;
+    display: block;
+    overflow: scroll;
     overflow-x: hidden;
 }
 
-.travels-board-content::-webkit-scrollbar{
+.travels-board-content::-webkit-scrollbar {
     width: 8px;
-  } 
-  .travels-board-content::-webkit-scrollbar-thumb {
+}
+
+.travels-board-content::-webkit-scrollbar-thumb {
     background-color: #9225aa;
     border-radius: 6px;
-  }
-  
-  .travels-board-content::-webkit-scrollbar-track {
-    background-color: #ffffff;
-  }
+}
 
-.travels-board>button{
+.travels-board-content::-webkit-scrollbar-track {
+    background-color: #ffffff;
+}
+
+.travels-board>button {
     background-color: #0ACF59;
     color: #ffffff;
-    font-weight:bolder;
+    font-weight: bolder;
     font-size: 40px;
     border-radius: 100px;
     border-style: none;
@@ -85,25 +82,25 @@
     margin-left: auto;
 }
 
-.travels-board>button:active{
+.travels-board>button:active {
     background-color: #079640;
 }
 
 @media (max-width: 1250px) {
-    .left-side{
-        width:60%;
+    .left-side {
+        width: 60%;
         padding: 10px;
     }
-    
-    .right-side{
-        width:40%;
-        padding:0;
+
+    .right-side {
+        width: 40%;
+        padding: 0;
         padding-top: 10px;
         margin-bottom: 0px;
-        left:60%;
+        left: 60%;
     }
-    
-    .travels-board{
+
+    .travels-board {
         margin-top: 20px;
         width: 80%;
     }
@@ -122,24 +119,24 @@
 
     .right-side {
         width: 100%;
-        margin-top: 80px;
+        height: auto;
         top: auto;
         left: auto;
         margin-bottom: 0;
-        position:static;
+        position: static;
         display: flex;
         justify-content: center;
     }
 
-    .travels-board{
+    .travels-board {
         width: 70%;
         min-height: 450px;
         max-height: 450px;
-        display:flex;
-        justify-content:center;
+        display: flex;
+        justify-content: center;
     }
-    
-    .travels-board-content{
+
+    .travels-board-content {
         width: 94%;
         min-height: 350px;
         max-height: 350px;
@@ -147,16 +144,16 @@
 }
 
 @media (max-width: 430px) {
-    .travels-board{
+    .travels-board {
         width: 80%;
         min-height: 400px;
         max-height: 400px;
-        display:flex;
+        display: flex;
         flex-wrap: wrap;
-        justify-content:center;
+        justify-content: center;
     }
-    
-    .travels-board-content{
+
+    .travels-board-content {
         width: 90%;
         min-height: 300px;
         max-height: 300px;

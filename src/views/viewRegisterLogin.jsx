@@ -1,8 +1,8 @@
 import { useState } from "react";
 import classnames from "classnames";
-import Register from "../../src/components/login/register.jsx";
-import Login from "../../src/components/login/login.jsx";
-import Overlay from "../../src/components/login/overlay.jsx";
+import Register from "../components/login/register.jsx"
+import Login from "../components/login/login";
+import Overlay from "../components/login/overlay.jsx";
 import Media from "react-media";
 
 function RegistroLogin() {

@@ -13,6 +13,7 @@ const Login = ({ swapPanel, setSwapPaneltrue }) => {
   const { singin, errors: singinErrors } = useAuth();
 
   const onSubmit = handleSubmit((data) => {
+    console.log(data);
     singin(data);
   });
 
@@ -48,7 +49,6 @@ const Login = ({ swapPanel, setSwapPaneltrue }) => {
             <button type="submit" className="botonRegister">
               Iniciar sesion
             </button>
-            <button className="botonRegisterGoogle">Continuar con</button>
           </div>
         </div>
         <p>

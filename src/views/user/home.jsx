@@ -22,6 +22,11 @@ function Home() {
       ruta: "/src/assets/img/Funciona_1.jpg",
     },
     {
+      titulo: "Planifica viajes",
+      desc: "Viaja con las condiciones adecuadas para ti",
+      ruta: "/src/assets/img/Funciona_5.jpg",
+    },
+    {
       titulo: "Conoce lugares",
       desc: "Encuentra el lugar perfecto para viajar",
       ruta: "/src/assets/img/Funciona_3.jpg",
@@ -38,7 +43,7 @@ function Home() {
       <div className="cont-home">
         <h1>VOYAGE</h1>
         <h3>
-          <i>{"Viajemos Juntos"}</i>
+          <i>Viajemos Juntos</i>
         </h3>
         <Link to="/places/">
           <button className="btn">Buscar destino</button>

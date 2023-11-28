@@ -1,15 +1,17 @@
+import logo from "../../assets/img/voyage.png";
 import "../../styles/Login/overlay.css";
-import logo from "../../assets/img/voyage.jpg";
 
 const Overlay = () => {
   return (
     <div className="overlay-container">
       <div className="overlay">
         <div className="overlay-panel overlay-left">
-          <img src={logo} className="img_logo" />
+          <img className="img_logo" src={logo} />
+          <br />
         </div>
         <div className="overlay-panel overlay-right">
-          <img src={logo} className="img_logo" />
+          <img className="img_logo" src={logo} />
+          <br />
         </div>
       </div>
     </div>
