@@ -16,8 +16,11 @@ function Place() {
   useEffect(() => {
     fetchHotels(idP);
     fetchLal(idP);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+
+  console.log("prrrrrrrrrrrrrrrrrrrrrrrrrr", idP);
+  console.log(hotels);
 
   return (
     <div>
