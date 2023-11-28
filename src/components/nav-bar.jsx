@@ -11,7 +11,7 @@ import {
 } from "react-icons/fa";
 import { HiMenu } from "react-icons/hi";
 import { useState } from "react";
-import voyage from "../assets/img/voyage.jpg";
+import voyage from "../assets/img/voyage.png";
 
 function Nav() {
   const { user } = useAuth();
@@ -30,7 +30,7 @@ function Nav() {
           </Link>
         </div>
         <div onClick={handleMenuClick} className="menu_icono">
-          <FaPlaneDeparture icon={click ? FaMapMarkedAlt : FaUserFriends} />
+          <HiMenu icon={click ? FaMapMarkedAlt : FaUserFriends} />
         </div>
         <div className={click ? "menu_nav active" : "menu-nav"}>
           <div className="img_logo_responsive">

@@ -69,7 +69,11 @@ function CardPlace({ place }) {
     <article className="card-place">
       <div className="cont-img">
         <img
+<<<<<<< Updated upstream
           src={place.imagen}
+=======
+          src="https://img.remediosdigitales.com/c467e9/ferrari-sf90-spider-el-auto-mas-caro-de-mexico7/840_560.jpeg"
+>>>>>>> Stashed changes
           alt=""
         />
       </div>
@@ -78,7 +82,11 @@ function CardPlace({ place }) {
         <div className="dt">
           <h5>Quintana Roo</h5>
         </div>
+<<<<<<< Updated upstream
         <p>{place.detalles}</p>
+=======
+        <p className="place-details-text">{place.detalles}</p>
+>>>>>>> Stashed changes
         <div className="cnt-bot">
           <Link to={`/places/${place._id}`}>
             <button

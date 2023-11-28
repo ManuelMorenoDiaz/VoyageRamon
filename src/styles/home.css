@@ -1,7 +1,7 @@
 
 .cont-home {
     position: relative;
-    height: 90vh;
+    height: 70vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -91,7 +91,7 @@
   font-size: 40px;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 10px; /* Añade espacio inferior */
+
 }
 
 .top-cate > h4 {

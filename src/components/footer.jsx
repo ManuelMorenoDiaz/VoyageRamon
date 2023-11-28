@@ -1,6 +1,6 @@
 import "../styles/footer.css";
 import { FaFacebook, FaInstagram, FaXTwitter } from "react-icons/fa6";
-import voyage from "../assets/img/voyage.jpg";
+import voyage from "../assets/img/voyage.png";
 function footer() {
   return (
     <div style={{ borderBottom: "10px solid black" }}>
