@@ -6,6 +6,8 @@ import {
   FaMapMarkedAlt,
   FaUserFriends,
   FaUserCircle,
+  FaUserLock
+  
 } from "react-icons/fa";
 import { HiMenu } from "react-icons/hi";
 import { useState } from "react";
@@ -49,10 +51,10 @@ function Nav() {
           <div className='a'>
             <Link to="/profile" className='link_categorias'><FaUserCircle /> <p>Perfil</p></Link>
           </div>
-          {user?.role === 'admin' && (
+          {user && user.role === 'admin' && (
             <div className='a'>
               <Link to="/admin_usuarios" className="link_categorias">
-                <p>Administrador</p>
+                <FaUserLock/> <p>Administrador</p>
               </Link>
             </div>
           )}
