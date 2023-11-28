@@ -95,10 +95,6 @@ const verifyToken = async (req, res) => {
             apellido_materno: userFound.apellido_materno,
             email: userFound.email,
             role: userFound.role,
-<<<<<<< Updated upstream
-=======
-            estado: userFound.estado,
->>>>>>> Stashed changes
         });
     });
 }
