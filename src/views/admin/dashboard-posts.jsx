@@ -47,13 +47,13 @@ function DashboardPublicaciones() {
   const ParaEliminar = async (_id) => {
     Swal.fire({
       title: "Eliminar",
-      text: "Deseas eliminar el dato",
+      text: "Deseas eliminar el dato?",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "red",
       cancelButtonColor: "green",
-      confirmButtonText: "Si quierooo borrarlooo ",
-      cancelButtonText: "No quieeroo",
+      confirmButtonText: "Eliminar",
+      cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
         deletedato(_id);
@@ -65,7 +65,7 @@ function DashboardPublicaciones() {
     try {
       const response = await axios.delete(`${url}${_id}`);
       if (response.status === 200) {
-        Swal.fire("El dato esta eliminado :(");
+        Swal.fire("El dato esta eliminado");
         fetchApi();
       } else {
         Swal.fire({

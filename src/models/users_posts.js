@@ -2,21 +2,21 @@ const { Schema, model } = require('mongoose');
 const mongoose = require('mongoose');
 
 const users_postSchema = new Schema({
-  id_publicaciones: {
+  id_publicacion: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'post',
+    ref: 'Post',
     required: true
   },
-  id_usuarios: {
+  id_usuario: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'user',
+    ref: 'User',
     required: true
   },
   tipo: {
     type: String,
     enum: ['Owner', 'Participant', 'Pending'],
-    required: true,
-    default: 'Activo'
+    default: 'Pending',
+    required: true
   }
 });
 

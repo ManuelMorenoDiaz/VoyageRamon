@@ -3,11 +3,9 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import "../../../styles/modales_dashboard.css";
 import "react-phone-number-input/style.css";
-import PhoneInput from "react-phone-number-input";
 
 // eslint-disable-next-line react/prop-types
-function Modal_hoteles_form({ show, onClose, fetchApi }) {
-  const [value, setValue] = useState();
+function ModalImagenesPlacesForm({ show, onClose, fetchApi }) {
   const modalRef = useRef(null);
   const [places, setPlaces] = useState([]);
 
@@ -40,20 +38,31 @@ function Modal_hoteles_form({ show, onClose, fetchApi }) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    const nombre = event.target.elements.nombre.value;
+    const imagen_link = event.target.elements.imagen_link.value;
+    if (!nombre || !imagen_link) {
+      Swal.fire({
+        title: "Error",
+        text: "Por favor, completa todos los campos",
+        confirmButtonColor: "green",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+  
     try {
       const formData = new FormData(event.target);
       const data = Object.fromEntries(formData);
-
-      await axios.post("http://localhost:3000/routes/hotels/", data);
-
+  
+      await axios.post("http://localhost:3000/routes/images_places", data);
+  
       Swal.fire({
-        title: "Hotel añadido",
+        title: "Imagen de lugar añadida correctamente",
         icon: "success",
         confirmButtonColor: "green",
         confirmButtonText: "OK",
       });
-
+  
       onClose();
       fetchApi();
     } catch (error) {
@@ -63,8 +72,8 @@ function Modal_hoteles_form({ show, onClose, fetchApi }) {
         confirmButtonColor: "green",
         confirmButtonText: "OK",
       });
-
-      console.error("Error al añadir hotel:", error);
+  
+      console.error("Error al añadir imagen de lugar:", error);
     }
   };
 
@@ -74,8 +83,8 @@ function Modal_hoteles_form({ show, onClose, fetchApi }) {
     <div className="modal_overlay">
       <div className="modal_content" ref={modalRef}>
         <form className="formulario_inputs_dashboard" onSubmit={handleSubmit}>
-          <label>Ubicacion del hotel</label>
-          <select required className="inputs_datos_dashboard" name="lugar_id">
+          <label>Selecciona un lugar</label>
+          <select required className="inputs_datos_dashboard" name="id_lugar">
             <option value="">Selecciona un lugar</option>
             {places.map((place) => (
               <option key={place._id} value={place._id}>
@@ -83,7 +92,8 @@ function Modal_hoteles_form({ show, onClose, fetchApi }) {
               </option>
             ))}
           </select>
-          <label>Nombre</label>
+          <br />
+          <label>Nombre de la imagen</label>
           <input
             required
             maxLength="80"
@@ -92,63 +102,17 @@ function Modal_hoteles_form({ show, onClose, fetchApi }) {
             name="nombre"
             type="text"
           />
-          <label>Imagen</label>
+          <br />
+          <label>URL de la imagen</label>
           <input
             required
             maxLength="255"
             placeholder="Ingresa URl de la imagen"
             className="inputs_datos_dashboard"
-            name="imagen"
+            name="imagen_link"
             type="text"
           />
-          <label>Descripción</label>
-          <input
-            required
-            maxLength="1000"
-            placeholder="Ingresa una descripcion"
-            className="inputs_datos_dashboard"
-            name="descripcion"
-            type="text"
-          />
-          <label>Direccion</label>
-          <input
-            required
-            maxLength="40"
-            placeholder="Ingresa una direccion"
-            className="inputs_datos_dashboard"
-            name="direccion"
-            type="text"
-          />
-          <label>Telefono</label>
-          <PhoneInput
-            required
-            placeholder="Ingresa un Telefono"
-            className="inputs_datos_dashboard"
-            name="telefono"
-            defaultCountry="MX"
-            value={value}
-            onChange={setValue}
-          />
-          <label>Presupuesto</label>
-          <input
-            required
-            className="inputs_datos_dashboard"
-            placeholder="Ingresa el presupuesto"
-            name="presupuesto"
-            type="number"
-            step="0.01"
-            min="0"
-            pattern="^\d+(\.\d{1,2})?$"
-          />
-
-          <label>Correo</label>
-          <input
-            required
-            className="inputs_datos_dashboard"
-            placeholder="Ingresa un correo"
-            name="email"
-            type="email"
-          />
+          <br />
           <button type="submit">Añadir :V</button>
         </form>
       </div>
@@ -156,4 +120,4 @@ function Modal_hoteles_form({ show, onClose, fetchApi }) {
   );
 }
 
-export default Modal_hoteles_form;
+export default ModalImagenesPlacesForm;

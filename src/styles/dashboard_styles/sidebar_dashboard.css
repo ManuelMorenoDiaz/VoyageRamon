@@ -33,10 +33,10 @@
 }
 
 .nav .link {
+  font-size: 16px;
   display: flex;
   align-items: center;
-  padding: 15px;
-  font-weight: 400;
+  padding: 10px 0px 12px 5px;
   font-family: "Open Sans";
   text-decoration: none;
   color: white;
@@ -44,5 +44,5 @@
 }
 
 .separacion {
-  padding: 10px;
+  padding: 7px;
 }

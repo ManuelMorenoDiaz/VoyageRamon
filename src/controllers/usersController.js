@@ -49,10 +49,25 @@ const createUser = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
-  try {
-    //const passwordHash = await bcrypt.hash(password, 10)
+  const {nombre, apellido_paterno, apellido_materno, email, estado_republica, imagen, password} = req.body;
 
-    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
+  try {
+    let passwordHash = password; // Contraseña encriptada, por defecto tiene el mismo valor que el campo del body
+
+    // Si la contraseña existe en el objeto req.body se encripta
+    if (password) {
+      passwordHash = await bcrypt.hash(password, 10);
+    }
+
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, {
+      nombre, 
+      apellido_paterno,
+      apellido_materno, 
+      email,
+      estado_republica,
+      imagen,
+      password: passwordHash
+    }, { new: true });
     if (!updatedUser) {
       return res.status(404).json({ message: 'Usuario no encontrado' });
     }
@@ -75,10 +90,24 @@ const deleteUser = async (req, res) => {
   }
 };
 
+const getUserImage = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ message: 'Usuario no encontrado' });
+    }
+
+    res.json({ imagen: user.imagen });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   getUsers,
   getUser,
   createUser,
   updateUser,
-  deleteUser
+  deleteUser,
+  getUserImage
 }

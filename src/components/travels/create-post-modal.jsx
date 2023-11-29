@@ -132,7 +132,7 @@ function TravelsPostModal({ showModal, closeModal }) {
                   type="number"
                   name="cantidad_personas"
                   min="0"
-                  max="15"
+                  //max="15"
                 />
               </div>
               <div>
@@ -143,7 +143,7 @@ function TravelsPostModal({ showModal, closeModal }) {
                   type="number"
                   name="presupuesto"
                   min="0"
-                  max="99999"
+                  //max="99999"
                 />
               </div>
             </div>
