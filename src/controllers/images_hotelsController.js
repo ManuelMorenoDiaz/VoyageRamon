@@ -1,9 +1,21 @@
 const Images_hotel = require('../models/images_hotels.js');
+const Image = require('../models/images.js');
 
 const getImages_hotels = async (req, res) => {
   try {
-    const hotelId = req.query.hotel_id; 
-    const images_hotels = await Images_hotel.find({ id_hotel: hotelId }).populate('id_hotel').populate('id_imagen');
+    const hotelId = req.query.hotel_id;
+    let images_hotels;
+
+    if (hotelId) {
+      images_hotels = await Images_hotel.find({ id_hotel: hotelId })
+        .populate("id_hotel")
+        .populate("id_imagen");
+    } else {
+      images_hotels = await Images_hotel.find()
+        .populate("id_hotel")
+        .populate("id_imagen");
+    }
+
     res.json(images_hotels);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -24,13 +36,20 @@ const getImages_hotel = async (req, res) => {
 };
 
 const createImages_hotel = async (req, res) => {
-  const { id_hotel, id_imagen } = req.body;
+  const { id_hotel, nombre, imagen_link } = req.body;
 
   try {
+    const newImage = new Image({
+      nombre,
+      imagen_link,
+    });
+    const savedImage = await newImage.save();
+
     const newImages_hotel = new Images_hotel({
       id_hotel,
-      id_imagen
+      id_imagen: savedImage._id,
     });
+
     const savedImages_hotel = await newImages_hotel.save();
     res.json(savedImages_hotel);
 

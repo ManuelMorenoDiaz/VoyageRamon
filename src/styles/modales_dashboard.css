@@ -58,6 +58,24 @@
   background-color: #b54ecc;
 }
 
+.formulario_inputs_dashboard {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputs_datos_dashboard {
+  margin: 1px;
+  border: 2px solid #9225aa;
+  font-size: 15px;
+  padding-left: 3px;
+  width: 350px;
+  height: 30px;
+  margin-bottom: 8px;
+}
+
+
+
+
 /* Estilos para pantallas más pequeñas */
 @media screen and (max-width: 768px) {
   .modal_overlay {
@@ -73,18 +91,4 @@
     font-size: 13px;
     padding: 8px 20px;
   }
-}
-
-.formulario_inputs_dashboard {
-  display: flex;
-  flex-direction: column;
-}
-
-.inputs_datos_dashboard {
-  margin: 1px;
-  border: 2px solid #9225aa;
-  font-size: 15px;
-  padding-left: 3px;
-  width: 350px;
-  height: 30px;
 }

@@ -24,12 +24,13 @@ const getFriend = async (req, res) => {
 };
 
 const createFriend = async (req, res) => {
-  const { id_usuario, id_amigo } = req.body;
+  const { id_usuario, id_amigo, estado } = req.body;
 
   try {
     const newFriend = new Friend({
       id_usuario,
-      id_amigo
+      id_amigo,
+      estado
     });
     const savedFriend = await newFriend.save();
     res.json(savedFriend);

@@ -1,13 +1,39 @@
 const Users_post = require('../models/users_posts.js');
 
 const getUsers_posts = async (req, res) => {
-  try {
-    const users_posts = await Users_post.find();
-    res.json(users_posts);
 
-  } catch (error) {
-    res.status(500).json({ message: error.message });
+  const { user_id, post_id } = req.query;
+
+  if (!user_id && !post_id) {
+
+    try {
+      const user_post = await Users_post.find();
+      res.json(user_post);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+
+  } 
+  if (post_id) {
+    try {
+      const postId = post_id;
+      const user_post = await Users_post.find({ id_publicacion: postId }).populate('id_usuario');
+      res.json(user_post);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
   }
+
+  if (user_id) {
+    try {
+      const userId = user_id;
+      const user_post = await Users_post.find({ id_usuario: userId }).populate('id_usuario').populate('id_publicacion');
+      res.json(user_post);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  }
+
 };
 
 const getUsers_post = async (req, res) => {
@@ -24,13 +50,12 @@ const getUsers_post = async (req, res) => {
 };
 
 const createUsers_post = async (req, res) => {
-  const { id_publicaciones, id_usuarios, tipo } = req.body;
+  const { id_publicacion, id_usuario } = req.body;
 
   try {
     const newUsers_post = new Users_post({
-      id_publicaciones,
-      id_usuarios,
-      tipo
+      id_publicacion,
+      id_usuario
     });
     const savedUsers_post = await newUsers_post.save();
     res.json(savedUsers_post);

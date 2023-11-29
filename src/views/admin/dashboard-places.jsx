@@ -51,8 +51,8 @@ function DashboardPlaces() {
       showCancelButton: true,
       confirmButtonColor: "red",
       cancelButtonColor: "green",
-      confirmButtonText: "Si quierooo borrarlooo ",
-      cancelButtonText: "No quieeroo",
+      confirmButtonText: "Eliminar",
+      cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
         deletedato(_id);
@@ -64,7 +64,7 @@ function DashboardPlaces() {
     try {
       const response = await deletePlace(_id);
       if (response.status === 200) {
-        Swal.fire("El dato esta eliminado :(");
+        Swal.fire("El lugar esta eliminado");
         fetchApi();
       } else {
         Swal.fire({

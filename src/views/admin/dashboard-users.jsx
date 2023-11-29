@@ -51,13 +51,13 @@ function DashboardUsuarios() {
   const ParaEliminar = async (_id) => {
     Swal.fire({
       title: "Eliminar",
-      text: "Deseas eliminar el dato",
+      text: "Deseas eliminar el dato?",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "red",
       cancelButtonColor: "green",
-      confirmButtonText: "Si quierooo borrarlooo ",
-      cancelButtonText: "No quieeroo",
+      confirmButtonText: "Eliminar",
+      cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
         deleteusuario(_id);
@@ -122,8 +122,6 @@ function DashboardUsuarios() {
               <th className="table-header">Apellido Paterno</th>
               <th className="table-header">Apellido Materno</th>
               <th className="table-header">Email</th>
-              
-              <th className="table-header">Calificacion</th>
               <th className="table-header">Imagen</th>
               <th className="table-header">Estado</th>
               <th className="table-header">Rol</th>
@@ -141,10 +139,6 @@ function DashboardUsuarios() {
                   <td className="style-td">{lista.apellido_paterno}</td>
                   <td className="style-td">{lista.apellido_materno}</td>
                   <td className="style-td">{lista.email}</td>
-                 
-                  <td className="style-td">
-                    <span>{lista.calificacion}</span>
-                  </td>
                   <td className="style-td">
                     <img style={{ width: "25%" }} src={lista.imagen} />
                   </td>

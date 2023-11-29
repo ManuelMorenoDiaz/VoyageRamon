@@ -51,13 +51,13 @@ function DashboardCategorias() {
   const ParaEliminar = async (_id) => {
     Swal.fire({
       title: "Eliminar",
-      text: "Deseas eliminar el dato",
+      text: "Deseas eliminar la categoria?",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "red",
       cancelButtonColor: "green",
-      confirmButtonText: "Si quierooo borrarlooo ",
-      cancelButtonText: "No quieeroo",
+      confirmButtonText: "Eliminar",
+      cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
         deletecategoria(_id);

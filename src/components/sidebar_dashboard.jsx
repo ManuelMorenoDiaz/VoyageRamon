@@ -15,7 +15,8 @@ function sidebar_dashboard() {
     { icon: <FaUsers />, text: "Usuarios", link: "/admin_usuarios" },
     {icon: <FaNewspaper />, text: "Publicaciones", link: "/admin_publicaciones",},
     { icon: <FaBook />, text: "Categorias", link: "/admin_categorias" },
-    { icon: <FaImages />, text: "Imagenes", link: "/admin_imagenes" }
+    { icon: <FaImages />, text: "Imagenes lugares", link: "/admin_imagenes_places" },
+    { icon: <FaImages />, text: "Imagenes hoteles", link: "/admin_imagenes_hoteles"}
   ];
 
   return (

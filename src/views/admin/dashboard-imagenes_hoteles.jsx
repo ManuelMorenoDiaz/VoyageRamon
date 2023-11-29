@@ -2,12 +2,12 @@ import Navbar_dashboard from "../../components/navbar_dashboard";
 import Sidebar_dashboard from "../../components/sidebar_dashboard";
 import "../../styles/dashboard_styles/dashboards.css";
 import Swal from "sweetalert2";
-import ModalFormImagenesPlaces from "../../components/formDashboard/FormAgregar/Modal_imagenesPlaces";
-import { getImgPlacesRequest, DeleteImgPlacesRequest } from "../../api/travels";
+import ModalFormImagenesHotels from "../../components/formDashboard/FormAgregar/Modal_imagenesHotels";
+import { getImgHotelsRequest, DeleteImgHotelsRequest } from "../../api/travels";
 import { useEffect, useState } from "react";
 import { FaPenToSquare, FaTrash } from "react-icons/fa6";
 
-function DashboardImagenesPlaces() {
+function DashboardImagenesHotels() {
   const [showModal, setShowModal] = useState(false);
   const [list, setList] = useState([]);
 
@@ -19,9 +19,9 @@ function DashboardImagenesPlaces() {
     setShowModal(false);
   };
 
-  const getImgPlaces = async () => {
+  const getImgHotels = async () => {
     try {
-      const response = await getImgPlacesRequest();
+      const response = await getImgHotelsRequest();
       if (response.status === 200) {
         const responseJSON = await response.data;
         setList(responseJSON);
@@ -53,21 +53,21 @@ function DashboardImagenesPlaces() {
       cancelButtonText: "Cancelar",
     }).then((result) => {
       if (result.isConfirmed) {
-        deleteImgPlaces(_id);
+        deleteImgHotels(_id);
       }
     });
   };
 
-  const deleteImgPlaces = async (_id) => {
+  const deleteImgHotels = async (_id) => {
     try {
-      const response = await DeleteImgPlacesRequest(_id);
+      const response = await DeleteImgHotelsRequest(_id);
       if (response.status === 200) {
         Swal.fire({
           title: "Dato eliminado",
           confirmButtonColor: "green",
           confirmButtonText: "OK",
         });
-        getImgPlaces();
+        getImgHotels();
       } else {
         console.error("Error eliminando", response.status);
       }
@@ -77,7 +77,7 @@ function DashboardImagenesPlaces() {
   };
 
   useEffect(() => {
-    getImgPlaces();
+    getImgHotels();
   }, []);
 
   return (
@@ -85,7 +85,7 @@ function DashboardImagenesPlaces() {
       <Navbar_dashboard />
       <Sidebar_dashboard />
 
-      <h1 style={{ textAlign: "center", marginLeft: "14%" }}>Imagenes de lugares</h1>
+      <h1 style={{ textAlign: "center", marginLeft: "14%" }}>Imagenes de Hoteles</h1>
       <div
         style={{
           display: "flex",
@@ -97,10 +97,10 @@ function DashboardImagenesPlaces() {
           Agregar
         </button>
       </div>
-      <ModalFormImagenesPlaces
+      <ModalFormImagenesHotels
         show={showModal}
         onClose={closeModal}
-        fetchApi={getImgPlaces}
+        fetchApi={getImgHotels}
       />
       <section className="ContenedorTabla">
         <table id="dataTable" className="table">
@@ -108,15 +108,15 @@ function DashboardImagenesPlaces() {
             <tr className="estilo-tr">
               <th className="table-header">Nombre imagen</th>
               <th className="table-header">Imagen</th>
-              <th className="table-header">Nombre lugar</th>
+              <th className="table-header">Nombre hoteles</th>
               <th className="table-header">Acciones</th>
             </tr>
           </thead>
           <tbody className="estilos_tbody">
             {Array.isArray(list) ? (
-              list.map((images_places, index) => {
-                const id_imagen = images_places.id_imagen;
-                const id_lugar = images_places.id_lugar;
+              list.map((images_hotels, index) => {
+                const id_imagen = images_hotels.id_imagen;
+                const id_hotel = images_hotels.id_hotel;
 
                 return (
                   <tr key={index}>
@@ -124,7 +124,7 @@ function DashboardImagenesPlaces() {
                     <td className="style-td">
                       <img src={id_imagen.imagen_link} alt={id_imagen.nombre} style={{ width: '90px', height: '90px' }} />
                     </td>
-                    <td className="style-td">{id_lugar ? id_lugar.nombre : 'No tiene lugar'}</td>
+                    <td className="style-td">{id_hotel ? id_hotel.nombre : 'No tiene lugar'}</td>
                     <td className="style-td">
                       <div className="align_icon">
                         <button className="edit">
@@ -132,7 +132,7 @@ function DashboardImagenesPlaces() {
                         </button>
                         <button
                           className="delete"
-                          onClick={() => ParaEliminar(images_places._id)}
+                          onClick={() => ParaEliminar(images_hotels._id)}
                         >
                           <FaTrash />
                         </button>
@@ -153,4 +153,4 @@ function DashboardImagenesPlaces() {
   );
 }
 
-export default DashboardImagenesPlaces;
+export default DashboardImagenesHotels;

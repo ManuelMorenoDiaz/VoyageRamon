@@ -1,4 +1,5 @@
 const Images_place = require("../models/images_places.js");
+const Image = require('../models/images.js');
 
 const getImages_places = async (req, res) => {
   try {
@@ -35,14 +36,20 @@ const getImages_place = async (req, res) => {
 };
 
 const createImages_place = async (req, res) => {
-  const { id_lugar, id_imagen } = req.body;
+  const { id_lugar, nombre, imagen_link } = req.body;
 
   try {
+    const newImage = new Image({
+      nombre,
+      imagen_link,
+    });
+    const savedImage = await newImage.save();
     const newImages_place = new Images_place({
       id_lugar,
-      id_imagen,
+      id_imagen: savedImage._id,
     });
     const savedImages_place = await newImages_place.save();
+
     res.json(savedImages_place);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -82,6 +89,7 @@ const deleteImages_place = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
 
 module.exports = {
   getImages_places,
