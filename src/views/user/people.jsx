@@ -109,33 +109,33 @@ function People() {
             </div>
           </div>
           <div className="publications">
-
-            {pub.map((publicacion, index) => {
-              const fecha = new Date(publicacion.fecha);
-              const fechaFormateada = fecha.toLocaleDateString('es-ES', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-              });
-
-              return (
-                <div key={index} className="publication">
-                  <div className="top">
-                    <h3>{publicacion.titulo}</h3>
-                    <p>{fechaFormateada}</p>
+            {pub.length === 0 ? (
+              <p style={{marginLeft:20}}>No hay publicaciones disponibles</p>
+            ) : (
+              pub.slice(0, 4).map((publicacion, index) => {
+                const fecha = new Date(publicacion.fecha);
+                const fechaFormateada = fecha.toLocaleDateString('es-ES', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric',
+                });
+                return (
+                  <div key={index} className="publication">
+                    <div className="top">
+                      <h3>{publicacion.titulo}</h3>
+                      <p>{fechaFormateada}</p>
+                    </div>
+                    <div className="bot">
+                      <h4>{publicacion.lugar_id.nombre}</h4>
+                      <p> - </p>
+                      <h4>${publicacion.presupuesto}</h4>
+                      <p> - </p>
+                      <h4>{publicacion.cantidad_personas}</h4>
+                    </div>
                   </div>
-                  <div className="bot">
-                    <h4>{publicacion.lugar_id.nombre}</h4>
-                    <p> - </p>
-                    <h4>${publicacion.presupuesto}</h4>
-                    <p> - </p>
-                    <h4>{publicacion.cantidad_personas}</h4>
-                  </div>
-                </div>
-              );
-            })}
-
-
+                );
+              })
+            )}
           </div>
         </div>
       </Modal>
