@@ -1,13 +1,14 @@
-import { useState, useRef, useEffect } from "react";
+import React, { useEffect } from "react";
 import Swiper from 'swiper';
 import "swiper/swiper-bundle.css";
 import "../../src/styles/carrousel3D-places.css"; // Import the CSS file
 import { Link } from "react-router-dom";
 
 function Carrousel3DPlaces(props) {
-    const slides=props.placesByC;
+    const slides = props.placesByC;
+
     useEffect(() => {
-        const swiper = new Swiper('.swiper-container', {
+        const swiper = new Swiper('.slider.swiper-container', {
             slidesPerView: 1,
             spaceBetween: 10,
             centeredSlides: true,
@@ -25,8 +26,6 @@ function Carrousel3DPlaces(props) {
                 slideShadows: true,
             },
         });
-
-        
     }, []);
 
     return (

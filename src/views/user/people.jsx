@@ -39,7 +39,7 @@ function People() {
       .catch((error) => {
         // console.error('Error fetching user posts:', error);
       });
-    setSelectedUserName(userName.nombre);
+    setSelectedUserName(userName);
     setModalIsOpen(true);
   };
 
@@ -65,8 +65,7 @@ function People() {
             filteredUsers.map((user, index) => (
               <div key={index} className="userCard">
                 <img src={user.imagen} alt="" />
-
-                <h3>{user.nombre}</h3>
+                <h3>{user.nombre} {user.apellido_paterno}</h3>
                 <div className="info">
                   <button onClick={() => openModal(user)}>
                     <FaEye />
@@ -88,10 +87,10 @@ function People() {
         <div className="modal-user">
           <div className="info">
             <div className="left-info">
-              <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="" />
+              <img src={selectedUserName.imagen} alt="" />
             </div>
             <div className="right-info">
-              <h2>{selectedUserName}</h2>
+              <h2>{selectedUserName.nombre}</h2>
               <div className="details">
                 <div className="cont-pub">
                   <h3>{pub.length}</h3>
@@ -104,7 +103,6 @@ function People() {
               </div>
               <div className="cont-buttons">
                 <button type="submit">Seguir</button>
-                <button type="submit">Mensaje</button>
               </div>
             </div>
           </div>
