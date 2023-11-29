@@ -3,7 +3,6 @@ const http = require('http');
 const server = http.createServer(app);
 const io = require('socket.io')(server, {
   cors: {
-    origin: "http://localhost:5173",
     methods: ["GET", "POST"]
   }
 });
@@ -17,8 +16,19 @@ io.on('connection', (socket) => {
   const userId = socket.handshake.query.id;
   const roomId = socket.handshake.query.room;
 
+  // Almacena información sobre la sala si no existe
+  if (!postRooms[roomId]) {
+    postRooms[roomId] = {
+      users: [],
+      // Otros datos que desees almacenar para la sala
+    };
+  }
+
   // Asignar el socket a la sala correspondiente al ID del post
   socket.join(roomId);
+
+  // Agrega al usuario a la lista de usuarios en la sala
+  postRooms[roomId].users.push({ id: userId, name: socket.handshake.query.name });
 
   console.log('a user connected', { id: userId, name: socket.handshake.query.name, room: roomId });
 
@@ -28,6 +38,8 @@ io.on('connection', (socket) => {
   });
 
   socket.on('disconnect', () => {
+    // Remover al usuario de la lista de usuarios en la sala al desconectarse
+    postRooms[roomId].users = postRooms[roomId].users.filter(user => user.id !== userId);
     console.log('user disconnected');
   });
 });

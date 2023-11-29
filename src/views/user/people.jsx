@@ -102,7 +102,7 @@ function People() {
                 </div>
               </div>
               <div className="cont-buttons">
-                <button type="submit">Seguir</button>
+                <button type="submit"></button>
               </div>
             </div>
           </div>

@@ -1,3 +1,4 @@
-.cont-categories{
-    padding: 20px;
+.cont-categories {
+
+    overflow-x: hidden; /* Oculta la barra de desplazamiento horizontal */
 }

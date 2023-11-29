@@ -39,7 +39,7 @@ function Travels() {
 
   useEffect(() => {
     fetchPosts();
-
+    fetchUserPost();
   }, []);
 
   const fetchUserPost = async () => {
@@ -109,7 +109,7 @@ function Travels() {
               {participated ? (
                 participated.map((participated) => (
                   <>
-                    {participated.id_publicacion.estado === 'Activo' ? (
+                    {participated.id_publicacion && participated.id_publicacion.estado === 'Activo' ? (
                       <Link to={`/chat/${participated.id_publicacion._id}`}>
                         <TravelBoardPost
                           tituloPost={participated.id_publicacion.titulo}

@@ -112,8 +112,8 @@ const sendMessage = () => {
               <FaArrowLeft  />
             </Link>
             <h1>{datos.titulo}</h1>
-            <FaPen color="#13EF0A" />
-            <FaTrash color="#E0342F" />
+            {/*<FaPen color="#13EF0A" />*/}
+            {/*<FaTrash color="#E0342F"/>*/}
           </div>
           <div className="v_chat_container_inputs_left">
             <div className="v_chat_widers_inputs">

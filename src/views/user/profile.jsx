@@ -105,9 +105,7 @@ function Profile() {
             <div className="img_stars">
               {userImage && <img className="img_profile" src={userImage} alt="Imagen de perfil" />}
               <div>
-                <span>
-                  Imagen de perfil (URL) <br />
-                </span>
+
                 <input
                   id="imagenPerfilInput"
                   readOnly={!EditarUser}
