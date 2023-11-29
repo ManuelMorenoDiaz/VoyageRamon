@@ -34,10 +34,7 @@ function Place() {
           <p>{placeL.detalles}</p>
         </section>
         <section className="cont-map">
-          <div className="top-map">
-            <div className="mor"></div>
-            <h2>Mapa</h2>
-          </div>
+
         </section>
         <section className="cont-hoteles">
           <div className="top-hoteles">
