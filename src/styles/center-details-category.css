@@ -8,11 +8,13 @@
 }
 
 .details-category>.vid{
-    border: 2px solid blue;
     height: 250px;
     width: 40%;
 }
+.details-category>.vid>iframe{
+    border-radius: 5px;
 
+}
 .details-category>.desc{
     height: auto;
     width: 45%;

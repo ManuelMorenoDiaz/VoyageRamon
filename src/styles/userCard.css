@@ -137,6 +137,7 @@
   color: white;
   text-align: center;
   font-size: 20px;
+  margin-bottom: 10px;
 }
 .right-info>.details{
   border: 2px solid #9225AA;
@@ -146,6 +147,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  margin-bottom: 10px;
 }
 .cont-pub>h3, .cont-pub>p, .cont-ami>h3, .cont-ami>p{
   color: #9225AA;
@@ -189,7 +191,7 @@
 .publication{
   width: auto;
   margin: 5px 10px;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 5px;
   padding: 5px 20px;
 }

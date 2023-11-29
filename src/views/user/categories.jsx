@@ -6,6 +6,7 @@ import { useDataContext } from "../../context/DataContext";
 import { useEffect } from "react";
 import CenterDetailsCategory from "../../components/center-details-category";
 import Carrousel3DPlaces from "../../components/carrousel3D-places";
+import '../../styles/categories.css'
 function categories() {
   const { idC }= useParams();
   const { category, fetchCategory, fetchPlaces, placesByCategory } = useDataContext();
@@ -20,7 +21,7 @@ function categories() {
       <div className="cont-categories">
         <TopTitle lugar={category.titulo} desc={null} imagen={category.imagen} />
         <CenterDetailsCategory video={category.video} desc={category.descripcion} />
-      <Carrousel3DPlaces placesByC={placesByCategory}/>
+        <Carrousel3DPlaces placesByC={placesByCategory}/>
       </div>
       <Footer />
     </div>

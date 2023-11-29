@@ -3,17 +3,16 @@ import "../../styles/people.css";
 import Nav from "../../components/nav-bar";
 import Footer from "../../components/footer";
 import { useDataContext } from "../../context/DataContext";
-import { FaStar, FaEye } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
 import "../../styles/userCard.css";
 import Modal from 'react-modal';
 
 function People() {
   const [searchQuery, setSearchQuery] = useState("");
-  const { personas, fetchPersonas } = useDataContext();
+  const { personas, fetchPersonas, fetchPosts, userPostsData } = useDataContext();
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [selectedUserName, setSelectedUserName] = useState(""); // State to hold the selected user name
-
-  const starColor = "gold";
+  const [selectedUserName, setSelectedUserName] = useState("");
+  const [pub, setPub] = useState([]);
 
   useEffect(() => {
     fetchPersonas();
@@ -23,14 +22,24 @@ function People() {
     setSearchQuery(e.target.value);
   };
 
+  useEffect(() => {
+    setPub(userPostsData);
+  }, [userPostsData]);
+
+
   const filteredUsers = personas.filter((user) =>
     user.nombre.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const openModal = (userName) => {
-    console.log("---------------");
-    console.log(userName);
-    setSelectedUserName(userName.nombre); // Set the selected user name
+    fetchPosts(userName._id)
+      .then((data) => {
+        // console.log('User posts data fetched:', data);
+      })
+      .catch((error) => {
+        // console.error('Error fetching user posts:', error);
+      });
+    setSelectedUserName(userName.nombre);
     setModalIsOpen(true);
   };
 
@@ -56,16 +65,9 @@ function People() {
             filteredUsers.map((user, index) => (
               <div key={index} className="userCard">
                 <img src={user.imagen} alt="" />
-                <div className="calification">
-                  <FaStar color={starColor} />
-                  <FaStar color={starColor} />
-                  <FaStar color={starColor} />
-                  <FaStar color={starColor} />
-                  <FaStar color={starColor} />
-                </div>
+
                 <h3>{user.nombre}</h3>
                 <div className="info">
-                  {/* Pass the user's name to the openModal function */}
                   <button onClick={() => openModal(user)}>
                     <FaEye />
                   </button>
@@ -86,26 +88,19 @@ function People() {
         <div className="modal-user">
           <div className="info">
             <div className="left-info">
-            <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="" />
-            <div className="calification">
-                  <FaStar color={starColor} />
-                  <FaStar color={starColor} />
-                  <FaStar color={starColor} />
-                  <FaStar color={starColor} />
-                  <FaStar color={starColor} />
-                </div>
+              <img src="https://cdn-icons-png.flaticon.com/512/456/456212.png" alt="" />
             </div>
             <div className="right-info">
               <h2>{selectedUserName}</h2>
               <div className="details">
-              <div className="cont-pub">
-                <h3>7</h3>
-                <p>Publicaciones</p>
-              </div>
-              <div className="cont-ami">
-                <h3>0</h3>
-                <p>Amigos</p>
-              </div>
+                <div className="cont-pub">
+                  <h3>{pub.length}</h3>
+                  <p>Publicaciones</p>
+                </div>
+                <div className="cont-ami">
+                  <h3>0</h3>
+                  <p>Amigos</p>
+                </div>
               </div>
               <div className="cont-buttons">
                 <button type="submit">Seguir</button>
@@ -114,45 +109,33 @@ function People() {
             </div>
           </div>
           <div className="publications">
-            <div className="publication">
-              <div className="top">
-                <h3>Titulo</h3>
-                <p>00/00/0000</p>
-              </div>
-              <div className="bot">
-                <h4>Lugar</h4>
-                <p>-</p>
-                <h4>$1.790</h4>
-                <p>-</p>
-                <h4>10</h4>
-              </div>
-            </div>
-            <div className="publication">
-              <div className="top">
-                <h3>Titulo</h3>
-                <p>00/00/0000</p>
-              </div>
-              <div className="bot">
-                <h4>Lugar</h4>
-                <p>-</p>
-                <h4>$1.790</h4>
-                <p>-</p>
-                <h4>10</h4>
-              </div>
-            </div>
-            <div className="publication">
-              <div className="top">
-                <h3>Titulo</h3>
-                <p>00/00/0000</p>
-              </div>
-              <div className="bot">
-                <h4>Lugar</h4>
-                <p>-</p>
-                <h4>$1.790</h4>
-                <p>-</p>
-                <h4>10</h4>
-              </div>
-            </div>
+
+            {pub.map((publicacion, index) => {
+              const fecha = new Date(publicacion.fecha);
+              const fechaFormateada = fecha.toLocaleDateString('es-ES', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+              });
+
+              return (
+                <div key={index} className="publication">
+                  <div className="top">
+                    <h3>{publicacion.titulo}</h3>
+                    <p>{fechaFormateada}</p>
+                  </div>
+                  <div className="bot">
+                    <h4>{publicacion.lugar_id.nombre}</h4>
+                    <p> - </p>
+                    <h4>${publicacion.presupuesto}</h4>
+                    <p> - </p>
+                    <h4>{publicacion.cantidad_personas}</h4>
+                  </div>
+                </div>
+              );
+            })}
+
+
           </div>
         </div>
       </Modal>

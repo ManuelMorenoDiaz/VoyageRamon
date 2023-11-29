@@ -2,12 +2,24 @@ const Post = require('../models/posts.js');
 
 const getPosts = async (req, res) => {
   try {
-    const posts = await Post.find().populate('usuario_id').populate('lugar_id');
+    let posts;
+    if (req.query.usuario_id) {
+      // Si se proporciona un usuario_id, busca las publicaciones de ese usuario
+      posts = await Post.find({ usuario_id: req.query.usuario_id })
+        .populate('usuario_id')
+        .populate('lugar_id');
+    } else {
+      // Si no se proporciona un usuario_id, obtiene todas las publicaciones
+      posts = await Post.find()
+        .populate('usuario_id')
+        .populate('lugar_id');
+    }
     res.json(posts);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
+
 
 const getPost = async (req, res) => {
   try {

@@ -31,6 +31,7 @@ export const DataProvider = ({ children }) => {
   const [hotel, setHotel] = useState([]);
   const [posts, setPosts] = useState([]);
   const [userPosts, setUserPosts] = useState([]);
+  const [userPostsData, setUserPostsData]=useState([]);
   const [personas, setPersonas] = useState([]);
   const [placeL, setPlaceL]=useState([]);
   const [lal, setLal] = useState([]);
@@ -67,23 +68,35 @@ export const DataProvider = ({ children }) => {
     }
   };
 
-  const fetchPosts = async () => {
-    try {
-      const response = await getPostRequest();
-
-      const usuario = response.data.filter(
-        (post) => post.usuario_id._id === user._id
-      );
-
-      const noUsuario = response.data.filter(
-        (post) => post.usuario_id._id != user._id
-      );
-
-      setUserPosts(usuario);
-      setPosts(noUsuario);
-    } catch (error) {
-      console.log("Error fetching posts:", error);
+  const fetchPosts = async (idU) => {
+    if(idU){
+      // console.log('uuuuuuuuuuuuuuuuuuuuuuuuuuu ' + idU);
+      try {
+        const response = await getPostRequest(idU);
+        // console.log('ttttttttttttttttttttttttttttt');
+        // console.log(response.data);
+        setUserPostsData(response.data);
+        } catch (error) {
+          console.log("Error fetching user posts: ", error);
+          }
+    }else{
+      try {
+        const response = await getPostRequest();
+        const usuario = response.data.filter(
+          (post) => post.usuario_id._id === user._id
+        );
+  
+        const noUsuario = response.data.filter(
+          (post) => post.usuario_id._id != user._id
+        );
+  
+        setUserPosts(usuario);
+        setPosts(noUsuario);
+      } catch (error) {
+        console.log("Error fetching posts:", error);
+      }
     }
+    
   };
 
   const fetchHotels = async (idP) => {
@@ -159,6 +172,7 @@ export const DataProvider = ({ children }) => {
         placeL,
         posts,
         userPosts,
+        userPostsData,
         hotels,
         hotel,
         personas,
