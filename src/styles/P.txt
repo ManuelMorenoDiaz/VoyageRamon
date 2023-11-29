@@ -1,8 +1,6 @@
-
 .carrousel3D{
     margin: 50px 0;
 }
-
 .slider {
     width: 55%;
     height: 350px;

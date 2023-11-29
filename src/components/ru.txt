@@ -1,0 +1,52 @@
+import "../../src/styles/carrousel3D-places.css"; // Import the CSS file
+import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide, EffectCoverflow, Pagination } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+
+SwiperCore.use([EffectCoverflow, Pagination]);
+
+function Carrousel3DPlaces(props) {
+    
+    const slides = props.placesByC;
+
+    return (
+        <div className="mySwiper">
+            <Swiper
+                effect={'coverflow'}
+                grabCursor={true}
+                centeredSlides={true}
+                slidesPerView={'auto'}
+                coverflowEffect={{
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: true,
+                }}
+                pagination={{
+                    clickable: true,
+                }}
+                className="slider swiper-container carrousel3D"
+            >
+                {slides.map((slide, index) => (
+                    <SwiperSlide key={index} className="swiper-slide carrousel">
+                        <div className="image">
+                            <img className="imgCar" src={slide.imagen} alt={slide.nombre} />
+                        </div>
+                        <div className="detailsC">
+                            <h2>{slide.nombre}</h2>
+                            <p>{slide.detalles}</p>
+                            <Link to={`/places/${slide._id}`}>
+                                <button className="btnP">Ver más</button>
+                            </Link>
+                        </div>
+                    </SwiperSlide>
+                ))}
+            </Swiper>
+        </div>
+    );
+}
+
+export default Carrousel3DPlaces;
