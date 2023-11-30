@@ -29,12 +29,11 @@
   .cont-home > h1,
   .cont-home > h3 {
     position: relative; /* Para ajustar el z-index */
-    z-index: 1; /* Asegurar que el texto esté por encima del fondo oscurecido */
+
   }
   
   .btn {
     position: relative; /* Para ajustar el z-index */
-    z-index: 2; /* Colocar el botón por encima del fondo oscurecido */
     border-radius: 30px;
     width: 250px;
     height: 40px;

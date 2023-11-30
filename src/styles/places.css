@@ -1,5 +1,4 @@
 .places {
-
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -150,10 +149,10 @@
 
 .place-details-text {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  height: 40px;
+  height: 80px;
   box-sizing: border-box;
   font-size: 15px;
   margin-bottom: 15px;
@@ -231,6 +230,10 @@
 }
 
 @media (max-width: 768px) {
+
+  .places {
+    justify-content: center;
+  }
 
   .search-input {
     max-width: 100%;

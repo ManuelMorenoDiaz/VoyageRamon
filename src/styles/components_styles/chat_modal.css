@@ -63,7 +63,7 @@
 
 .vc_modal_partners_travels_container {
   overflow-x: hidden;
-  height: 150px;
+  height: auto;
   margin: 12px 2px 10px 0px;
 }
 
@@ -175,7 +175,7 @@
 
 .vc_modal_requests_travels_container {
   overflow-x: hidden;
-  height: 150px;
+  height: auto;
   margin: 12px 2px 10px 0px;
   padding: 13px 0px 0px 0px;
 }

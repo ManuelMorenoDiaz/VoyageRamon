@@ -76,7 +76,7 @@ function CardPlace({ place }) {
       <div className="place-details">
         <h2>{place.nombre}</h2>
         <div className="dt">
-          <h5>Quintana Roo</h5>
+
         </div>
         <p className="place-details-text">{place.detalles}</p>
         <div className="cnt-bot">
