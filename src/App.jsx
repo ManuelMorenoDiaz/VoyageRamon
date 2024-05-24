@@ -21,7 +21,7 @@ import Places from "./views/user/places";
 import People from "./views/user/people";
 import Profile from "./views/user/profile";
 import Chat from "./views/user/chat";
-import Categories from "./views/user/Categories";
+import Categories from "./views/user/categories.jsx";
 import Place from "./views/user/place.jsx";
 import Hotels from "./views/user/hotels";
 
